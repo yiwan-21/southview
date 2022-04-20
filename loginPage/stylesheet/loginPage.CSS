@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+body{
+    margin:0;
+    padding:0;
+    font-family:'Inter',sans-serif;
+    background-image: url(../sv.png);
+    background-size:cover;
+    display:flex;
+    justify-content: center;
+    height:80vh;
+    align-items: center;
+}
+
+.southview{
+    top: 50%;
+    left:50%;
+}
+
+#image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 20%;
+  
+    margin-bottom: 20px;
+}
+
+.box{
+   width:300px;
+    height:300px;
+    padding:25px;
+    top:20%;
+    left:20%;
+    background-color:#fff;
+    margin: auto;
+    padding: 10px;
+    border:1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+.box h2{
+    color: #000;
+    font-weight: 700;
+
+}
+
+.box input[type="text"],.box input[type="password"]{
+    border:0;
+    background:#fff;
+    display:block;
+    margin:15px auto;
+    text-align: left;
+    border:1px solid black;
+    padding: 5px 5px;
+    width:200px;
+    outline:none;
+    color:black;
+    border-radius: 10px;
+    /*transition: 0.25px;*/
+}
+
+/*.box input[type="text"]:focus,.box input[type="password"]:focus{
+width:270px;
+border-color: aqua;
+}*/
+
+.box input[type="submit"]{
+    border:0;
+    background:aqua;
+    display:block;
+    margin:10px auto;
+    text-align: center;
+    border:2px solid none;
+    padding: 6px 4px;
+    outline:none;
+    /*color:white;*/
+    width: 200px;
+    border-radius: 12px;
+    transition: 0.25px;
+    cursor:pointer;
+
+}
+
+.dropdown h5{
+    margin:10px auto;
+    text-align: left;
+    width:200px;
+    color:black;
+}
+
+
+.box h6{
+    text-align: center;
+    font-size: small;
+    margin:10px auto;
+    color:#000;
+    font-family:'Inter',sans-serif;
+}
+
+#status{
+    margin:auto;
+    text-align: left;
+    width:200px;
+}
+
+#pw{
+    margin:auto;
+    text-decoration: none;
+    font-size: small;
+    font-family:'Inter',sans-serif;
+    color: blue;
+}
+
+#signup{
+text-decoration: none;
+}

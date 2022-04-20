@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lan="en" and dir="Itr">
+<head>   
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="stylesheet/loginPage.CSS">
+          
+        <!--Bootstrap CDN-->
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bo
+           otstrap.min.css" rel="stylesheet" integrity="sha384-
+           1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
+           W3" crossorigin="anonymous">
+
+        </head>
+        <body>
+            <div class="southview">
+            <img id="image" src="Logo SV.png" >
+            <form class="box" action="loginPage.html" method="post">
+
+                <h2>
+                    Login to Your Account
+                </h2>
+                <div> 
+                <input type="text" name="" placeholder="Enter SV ID" id="svid">
+                <input type="password" name="" placeholder="Enter Password" id="password">
+                </div>
+
+                <div class="dropdown">   
+                    <h5>Choose your status:</h5>
+                    <label for="status"></label>
+                    <select id="status">
+                        <option value="Administrator">Administrator</option>
+                        <option value="Resident">Resident</option>
+
+                  </div>
+
+                
+                <div>
+                <input type="submit" name="" value="Login">
+                <a id=pw href="../ForgetpwPage/forgetpw.html">Forget password?</a> &nbsp;
+                <h6>Need an account? <a id=signup href="sigup.html">Sign up</a> &nbsp;</h6> 
+                </div>
+            </form>
+        </div>  
+            </body>
+</html>
