@@ -21,9 +21,12 @@
 
         <input type="text" placeholder="Enter Unit" name="" id="signUnit" required>
 
-        <input type="password" placeholder="Enter Password" name="" id="signPassword" required>
+        <input type="password" placeholder="Enter Password" name="" id="password" onkeyup='check();' inputmode="numeric" minlength="8"
+        maxlength="15" size="15" required>
 
-        <input type="password" placeholder="Repeat Password" name="" id="signRepeated" required>
+        <input type="password" placeholder="Repeat Password" name="" id="confirmpw" onkeyup='check();' inputmode="numeric" minlength="8"
+        maxlength="15" size="15" required>
+        <span id="message"></span>
       </div>
       <p id="tnp">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
@@ -32,7 +35,7 @@
           <button type="button" class="cancelbtn">Cancel</button>
         </a>
         <!--<a id="signuplink" href="/southview-fe/sigupPage/signupnoti.html">-->
-          <input type="submit" name="" class="signupbtn" value="Sign Up" onclick="validateSignupForm()">
+          <input type="submit" name="" class="signupbtn" value="Sign Up" >
         
       </div>
   </div>
@@ -45,8 +48,19 @@
         event.preventDefault();
         window.location.href="signupnoti.html"
     }
+
+    var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('confirmpw').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+
     </script>
-     <script src="/southview-fe/loginPage.js"></script>
 </body>
 
 </html>

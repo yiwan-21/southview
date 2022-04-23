@@ -22,15 +22,12 @@ function validateSignupForm() {
 	var password = document.getElementById("signPassword");
 	var password1 = document.getElementById("signRepeated");
 
-while(name.value !== "" && mail.value!=="" && unit.value!=="" && password.value!==""){
-	if (password.value.length < 8) {
-		alert("Your password must include atleast 8 characters");
-		return false;
-	}else if (password.value!== password1.value){
+ if (password.value!== password1.value){
 		alert("Repeated password must be same as password");
 		return false;
 	}
 }
+
 
 
 
