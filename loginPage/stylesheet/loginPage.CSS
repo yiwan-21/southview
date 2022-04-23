@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Inter&display=swap');
+*{font-family: 'Inter',sans-serif;}
+
 body{
     margin:0;
     padding:0;
@@ -10,13 +13,20 @@ body{
     height:80vh;
     align-items: center;
 }
+::placeholder{
+    font-family: 'Inter',sans-serif;
+}
+
+option{
+    font-family: 'Inter',sans-serif;
+}
 
 .southview{
     top: 50%;
     left:50%;
 }
 
-#image{
+#image1{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -28,7 +38,6 @@ body{
 
 .box{
    width:300px;
-    height:300px;
     padding:25px;
     top:20%;
     left:20%;
@@ -67,14 +76,14 @@ border-color: aqua;
 
 .box input[type="submit"]{
     border:0;
-    background:aqua;
+    background:#25E5F8;
     display:block;
     margin:10px auto;
     text-align: center;
     border:2px solid none;
     padding: 6px 4px;
     outline:none;
-    /*color:white;*/
+    font-family: 'ABeeZee',sans-serif;
     width: 200px;
     border-radius: 12px;
     transition: 0.25px;

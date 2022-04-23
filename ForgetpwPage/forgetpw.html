@@ -8,15 +8,27 @@
 </head>
 
 <body>
-    <form class="box" action="/loginPage/pwPage/forgetpw.html" method="post">
-        <img id="image" src="" >
+    <div class="container">
+    <img id="image1" src="Logo SV.png" >
+    <form class="box" action="">
+        <img id="image" src="pwlogo.png" >
+
         <h3>
             Forget Your Password?
         </h3>
         <h5>Please enter the email address you'd like your password reset information sent to:</h5>
-        <h6>Enter email address</h6>
-        <input type="text" name="" placeholder="Email">
-        <input type="submit" name="" value="Request reset link">
-        <input type="submit" name="" value="Back to login">
+
+        <h6>Enter email address:</h6>
+        <input type="text" name="" placeholder="Email" id="email">
+            <input type="submit" name="" value="Request reset link" onclick="validateForgetPassword()" id="resetbtn">
+
+        <a id="loginlink" href="/southview-fe/loginPage/loginPage.html">
+            <button type="button" class="backtologin">Back to Login</button>
+        </a>
+        </form>
+
     </form>
+</div>
+<script src="/southview-fe/loginPage.js"></script>
 </body>
+</html>

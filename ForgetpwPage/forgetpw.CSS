@@ -1,15 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Inter&display=swap');
+*{font-family: 'Inter',sans-serif;}
+
 body{
     margin:0;
     padding:0;
     font-family:'Inter',sans-serif;
     background-image: url(sv.png);
-    background-size:auto;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    height:80vh;
+    align-items: center;
+}
+
+#image1{
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 20%;
+}
+
+#image{
+    display: block;
+    width: 20%;
+    height: 17%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+
+::placeholder{
+    font-family: 'Inter',sans-serif;
 }
 
 .box{
-    width:300px;
-     height:300px;
+    width: 270px;
+     height: 290px;
      padding:25px;
      top:10%;
      left:20%;
@@ -18,13 +48,89 @@ body{
      padding: 10px;
      border:1px solid black;
      border-radius: 15px;
-     text-align: center;
+     text-align: left;
+ }
+ 
+ .box h3{
+    margin:0;
+    margin-bottom: 15px;
+    font-size: x-large;
  }
 
- #image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-    height: 20%;
+ .box h5{
+     font-weight: 400;
+     margin:0;
+     margin-bottom: 15px;
+ }
+
+ .box h6{
+     font-weight:580;
+    margin: 5px;
+ }
+ .box input[type="text"]{
+    border:0;
+    background:#fff;
+    display:block;
+    margin:0;
+    text-align: left;
+    border:1px solid black;
+    padding: 9px 5px;
+    width:230px;
+    outline: none;
+    color:black;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
+
+ .box input[type="submit"]{
+    border:0;
+    background:aqua;
+    display:block;
+    margin:10px auto;
+    text-align: center;
+    border:2px solid none;
+    padding: 4px 4px;
+    outline:none;
+    font-family: 'ABeeZee',sans-serif;
+    width: 200px;
+    border-radius: 5px;
+    transition: 0.25px;
+    cursor:pointer;
+    margin-left: 30px;
+    margin-bottom: px;
+    font-size: smaller;
+    font-weight: 900 bolder;
+    color:#fff;
+}
+
+#resetlink {
+    text-decoration: none;
+}
+
+#loginlink{
+    text-decoration: none;
+}
+
+.backtologin{
+    border:0;
+    background:black;
+    display:block;
+    margin:10px auto;
+    text-align: center;
+    border:2px solid none;
+    padding: 4px 4px;
+    outline:none;
+    font-family: 'ABeeZee',sans-serif;
+    width: 200px;
+    border-radius: 5px;
+    transition: 0.25px;
+    cursor:pointer;
+    margin-left: 30px;
+    margin-bottom: px;
+    font-size: smaller;
+    font-weight: 900 bolder;
+    color:#fff;
+}
+
+
