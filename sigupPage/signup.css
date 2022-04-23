@@ -27,9 +27,7 @@ body{
    width:440px;
     height: 520px;
     padding:25px;
-    top:20%;
-    left:20%;
-    bottom: 10s0px;
+
     background-color:#fff;
     margin-top:20px;
     padding: 10px;
@@ -59,7 +57,7 @@ hr {
  }
 
 
- .box input[type="text"],.box input[type="password"]{
+ .box input[type="text"],input[type="password"],input[type="email"]{
     width: 90%;
   padding: 15px;
   margin: 5px 0 22px 0;

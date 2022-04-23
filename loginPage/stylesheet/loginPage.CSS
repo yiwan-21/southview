@@ -91,6 +91,23 @@ border-color: aqua;
 
 }
 
+.btn{
+    border:0;
+    background:#25E5F8;
+    display:block;
+    margin:10px auto;
+    text-align: center;
+    border:2px solid none;
+    padding: 6px 4px;
+    outline:none;
+    font-family: 'ABeeZee',sans-serif;
+    width: 200px;
+    border-radius: 12px;
+    transition: 0.25px;
+    cursor:pointer;
+}
+
+
 .dropdown h5{
     margin:10px auto;
     text-align: left;

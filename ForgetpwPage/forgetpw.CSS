@@ -67,7 +67,7 @@ body{
      font-weight:580;
     margin: 5px;
  }
- .box input[type="text"]{
+ .box input[type="text"],input[type="email"]{
     border:0;
     background:#fff;
     display:block;
@@ -83,7 +83,7 @@ body{
     margin-bottom: 20px;
 }
 
- .box input[type="submit"]{
+ .box input[type="submit"],button[type="submit"]{
     border:0;
     background:aqua;
     display:block;
@@ -103,6 +103,7 @@ body{
     font-weight: 900 bolder;
     color:#fff;
 }
+
 
 #resetlink {
     text-decoration: none;

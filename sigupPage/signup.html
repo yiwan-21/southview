@@ -10,20 +10,20 @@
 <body>
   <div class="container">
     <img id="image1" src="/southview-fe/images/Logo SV.png">
-    <form class="box" action="">
+    <form class="box" onsubmit="handleFormSubmit(event)">
       <h3>Sign Up</h3>
       <hr>
       <div id="errorMsg"></div>
       <div>
-        <input type="text" placeholder="Enter Name" name="" id="signName">
+        <input type="text" placeholder="Enter Name" name="" id="signName" required>
 
-        <input type="text" placeholder="Enter Email" name="" id="email">
+        <input type="email" placeholder="Enter Email" name="" id="email" required>
 
-        <input type="text" placeholder="Enter Unit" name="" id="signUnit">
+        <input type="text" placeholder="Enter Unit" name="" id="signUnit" required>
 
-        <input type="password" placeholder="Enter Password" name="" id="signPassword">
+        <input type="password" placeholder="Enter Password" name="" id="signPassword" required>
 
-        <input type="password" placeholder="Repeat Password" name="" id="signRepeated">
+        <input type="password" placeholder="Repeat Password" name="" id="signRepeated" required>
       </div>
       <p id="tnp">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
@@ -40,7 +40,13 @@
 
 
   </form>
-  <script src="/southview-fe/loginPage.js"></script>
+  <script>
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        window.location.href="signupnoti.html"
+    }
+    </script>
+     <script src="/southview-fe/loginPage.js"></script>
 </body>
 
 </html>

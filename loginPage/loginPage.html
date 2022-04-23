@@ -16,14 +16,14 @@
             <div class="southview">
                 <img id="image1" src="Logo SV.png" >
                 <div id="error"></div>
-            <form class="box" action="">
+            <form class="box" onsubmit="handleFormSubmit(event)">
                 <h2>
                     Login to Your Account
                 </h2>
                 <div id="errorMsg"></div>
                 <div> 
-                <input type="text" name="svid" placeholder="Enter SV ID" id="svid">
-                <input type="password" name="password" placeholder="Enter Password" id="logpw">
+                <input type="text" name="svid" placeholder="Enter SV ID" id="svid" required>
+                <input type="password" name="password" placeholder="Enter Password" id="logpw" required>
                 </div>
 
                 <div class="dropdown">   
@@ -37,13 +37,22 @@
 
                 
                 <div>
-                <input type="submit" name="" value="Login"  onclick="validateLoginForm()">
+                    <a id=resetlink href="/southview-fe/ForgetpwPage/forgetpwnoti.html">
+                <input type="submit" name="" value="login" onclick="validateLoginForm()" id="loginbtn">
+            </a>
+    
                 <a id=pw href="/southview-fe/ForgetpwPage/forgetpw.html">Forget password?</a> &nbsp;
                 <h6>Need an account? <a id=signup href="/southview-fe/sigupPage/signup.html">Sign up</a> &nbsp;</h6> 
                 </div>
             </form>
         </div>  
 
-        <script src="/southview-fe/loginPage.js"></script>
+        <script>
+            function handleFormSubmit(event) {
+                event.preventDefault();
+                window.location.href="/southview-fe/ForgetpwPage/forgetpw.html" //linkxevenpage  
+            }
+                </script>
+                <script src="/southview-fe/loginPage.js"></script>
             </body>
 </html>
