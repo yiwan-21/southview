@@ -3,7 +3,7 @@
 *{font-family: 'Inter',sans-serif;}
 
 .bg-img{
-    background-image:url(/southview-fe/images/Southview-Background-Dark.png);
+    background-image:url(/images/Southview-Background-Dark.png);
     max-width: 100%;
     height: auto;
 }
