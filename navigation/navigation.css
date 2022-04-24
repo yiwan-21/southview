@@ -62,6 +62,7 @@ body {
 
 #logo {
     width: 7rem;
+    cursor: pointer;
 }
 
 /****** Pop Out Profile Window ******/
