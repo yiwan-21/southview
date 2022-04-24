@@ -2,16 +2,17 @@
 
 body {
     margin: 0;
-    font-family: 'IBM Plex Mono', sans-serif;
+    padding-top: 6rem !important;
 }
 
 /****** Navigation bar styling *******/
 .navbar{
+    font-family: 'IBM Plex Mono', sans-serif;
     background-color: #171819;
     margin-right: 0;
     padding-right: 0;
     position:fixed;
-    height: 15vh;
+    height: 6rem;
     width: 100%;
     display: flex;
     align-items: center;
