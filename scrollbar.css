@@ -37,13 +37,13 @@
 }
 
 .scroll-bar::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2px var(--deep-blue);
-    -webkit-box-shadow: inset 0 0 2px var(--deep-blue);
+    box-shadow: inset 0 0 2px #33658A;
+    -webkit-box-shadow: inset 0 0 2px #33658A;
     border-radius: 20px;
 }
 
 .scroll-bar::-webkit-scrollbar-thumb {
-    background-color: var(--cyan);
+    background-color: #25E5F8;
     border-radius: 20px;
 }
 
