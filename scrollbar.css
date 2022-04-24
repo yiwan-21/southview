@@ -42,6 +42,10 @@
     direction: rtl;
 }
 
+.scroll-bar-left * {
+    direction: ltr;
+}
+
 .scroll-bar::-webkit-scrollbar,
 .scroll-bar-left::-webkit-scrollbar {
     width: 5px;
