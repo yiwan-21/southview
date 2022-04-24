@@ -24,29 +24,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
 </head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+<section>
+	
+    <!-- <nav class="navbar">
 		<div class="max-width">
 			<div class="logo">
 				<img id="logo" src="images/Logo SV.png" alt="">
 			</div>
 			<ul class="menu">
-				<li><a href="#home" class="menu-btn" onclick="">HOME</a></li>
+				<li><a href="../Homepage/indexHomepage.html" class="menu-btn">HOME</a></li>
 				<li><a href="#facilities" class="menu-btn" onclick="">FACILITIES</a></li>
 				<li><a href="#visitorpass" class="menu-btn" onclick="">VISITOR PASS</a></li>
 				<li><a href="#covidstatus" class="menu-btn" onclick="">COVID-19 STATUS</a></li>
 				<li><a href="#about" class="menu-btn" onclick="">ABOUT US</a></li>
-				<li><i class="bi bi-person-fill" onclick="openProfile()"></i><div class="profile-detail" id="profile-detail">
-					<a href="#UserProfile"><span>User Profile</span></a><hr>
-					<a href="#UserProfile"><span>Payment</span></a><hr>
-					<a href="#UserProfile"><span class="logout">Log Out</span></a>
-				</div></li>
+				<li><i class="bi bi-person-fill" onclick="openProfile()"></i>
+                    <div class="profile-detail" id="profile-detail">
+                        <a href="#UserProfile"><span>User Profile</span></a><hr>
+                        <a href="#UserProfile"><span>Payment</span></a><hr>
+                        <a href="#UserProfile"><span class="logout">Log Out</span></a>
+                    </div></li>
 				
 			</ul>
 		</div>
-	</nav>
+	</nav> -->
     <!-- Chatting Button -->
 	<i class="fa fa-comments fa-4x" aria-hidden="true" onclick="openForm()"></i>
 	<div class="chat-popup" id="myForm">
@@ -61,8 +63,35 @@
 		</form>
 	  </div>
 
-      <section class="faci-content">
-      </section>
+      <!-- Facilities Page -->
+      <section class="faci-content" id="faci-content"></section>
+	  <div class="max-width">
+		<div class="carousel owl-carousel">
+			<div class="card">
+				<div class="box">
+					<img src="images/swimmingsv.jpg" alt="">
+					<div class="text">SWIMMING POOL</div>
+					<p><strong><span>Operating Hours:</span></strong><br>9:00 a.m. - 9:00 p.m.<br><br><strong><span>Location:</span></strong><br>3rd floor</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="box">
+					<img src="images/gymsv.jpg" alt="">
+					<div class="text">GYMNASIUM</div>
+					<p><strong><span>Operating Hours:</span></strong><br>9:00 a.m. - 9:00 p.m.<br><br><strong><span>Location:</span></strong><br>3rd floor</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="box">
+					<img src="images/multipurposehall.jpg" alt="">
+					<div class="text">MULTIPURPOSE HALL</div>
+					<p><strong><span>Operating Hours:</span></strong><br>9:00 a.m. - 9:00 p.m.<br><br><strong><span>Location:</span></strong><br>3rd floor</p>
+				</div>
+			</div>
+			</div>
+		</div>
+		</section>
+          
       <!-- Footer Coding -->
       <footer>
 		<div class="footer-rbar">
@@ -77,6 +106,7 @@
 		</div>
 	</footer>
       <!-- JavaScript Coding -->
+	  <script src="/navigation/navigation.js"></script>	
       <script type="text/javascript">
 		document.getElementById("myButton").onclick = function () {
 			location.href = "indexHomepage.html";
