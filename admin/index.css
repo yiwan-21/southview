@@ -302,7 +302,7 @@ h1{
   }
   
   .searchTerm:focus{
-    color: #00B4CC;
+    color: var(--black-color);
   }
   
   .searchButton {
@@ -325,9 +325,8 @@ h1{
   .wrap{
     width: 20%;
     height: 10%;
-    position: absolute;
-    top: 50%;
-    left: 12%;
+    position: relative;
+    margin-left: 149px;
     transform: translate(-50%, -50%);
   }
 
