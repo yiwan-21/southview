@@ -5,8 +5,8 @@ function validate(val) {
     v3 = document.getElementById("vehicle");
     v4 = document.getElementById("mob");
     v5 = document.getElementById("date");
-    v6 = document.getElementById("time");
-    v7 = document.getElementById("duration");
+    v6 = document.getElementById("stime");
+    v7 = document.getElementById("etime");
     
     flag1 = true;
     flag2 = true;
@@ -14,6 +14,7 @@ function validate(val) {
     flag4 = true;
     flag5 = true;
     flag6 = true;
+    flag7 = true;
     
     if(val>=1 || val==0) {
     if(v1.value == "") {
@@ -92,12 +93,53 @@ function validate(val) {
     return flag;
     }
 
+// button submit
 function handleFormSubmit(event) {
     event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-    formData.forEach((value, key) => {
-        console.log(key, value);
-    });
-    window.location.href="profile1.html"
+    location.href="registerVisitorSuccess.html"
 }
+function register(){
+    window.location.href="visitorpassform.html"
+}
+function submit(){
+    window.location.href="registerVisitorSuccess.html"
+}
+
+function view(){
+    window.location.href="visitorpassGenerated.html"
+}
+
+//download pdf
+document.querySelector(".btn-pdf").onclick = function () {
+    var element = document.getElementById("downloadarea")
+    var opt = {
+      filename: 'visitor pass.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 3 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+    };
+
+    html2pdf(element, opt);
+  };
+// Open Profile Icon && Open Chating Icon
+        document.getElementById("myButton").onclick = function () {
+            location.href = "indexHomepage.html";
+        };
+    
+        function openForm() {
+        document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+        }
+
+
+        function openProfile() {
+            var x = document.getElementById("profile-detail");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }

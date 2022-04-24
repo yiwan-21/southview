@@ -8,10 +8,12 @@ body{
     font-family:'Inter',sans-serif;
     background-image: url(images/Southview-Background-Normal.png);
     background-size:cover;
+}
+.wrapper {
     display:flex;
-    justify-content: center;
+    /* justify-content: center; */
     height:80vh;
-    align-items: center; 
+    /* align-items: center;  */
 }
 .card {
     padding: 30px 40px;
@@ -102,7 +104,7 @@ option{
     text-align: center;
 }
 .box2{
-    width:450px;
+    width: 70%;
      padding:85px;
      top:70%;
      left:70%;
@@ -114,7 +116,7 @@ option{
      text-align: center;
  }
  .box3{
-    width:600px;
+    width:70%;
      padding:85px;
      top:70%;
      left:70%;
@@ -123,6 +125,7 @@ option{
      padding: 70px;
      border:1px solid black;
      border-radius: 15px;
+     overflow-y: auto;
  }
 
 .box input[type="next"]{
@@ -150,7 +153,13 @@ option{
     cursor: pointer;
     font-size: 20px;
   }
-  
+ /* download pdf */
+  .background{
+    background-color:rgb(196, 196, 196);
+    text-align: center;
+    padding-bottom: 25px;
+} 
+
   /* Darker background on mouse-over */
   .btn:hover {
     background-color: RoyalBlue;

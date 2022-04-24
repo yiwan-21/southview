@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body{
+    background-image: url(/images/Southview-Background-Dark.png);
+}
+
+.faq-wrapper{
+    display: flex;
+    min-height: 100vh;
+    padding: 80px;
+    justify-content: center;
+}
+
+.accordion{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 25px;
+    padding: 45px 90px 45px 60px;
+}
+
+.accordion .img-box{
+    height: 360px;
+    width: 360px;
+}
+
+.accordion .img-box img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.accordion .accordion-txt{
+    width: 60%;
+}
+
+.accordion .accordion-txt .title{
+    font-size: 35px;
+    font-weight: 800;
+    color: rgb(0, 162, 255);
+}
+
+.accordion .accordion-txt .faq-txt{
+    margin-top: 25px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.faq-txt.faq-txt::-weblit-scrollbar{
+    display: none;
+}
+
+.accordion .accordion-txt li{
+    list-style: none;
+    cursor: pointer;
+}
+
+.accordion-txt li .q-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accordion-txt li .q-arrow .question{
+    font-size: 18px;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+}
+
+.accordion-txt li .q-arrow .arrow{
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+}
+
+.accordion-txt li.showAnswer .q-arrow .arrow{
+    transform: rotate(-180deg);
+}
+
+.accordion-txt li:hover .q-arrow .question,
+.accordion-txt li:hover .q-arrow .arrow{
+    color: rgb(0, 187, 255);
+}
+
+.accordion-txt li.showAnswer .q-arrow .question,
+.accordion-txt li.showAnswer .q-arrow .arrow{
+    color: rgb(0, 187, 255);
+}
+
+.accordion-txt li .line{
+    display: block;
+    height: 2px;
+    width: 100%;
+    margin: 10px 0;
+    background: (0, 0, 0, 0.1);
+}
+
+.accordion-txt li p{
+    width: 90%;
+    font-size: 15px;
+    font-weight: 500;
+    color: (0, 0, 0, 0.85);
+    display: none;
+}
+
+.accordion-txt li.showAnswer p{
+    display: block;
+}
+
+@media (max-width: 948px){
+    .accordion{
+        max-width: 100%;
+        padding: 45px 60px 45px 60px;
+    }
+
+    .accordion .img-box{
+        height: 360px;
+        width: 220px;
+    }
+
+    .accordion .accordion-txt{
+        width: 63%;
+    }
+}
+
+@media (max-width: 800px){
+    .accordion{
+        flex-direction: column;
+    }
+    .accordion .img-box{
+        height: 360px;
+        background: rgb(0, 187, 255);
+        width: 100%;
+        border-radius: 25px;
+        padding: 30px;
+    }
+    .accordion .accordion-txt{
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 538px){
+    .accordion{
+        padding: 25px;
+    }
+    .accordion-txt li p{
+        width: 92%;
+    }
+}

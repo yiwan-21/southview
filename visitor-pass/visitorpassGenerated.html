@@ -4,9 +4,39 @@
         <meta charset="utf-8">
         <title>Visitor Pass Generated</title>    
         <link rel="stylesheet" href="stylesheet.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
             </head>
             <body> 
-                <form class="box2" action=""> 
+                <template id="navbar-template">
+                    <nav class="navbar">
+                        <div class="logo">
+                            <img id="logo" src="/images/Logo SV.png" alt="logo">
+                        </div>
+                        <div class="menu">
+                            <a href="/Homepage/indexHomepage.html" class="menu-btn">HOME</a>
+                            <a href="/Facilities/facilities.html" class="menu-btn">FACILITIES</a>
+                            <a href="/visitor-pass/visitorpass.html" class="menu-btn">VISITOR PASS</a>
+                            <a href="/covidStatus/covidStatus.html" class="menu-btn">COVID-19 STATUS</a>
+                            <a href="#" class="menu-btn">ABOUT US</a>
+                            <i onclick="openProfile()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                            </i>
+                            <div class="profile">
+                                <div class="profile-detail">
+                                    <a href="/southview_profile/profile1.html">User Profile</a>
+                                    <a href="/southview_payment/payment.html">Payment</a>
+                                    <a href="#"><span class="logout">Log Out</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </template>
+                <script src="/navigation/navigation.js"></script>
+                <div class="box2">
+                    <div id="content" class="background">
                         <img id="image1" src="images/Logo SV.png" >
                     <h2>SOUTH VIEW Serviced Apartments</h2>
                     <h1>
@@ -14,12 +44,28 @@
                     </h1>
                     <img id="image1" src="images/VP001.png" >
                     <h5>Visitor Pass ID : VP001</h5>
-                    <form class="box" action="">
                         <p style="font-style: italic;">
                             This is the property of the management. Please shows the QR code when you received at the guardhouse for identification purpose. Thank you for your kind co-operation.
                         </p>
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                        <button class="btn"><i class="fa fa-download"></i> Download</button>
-                </form>  
+                    </div>
+                <button class="btn" id="download"><i class="fa fa-download"></i> Download</button>
+                </div>
+                <script>
+                    window.onload = function () {
+                    document.getElementById("download")
+                        .addEventListener("click", () => {
+                            const content = this.document.getElementById("content");
+                            var opt = {
+                                margin: 1,
+                                filename: 'visitor pass.pdf',
+                                image: { type: 'jpeg', quality: 0.98 },
+                                html2canvas: { scale: 2 },
+                                jsPDF: { unit: 'cm', format: 'letter', orientation: 'landscape' }
+                            };
+                            html2pdf().from(content).set(opt).save();
+                        })
+                    }
+                </script>   
                 </body>
 </html>

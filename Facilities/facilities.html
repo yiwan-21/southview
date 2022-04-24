@@ -1,103 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<title>Southview Condominium Website</title>
 	<link rel="stylesheet" href="styleFacilities.css">
 	<script src="scriptFacilities.js"></script>
-    <!-- CSS only -->
+	<!-- CSS only -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/all.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-		<div class="max-width">
-			<div class="logo">
-				<img id="logo" src="images/Logo SV.png" alt="">
-			</div>
-			<ul class="menu">
-				<li><a href="#home" class="menu-btn" onclick="">HOME</a></li>
-				<li><a href="#facilities" class="menu-btn" onclick="">FACILITIES</a></li>
-				<li><a href="#visitorpass" class="menu-btn" onclick="">VISITOR PASS</a></li>
-				<li><a href="#covidstatus" class="menu-btn" onclick="">COVID-19 STATUS</a></li>
-				<li><a href="#about" class="menu-btn" onclick="">ABOUT US</a></li>
-				<li><i class="bi bi-person-fill" onclick="openProfile()"></i><div class="profile-detail" id="profile-detail">
-					<a href="#UserProfile"><span>User Profile</span></a><hr>
-					<a href="#UserProfile"><span>Payment</span></a><hr>
-					<a href="#UserProfile"><span class="logout">Log Out</span></a>
-				</div></li>
-				
-			</ul>
-		</div>
-	</nav>
-    <!-- Chatting Button -->
-	<i class="fa fa-comments fa-4x" aria-hidden="true" onclick="openForm()"></i>
-	<div class="chat-popup" id="myForm">
-		<form action="" class="form-container">
-		  <h1>Chat</h1>
-	  
-		  <label for="msg"><b>Message</b></label>
-		  <textarea placeholder="Type message.." name="msg" required></textarea>
-	  
-		  <button type="submit" class="btn">Send</button>
-		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-		</form>
-	  </div>
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- FontAwesome CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 
-      <section class="faci-content">
-      </section>
-      <!-- Footer Coding -->
-      <footer>
-		<div class="footer-rbar">
-			<div class="sv-icons">
-				<p><i class="fa fa-facebook-square fa-3x my-icon"></i><i class="fa fa-instagram fa-3x my-icon"></i><i
-						class="fa fa-whatsapp fa-3x my-icon"></i></p>
+</head>
+
+<body>
+	<section>
+		<!-- Facilities Page -->
+		<section class="faci-content" id="faci-content"></section>
+		<div class="max-width">
+			<div class="carousel owl-carousel">
+				<div class="card">
+					<div class="box">
+						<img src="images/swimmingsv.jpg" alt="">
+						<div class="text">SWIMMING POOL</div>
+						<p><strong><span>Operating Hours:</span></strong><br>9:00 a.m. - 9:00
+							p.m.<br><br><strong><span>Location:</span></strong><br>3rd floor</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="box">
+						<img src="images/gymsv.jpg" alt="">
+						<div class="text">GYMNASIUM</div>
+						<p><strong><span>Operating Hours:</span></strong><br>9:00 a.m. - 9:00
+							p.m.<br><br><strong><span>Location:</span></strong><br>3rd floor</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="box">
+						<img src="images/multipurposehall.jpg" alt="">
+						<div class="text">MULTIPURPOSE HALL</div>
+						<p><strong><span>Operating Hours:</span></strong><br>9:00 a.m. - 9:00
+							p.m.<br><br><strong><span>Location:</span></strong><br>3rd floor</p>
+					</div>
+				</div>
 			</div>
-			<div class="sv-copyright">
-				<p class="copyright"><i>Copyright &copy; 2022 SV Community</i></p>
-			</div>
-			<div class="emptysv"></div>
 		</div>
-	</footer>
-      <!-- JavaScript Coding -->
-      <script type="text/javascript">
+	</section>
+
+	<!-- JavaScript Coding -->
+	<script src="/navigation/navigation.js"></script>
+	<script type="text/javascript">
 		document.getElementById("myButton").onclick = function () {
 			location.href = "indexHomepage.html";
 		};
-	
-		function openForm() {
-		document.getElementById("myForm").style.display = "block";
-		}
-
-		function closeForm() {
-		document.getElementById("myForm").style.display = "none";
-		}
-
-		function openProfile() {
-			var x = document.getElementById("profile-detail");
-			if (x.style.display === "none") {
-				x.style.display = "block";
-			} else {
-				x.style.display = "none";
-			}
-		}
 	</script>
 </body>
 </html>
