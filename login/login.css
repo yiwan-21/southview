@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Inter&display=swap');
+*{font-family: 'Inter',sans-serif;}
+
+
+.bg-img{
+    background-image:url(/southview-fe/images/Southview-Background-Dark.png);
+    max-width: 100%;
+    height: auto;
+}
+h2{
+    font-size: smaller;
+    font-weight: 600;
+}
+
+
+.logo{
+    padding-bottom: 10%;
+}
+
+
+.bg{
+    background-color: white;
+    max-width: fit-content; 
+    padding-top: 1%;
+}
+
+
+
+.table input[type="text"],input[type="password"]{
+    border-radius: 10px;
+}
+
+.table input[type="submit"]{
+    background:#25E5F8;
+    border-radius: 12px;
+    font-family: 'ABeeZee',sans-serif;
+    font-weight: 600;
+    
+}
+
+#image{
+    max-width: 100%;
+    height:auto;
+    margin-bottom: 20px;
+}
+
+#signup,#pw,#loginlink{
+    text-decoration: none;
+    font-weight: 600
+    ;
+}
+
