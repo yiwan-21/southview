@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
 body{
-    background-image: url(/southview/southview_payment/images/Southview-Background-Normal.png);
+    background-image: url(../images/Southview-Background-Normal.png);
     font-family: 'Inter', sans-serif;
 }
 
