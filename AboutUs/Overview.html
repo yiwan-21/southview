@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
 
-
     <!-- CSS only -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,7 +21,6 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-
     <link rel='icon' href='/images/Logo SV.png'>
     <link rel='stylesheet' href='Overview.css'>
     <meta charset="UTF-8">
@@ -31,28 +29,6 @@
 </head>
 
 <body>
-    
-    <nav class="navbar">
-        <div class="max-width">
-            <div class="logo">
-                <img id="logo" src="/images/Logo SV.png" alt="">
-            </div>
-            <ul class="menu">
-                <li><a href="#home" class="menu-btn" onclick="">HOME</a></li>
-                <li><a href="#facilities" class="menu-btn" onclick="">FACILITIES</a></li>
-                <li><a href="#visitorpass" class="menu-btn" onclick="">VISITOR PASS</a></li>
-                <li><a href="#covidstatus" class="menu-btn" onclick="">COVID-19 STATUS</a></li>
-                <li><a href="#about" class="menu-btn" onclick="">ABOUT US</a></li>
-                <li><i class="bi bi-person-fill" onclick="openProfile()"></i><div class="profile-detail" id="profile-detail">
-                    <a href="#UserProfile"><span>User Profile</span></a><hr>
-                    <a href="#UserProfile"><span>Payment</span></a><hr>
-                    <a href="#UserProfile"><span class="logout">Log Out</span></a>
-                </div></li>
-                
-            </ul>
-        </div>
-    </nav>
-
     <section class="header">
         <div class="header-txt">
             <h1>SOUTH VIEW</h1>
@@ -88,12 +64,12 @@
     </section>
 
     <div class="second-box">
-        <h1>Facilities</h1>
+        <h1 id="heading1">Facilities</h1>
         <p id="p1">Multi-Purpose Hall/Private Function Room, Restrooms/Changing Rooms, Children’s Playground, 
             Gymnasium, Meeting Room, Wading Pool, Barbecue Area, Swimming Pool, Outdoor Cafe, Catering Preparation Area, 
             Childcare Centre and Surau</p>
         <span class="line"></span>
-        <h2>Aminities</h2>
+        <h1 id="heading2">Aminities</h1>
         <p id="p2">Proximity to Shopping Malls (e.g. Mid Valley Megamall/The Gardens, Bangsar Shopping Centre and Bangsar Village I & II) <br>
             Proximity to Healthcare and Education (e.g. Pantai Medical Centre Kuala Lumpur, Life Care Diagnostic Medical Centre, University of Malaya)
         </p>
@@ -153,6 +129,34 @@
         <p><a class="nav-faq" href="FAQ.html">Need Help?</a> View the link to know more.</p>
     </div>
 
+    <!-- Chatting Button -->
+    <i class="fa fa-comments fa-4x" aria-hidden="true" onclick="openForm()"></i>
+    <div class="chat-popup" id="myForm">
+        <form action="" class="form-container">
+        <h1>Chat</h1>
+    
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+    
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-rbar">
+            <div class="sv-icons">
+                <p><i class="fa fa-facebook-square fa-3x my-icon"></i><i class="fa fa-instagram fa-3x my-icon"></i><i
+                        class="fa fa-whatsapp fa-3x my-icon"></i></p>
+            </div>
+            <div class="sv-copyright">
+                <p class="copyright"><i>Copyright &copy; 2022 SV Community</i></p>
+            </div>
+            <div class="emptysv"></div>
+        </div>
+    </footer>
+
+    <script src="/navigation/navigation.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="AboutUs.js"></script>
+    <script type="text/javascript" src="Overview.js"></script>
 </body>
