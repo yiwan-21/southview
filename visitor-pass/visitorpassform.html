@@ -1,70 +1,71 @@
 <!DOCTYPE html>
-<head>   
+
+<head>
     <meta charset="utf-8">
-    <title>Visitor Pass</title>    
+    <title>Visitor Pass</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="visitorpass.js"></script>
     <form class="box3" action="" onsubmit="handleFormSubmit(event)">
-        </head>
-        <body>
-            <template id="navbar-template">
-                <nav class="navbar">
-                    <div class="logo">
-                        <img id="logo" src="/images/Logo SV.png" alt="logo">
-                    </div>
-                    <div class="menu">
-                        <a href="/Homepage/indexHomepage.html" class="menu-btn">HOME</a>
-                        <a href="/Facilities/facilities.html" class="menu-btn">FACILITIES</a>
-                        <a href="/visitor-pass/visitorpass.html" class="menu-btn">VISITOR PASS</a>
-                        <a href="/covidStatus/covidStatus.html" class="menu-btn">COVID-19 STATUS</a>
-                        <a href="#" class="menu-btn">ABOUT US</a>
-                        <i onclick="openProfile()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-person-fill" viewBox="0 0 16 16">
-                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                            </svg>
-                        </i>
-                        <div class="profile">
-                            <div class="profile-detail">
-                                <a href="/southview_profile/profile1.html">User Profile</a>
-                                <a href="/southview_payment/payment.html">Payment</a>
-                                <a href="#"><span class="logout">Log Out</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </template>
-            <script src="/navigation/navigation.js"></script>
-            <div class="container-fluid px-1 py-5 mx-auto">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container-fluid px-1 py-5 mx-auto">
             <div class="row d-flex justify-content-center">
                 <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
                     <h2>Visitor Pass</h2>
                     <p class="blue-text">Please fill in the form.</p>
                     <div class="card">
-                            <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">VISITOR NAME<span class="text-danger"> *</span></label> <input type="text" id="vname" name="vname" placeholder="Enter visitor name" onblur="validate(1)" required> </div>
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">NRIC<span class="text-danger"> *</span></label> <input type="text" id="nric" name="nric" pattern="[0-9]{6}-[0-9]{2}-[0-9]{4}" placeholder="123456-78-9012" onblur="validate(2)" required> </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">VISITOR NAME<span class="text-danger">
+                                        *</span></label> <input type="text" id="vname" name="vname"
+                                    placeholder="Enter visitor name" onblur="validate(1)" required> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">NRIC<span class="text-danger"> *</span></label>
+                                <input type="text" id="nric" name="nric" pattern="[0-9]{6}-[0-9]{2}-[0-9]{4}"
+                                    placeholder="123456-78-9012" onblur="validate(2)" required> </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">VEHICLE NUMBER<span class="text-danger">
+                                        *</span></label> <input type="text" id="vehicle" name="vehicle"
+                                    placeholder="AAA8888" onblur="validate(3)" required> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">PHONE NUMBER<span class="text-danger">
+                                        *</span></label> <input type="tel" id="mob" name="mob"
+                                    pattern="[0-9]{3}-[0-9]{7}" placeholder="012-3456789" onblur="validate(4)" required>
                             </div>
-                            <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">VEHICLE NUMBER<span class="text-danger"> *</span></label> <input type="text" id="vehicle" name="vehicle" placeholder="AAA8888" onblur="validate(3)" required> </div>
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">PHONE NUMBER<span class="text-danger"> *</span></label> <input type="tel" id="mob" name="mob" pattern="[0-9]{3}-[0-9]{7}" placeholder="012-3456789" onblur="validate(4)" required> </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">DATE<span class="text-danger"> *</span></label>
+                                <input type="date" id="date" name="date" placeholder="" onblur="validate(5)" required>
                             </div>
-                            <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">DATE<span class="text-danger"> *</span></label> <input type="date" id="date" name="date" placeholder="" onblur="validate(5)" required> </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">TIME START AT<span class="text-danger">
+                                        *</span></label> <input type="time" id="stime" name="stime" placeholder=""
+                                    onblur="validate(6)" required> </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">END AT<span class="text-danger"> *</span></label>
+                                <input type="time" id="etime" name="etime" placeholder="" onblur="validate(7)" required>
                             </div>
-                            <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">TIME START AT<span class="text-danger"> *</span></label> <input type="time" id="stime" name="stime" placeholder="" onblur="validate(6)" required> </div>
-                            </div>
-                            <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">END AT<span class="text-danger"> *</span></label> <input type="time" id="etime" name="etime" placeholder="" onblur="validate(7)" required> </div>
-                            </div>
-                            <div class="row justify-content-end">
-                                <div class="form-group col-sm-6"> <button type="submit" class="btn btn-pdf" id="btn-setting" onclick="submit()">Submit</button> </div>
-                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="form-group col-sm-6"> <button type="submit" class="btn btn-pdf" id="btn-setting"
+                                    onclick="submit()">Submit</button> </div>
+                        </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div> 
-    </body>
-  </html>
+        </div>
+    </div>
+    <script src="/navigation/navigation.js"></script>
+</body>
+
+</html>

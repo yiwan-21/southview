@@ -28,40 +28,6 @@
 </head>
 
 <body>
-	<!-- <nav class="navbar">
-		<div class="max-width">
-			<div class="logo">
-				<img id="logo" src="images/Logo SV.png" alt="">
-			</div>
-			<ul class="menu">
-				<li><a href="#home" class="menu-btn" onclick="">HOME</a></li>
-				<li><a href="../Facilities/facilities.html" class="menu-btn" onclick="">FACILITIES</a></li>
-				<li><a href="#visitorpass" class="menu-btn" onclick="">VISITOR PASS</a></li>
-				<li><a href="#covidstatus" class="menu-btn" onclick="">COVID-19 STATUS</a></li>
-				<li><a href="#about" class="menu-btn" onclick="">ABOUT US</a></li>
-				<li><i class="bi bi-person-fill" onclick="openProfile()"></i><div class="profile-detail" id="profile-detail">
-					<a href="#UserProfile"><span>User Profile</span></a><hr>
-					<a href="#UserProfile"><span>Payment</span></a><hr>
-					<a href="#UserProfile"><span class="logout">Log Out</span></a>
-				</div></li>
-				
-			</ul>
-		</div>
-	</nav> -->
-	<!-- Chatting Button -->
-	<i class="fa fa-comments fa-4x" aria-hidden="true" onclick="openForm()"></i>
-	<div class="chat-popup" id="myForm">
-		<form action="" class="form-container">
-		  <h1>Chat</h1>
-	  
-		  <label for="msg"><b>Message</b></label>
-		  <textarea placeholder="Type message.." name="msg" required></textarea>
-	  
-		  <button type="submit" class="btn">Send</button>
-		  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-		</form>
-	  </div>
-	  
 	<!-- Home Section Styling -->
 	<section class="home" id="home">
 		<div class="box1">
@@ -122,34 +88,11 @@
 		</div>
 	</section>
 
-
-
-	<footer>
-		<div class="footer-rbar">
-			<div class="sv-icons">
-				<p><i class="fa fa-facebook-square fa-3x my-icon"></i><i class="fa fa-instagram fa-3x my-icon"></i><i
-						class="fa fa-whatsapp fa-3x my-icon"></i></p>
-			</div>
-			<div class="sv-copyright">
-				<p class="copyright"><i>Copyright &copy; 2022 SV Community</i></p>
-			</div>
-			<div class="emptysv"></div>
-		</div>
-	</footer>
 	<script src="../navigation/navigation.js"></script>
 	<script type="text/javascript">
 		document.getElementById("myButton").onclick = function () {
 			location.href = "../Facilities/facilities.html";
 		};
-	
-		function openForm() {
-		document.getElementById("myForm").style.display = "block";
-		}
-
-		function closeForm() {
-		document.getElementById("myForm").style.display = "none";
-		}
-
 	</script>
 </body>
 </html>
