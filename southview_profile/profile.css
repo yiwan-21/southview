@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
 body{
-    background-image: url(/southview/southview_payment/images/Southview-Background-Normal.png);
+    background-image: url(../images/Southview-Background-Normal.png);
     font-family: 'Inter', sans-serif;
 }
 
@@ -281,4 +281,35 @@ th, strong{
     margin-top:-300px;
     margin-bottom: auto;
 }
+
+.img3 label{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    /* border: 10px solid rgba(0,0,0,0.5); */
+    background-color: rgba(0,0,0,0.5);
+    margin-top:-350px;
+    margin-bottom: auto;
+}
+
+#edit{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    /* border: 10px solid rgba(0,0,0,0.5); */
+    background-color: rgba(0,0,0,0.5);
+    margin-top:-350px;
+    margin-bottom: auto;
+}
+
 
