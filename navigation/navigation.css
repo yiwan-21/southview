@@ -71,6 +71,10 @@ body {
     right: 0.5rem;
 }
 
+.active {
+    display: block;
+}
+
 .profile-detail{
     display: flex;
     flex-direction:column;
