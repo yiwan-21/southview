@@ -1,51 +1,29 @@
 <!DOCTYPE html>
-<html lan="en" and dir="Itr">   
-<head>   
-        <meta charset="utf-8">
-        <title>Visitor Pass</title>    
-        <link rel="stylesheet" href="stylesheet.css">
-        <script src="visitorpass.js"></script>
+<html lan="en" and dir="Itr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Visitor Pass</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="visitorpass.js"></script>
 </head>
-            <body> 
-                <template id="navbar-template">
-                    <nav class="navbar">
-                        <div class="logo">
-                            <img id="logo" src="/images/Logo SV.png" alt="logo">
-                        </div>
-                        <div class="menu">
-                            <a href="/Homepage/indexHomepage.html" class="menu-btn">HOME</a>
-                            <a href="/Facilities/facilities.html" class="menu-btn">FACILITIES</a>
-                            <a href="/visitor-pass/visitorpass.html" class="menu-btn">VISITOR PASS</a>
-                            <a href="/covidStatus/covidStatus.html" class="menu-btn">COVID-19 STATUS</a>
-                            <a href="#" class="menu-btn">ABOUT US</a>
-                            <i onclick="openProfile()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-person-fill" viewBox="0 0 16 16">
-                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                </svg>
-                            </i>
-                            <div class="profile">
-                                <div class="profile-detail">
-                                    <a href="/southview_profile/profile1.html">User Profile</a>
-                                    <a href="/southview_payment/payment.html">Payment</a>
-                                    <a href="#"><span class="logout">Log Out</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                </template>
-                <script src="/navigation/navigation.js"></script>
-                
-                <form class="box" action="">    
-                <h1>
-                        Visitor Pass
-                    </h1>
-                        <p>
-                            Pre-register visitor to your unit to allow entry for your visitor
-                        </p>
-                        <div>
-                            <input type="next" name="" value="Register" onclick="register()">
-                        </div>
-                    </form>
-                </body>
+
+<body>
+    <div class="wrapper">
+        <form class="box" action="">
+            <h1>
+                Visitor Pass
+            </h1>
+            <p>
+                Pre-register visitor to your unit to allow entry for your visitor
+            </p>
+            <div>
+                <input type="next" name="" value="Register" onclick="register()">
+            </div>
+        </form>
+    </div>
+
+    <script src="/navigation/navigation.js"></script>
+</body>
+
 </html>
