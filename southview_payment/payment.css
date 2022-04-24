@@ -1,0 +1,210 @@
+/* payment home page */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+body{
+    background-image: url(../images/Southview-Background-Normal.png);
+    font-family: 'Inter', sans-serif;
+}
+
+.white_boundary{
+    background-color: white;
+    border-radius: 10px;
+    /* padding-left: 40px;
+    padding-right:40px;
+    margin-bottom: 100px; */
+}
+
+/* h1,p,h2,h3,h4,h5,h6,{
+    font-family: 'Inter', sans-serif;
+} */
+
+h1{
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-img{
+    /* width: 209px;
+    height: 209px; */
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-setting{
+    margin-bottom: 20px;
+    /* margin-left:70px;
+    margin-right:20px; */
+    /* 要//掉ml,mr when decrease in size */
+}
+
+.card-color{
+    background-color: #C4C4C4;
+}
+
+.card-color:hover{
+    background-color: #25E5F8;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: white;
+}
+
+/* payment success page */
+
+#grey-bg{
+    /* padding-bottom: 1em; */
+    border-radius: 10px;
+}
+
+.tick{
+    width: 150px;
+    height: 150px;
+}
+
+.payment-banner{
+    font-size: 3em; 
+    /* margin-top: 0.67em;  */
+    /* margin-left: 0; 
+    margin-right: 0;  */
+    font-weight: bold;
+    text-align: center;
+}
+
+.pdf{
+    position: relative;
+    width: 46px;
+    height: 53px;
+    bottom: 5px;
+}
+
+#btn-setting{
+    background-color:#25E5F8;
+    border-color: none;
+    color:white;
+    border-radius: 8px;
+    width:250px;
+    height:60px;
+    border-radius: 1.5em;
+}
+
+.table-style{
+    border:none;
+    font-size: 1.5em;
+}
+
+th, strong{
+    font-weight: 900px;
+    color: black;
+}
+
+.btn-pdf{
+    /* position: relative;
+    left: 200px; */
+    /* bottom: 15px; */
+}
+
+.btn-home{
+    /* position: relative; */
+    /* left: 100px; */
+    /* bottom: 15px; */
+}
+
+/* payment management page 1 */
+#grey-bg2{
+    /* position:relative; */
+    /* top: 20px; */
+    border-radius: 10px;
+}
+
+#anyone-pay{
+    /* position:absolute; */
+    /* border-bottom-color: #25E5F8; */
+    color:white;
+    /* border-color: black; */
+    width:300px;
+    height:60px;
+    align-content: center;
+    /* right:15px;
+    left: auto; */
+}
+
+#anyone-pay:hover{
+    border-bottom-color: #25E5F8;
+    color:#25E5F8;
+    font-weight: bold;
+}
+
+#self-pay{
+    /* position:absolute; */
+    /* border-bottom-color: #25E5F8; */
+    /* border-color: black; */
+    color:white;
+    width:300px;
+    height:60px;
+    align-content: center;
+    /* right:0px;
+    left: auto; */
+}
+
+#self-pay:hover{
+    border-bottom-color: #25E5F8;
+    color:#25E5F8;
+    font-weight: bold;
+}
+
+#radio-btn{
+    /* position: absolute; */
+    top:50px;
+    height: 30px;
+    width:30px;
+}
+
+#p-text{
+    /* position: relative; */
+    font-size: 2em;
+    top: 50px;
+}
+
+#btn-next{
+    /* position: inherit; */
+    /* right: 10px; */
+    background-color:#25E5F8;
+    border-color: none;
+    color:white;
+    border-radius: 8px;
+    width:250px;
+    height:60px;
+    border-radius: 1.5em;
+    /* left: 875px; */
+    bottom: 20px;
+}
+/* payment management page 2 */
+#p-text-2{
+    position: relative;
+    font-size: 1em;
+    font-weight:bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#btn-next-2{
+    /* position: relative;
+    right: 10px; */
+    background-color:#25E5F8;
+    border-color: none;
+    color:white;
+    border-radius: 8px;
+    width:250px;
+    height:60px;
+    border-radius: 1.5em;
+    /* left: 875px; */
+    /* bottom: 20px; */
+}
