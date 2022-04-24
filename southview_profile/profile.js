@@ -16,12 +16,12 @@ function handleFormSubmit(event) {
 //     tag.innerHTML=values[0];
 // })
 
-function edit(){
-var tag=document.querySelector('#edit')
-.addEventListener('click', function(){
-    const reader = new FileReader();
-    reader.addEventListener("load", () => {
-    const uploaded_image = reader.result;
-});
-});
-}
+// function edit(){
+// var tag=document.querySelector('#edit')
+// .addEventListener('click', function(){
+//     const reader = new FileReader();
+//     reader.addEventListener("load", () => {
+//     const uploaded_image = reader.result;
+// });
+// });
+// }
