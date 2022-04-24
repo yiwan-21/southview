@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@300&family=JetBrains+Mono:wght@800&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'IBM Plex Mono', sans-serif;
+}
+
+/****** Navigation bar styling *******/
+.navbar{
+    background-color: #171819;
+    margin-right: 0;
+    padding-right: 0;
+    position:fixed;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu{
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+.menu > a {
+    color: #25E5F8;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 45px;
+    transition: all 0.3s ease;
+    appearance: none;
+    text-decoration: none;
+}
+
+.menu > i{
+    color: #25E5F8;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 45px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu > a:hover{
+    color: #fff;
+    font-weight: 700;
+    transform: scale(1.05);
+}
+
+.menu > i:hover{
+    color: #fff;
+    transform: scale(1.2);
+}
+
+#logo{
+    width: 7rem;
+}
+
+/****** Pop Out Profile Window ******/
+.profile {
+    display: none;
+    position: absolute;
+    top: 2rem;
+    right: 0.5rem;
+}
+
+.profile-detail{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    z-index: 1;
+    background-color:rgba(89,83,83, 1);
+    border-radius: 10px;
+}
+
+.profile-detail > a{
+    border-bottom: 3px solid white;
+    margin: 0 1rem;
+    padding: 1.5rem 1rem;
+    font-style: normal;
+    text-align: center;
+    appearance: none;
+    text-decoration: none;
+}
+
+.profile-detail > a:hover {
+    color: #25E5F8;
+    transform: scale(1.05);
+}
+
+.profile-detail :last-child {
+    border: none;
+}
+
+.profile-detail > a {
+    color: #fff;
+    text-align:center;
+}
+
+.logout {
+    color: #f54242;
+}
