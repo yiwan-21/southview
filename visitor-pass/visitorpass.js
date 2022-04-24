@@ -5,8 +5,8 @@ function validate(val) {
     v3 = document.getElementById("vehicle");
     v4 = document.getElementById("mob");
     v5 = document.getElementById("date");
-    v6 = document.getElementById("time");
-    v7 = document.getElementById("duration");
+    v6 = document.getElementById("stime");
+    v7 = document.getElementById("etime");
     
     flag1 = true;
     flag2 = true;
@@ -109,7 +109,7 @@ function view(){
     window.location.href="visitorpassGenerated.html"
 }
 
-//download
+//download pdf
 document.querySelector(".btn-pdf").onclick = function () {
     var element = document.getElementById("downloadarea")
     var opt = {
