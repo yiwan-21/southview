@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>   
+    <meta charset="utf-8">
+    <title>Visitor Pass</title>    
+    <link rel="stylesheet" href="stylesheet.css">
+    <form class="box3" action="">
+        </head>
+        <div class="container-fluid px-1 py-5 mx-auto">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                    <h2>Visitor Pass</h2>
+                    <p class="blue-text">Please fill in the form.</p>
+                    <div class="card">
+                        <form class="form-card" onsubmit="event.preventDefault()">
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">VISITOR NAME<span class="text-danger"> *</span></label> <input type="text" id="vname" name="vname" placeholder="Enter visitor name" onblur="validate(1)"> </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">NRIC<span class="text-danger"> *</span></label> <input type="text" id="nric" name="nric" placeholder="123456-78-9012" onblur="validate(2)"> </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">VEHICLE NUMBER<span class="text-danger"> *</span></label> <input type="text" id="vehicle" name="vehicle" placeholder="AAA8888" onblur="validate(3)"> </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">PHONE NUMBER<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="012-3456789" onblur="validate(4)"> </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">DATE<span class="text-danger"> *</span></label> <input type="text" id="date" name="date" placeholder="01/01/2022" onblur="validate(5)"> </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">TIME<span class="text-danger"> *</span></label> <input type="text" id="time" name="time" placeholder="10.00AM" onblur="validate(6)"> </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">DURATION<span class="text-danger"> *</span></label> <input type="text" id="duration" name="duration" placeholder="5 HRS" onblur="validate(7)"> </div>
+                            </div>
+                            <div class="row justify-content-end">
+                                <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Submit</button> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  </html>
