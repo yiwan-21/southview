@@ -32,26 +32,6 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="max-width">
-            <div class="logo">
-                <img id="logo" src="/images/Logo SV.png" alt="">
-            </div>
-            <ul class="menu">
-                <li><a href="#home" class="menu-btn" onclick="">HOME</a></li>
-                <li><a href="#facilities" class="menu-btn" onclick="">FACILITIES</a></li>
-                <li><a href="#visitorpass" class="menu-btn" onclick="">VISITOR PASS</a></li>
-                <li><a href="#covidstatus" class="menu-btn" onclick="">COVID-19 STATUS</a></li>
-                <li><a href="#about" class="menu-btn" onclick="">ABOUT US</a></li>
-                <li><i class="bi bi-person-fill" onclick="openProfile()"></i><div class="profile-detail" id="profile-detail">
-                    <a href="#UserProfile"><span>User Profile</span></a><hr>
-                    <a href="#UserProfile"><span>Payment</span></a><hr>
-                    <a href="#UserProfile"><span class="logout">Log Out</span></a>
-                </div></li>
-                
-            </ul>
-        </div>
-    </nav>
 
     <div class="faq-wrapper">
         <div class="accordion">
@@ -106,6 +86,20 @@
         </div>
     </div>
 
+    <!-- Chatting Button -->
+    <i class="fa fa-comments fa-4x" aria-hidden="true" onclick="openForm()"></i>
+    <div class="chat-popup" id="myForm">
+        <form action="" class="form-container">
+        <h1>Chat</h1>
+    
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+    
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
     <footer>
         <div class="footer-rbar">
             <div class="sv-icons">
@@ -119,19 +113,6 @@
         </div>
     </footer>
 
-    <script>
-        let li = document.querySelectorAll('.faq-txt li');
-        for (var i = 0; i < li.length; i++) {
-            li[i].addEventListener('click', (e)=>{
-                let clickedLi;
-                if(e.target.classList.contains('question-arrow')){
-                    clickedLi = e.target.parentElement;
-                }else{
-                    clickedLi = e.target.parentElement.parentElement;
-                }
-                clickedLi.classList.toggle('showAnswer');
-            })
-        }
-    </script>
-
+    <script src="/navigation/navigation.js"></script>
+    <script src="FAQ.js"></script>
 </body>

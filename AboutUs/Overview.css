@@ -197,7 +197,7 @@ section{
     position: relative;
     float: right;
     width: 60%;
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Nunito', sans-serif;
     color: black;
 }
@@ -226,8 +226,8 @@ section{
     position: relative;
     float: right;
     width: 60%;
-    top: 10%;
-    font-size: 25px;
+    top: 18%;
+    font-size: 20px;
     font-family: 'Nunito', sans-serif;
     color: black;
 }
@@ -509,88 +509,4 @@ section{
 
 .fa-facebook-square{
     padding-left: 20px;
-}
-
-@media(max-width: 1521px){
-    .second-box #p1, .second-box #p2{
-        font-size: 23px;
-    }
-
-    .second-box #p2{
-        top: 13%;
-    }
-
-    .second-box #heading1, .second-box #heading2{
-        font-size: 55px;
-    }
-
-    .second-box #heading1{
-        top: 19%;
-    }
-}
-
-@media(max-width: 1400px){
-    .second-box #p1, .second-box #p2{
-        font-size: 20px;
-    }
-    
-    .second-box #heading1, .second-box #heading2{
-        font-size: 50px;
-        left: 9%;
-    }
-
-    .second-box #heading1{
-        top: 18%;
-    }
-}
-
-@media(max-width: 1217px){
-    .second-box #p1, .second-box #p2{
-        font-size: 17px;
-    }
-    
-    .second-box #heading1, .second-box #heading2{
-        font-size: 45px;
-        left: 8%;
-    }
-
-    .second-box #heading1{
-        top: 17%;
-    }
-}
-
-@media(max-width: 900px){
-    .second-box #heading1, .second-box #heading2{
-        font-size: 40px;
-        left: 7%;
-    }
-
-    .second-box #heading1{
-        top: 16%;
-    }
-}
-
-@media(max-width: 803px){
-    .second-box #p1, .second-box #p2{
-        font-size: 15px;
-    }
-
-    .second-box #heading1, .second-box #heading2{
-        font-size: 35px;
-        left: 6%;
-    }
-
-    .second-box #heading1{
-        top: 15%;
-    }
-}
-
-@media(max-width: 720px){
-    .second-box #heading1, .second-box #heading2{
-        font-size: 30px;
-        left: 5%;
-    }
-    .second-box #heading1{
-        top: 14%;
-    }
 }
