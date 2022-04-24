@@ -1,0 +1,111 @@
+:root {
+    --deep-blue: #33658A;
+    --cyan: #25E5F8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    background-image: url("../images/Southview-Background-Dark.png");
+    padding-top: 5rem;
+    color: var(--deep-blue);
+}
+
+.navbar {
+    width: 100%;
+    height: 5rem;
+    background-color: #171819;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.tab {
+    width: 50rem;
+    margin: 5rem auto 3rem auto;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.grid {
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 2rem;
+    align-items: center;
+}
+
+.daily {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+.weekly {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+
+.daily, 
+.weekly {
+    border: 1px solid var(--deep-blue);
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 2rem;
+}
+
+.daily h2, 
+.weekly h2 {
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.cases {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem 2rem 1rem;
+}
+
+.total {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    font-weight: 500;
+    margin: 0 2rem 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem
+}
+
+.health {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    background-color: var(--cyan);
+}
+
+.report {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    background-color: #F97070;
+    color: #000000;
+}
+
+.health,
+.report {
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 1.5rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}

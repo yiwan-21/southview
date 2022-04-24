@@ -1,0 +1,82 @@
+/*variables in css*/
+:root {
+    --grey-color: #C4C4C4;
+    --black-color: #000000;
+    --darkgrey-color: #686262;
+    --white-color: #FFFFFF;
+    --orange-color: #FF7F5C;
+    --purple-color: #FF2EEA;
+    --cyan-color: #25E5F8;
+    --darkblue-color: #1D1E42;  
+}
+
+/*Initialize all the styles in the webpage*/
+*{
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    /* background image */
+    background-image: url(../images/background.svg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin:0px;
+    font-family: 'Inter', serif;
+}
+
+.navbar-dark{
+    padding:0px;
+    padding-right: 40px;
+    background-color: var(--grey-color); 
+}
+
+#nav-logo{
+    width:111px;
+    height: 52px;
+}
+
+.nav-link{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20;
+    font-weight: normal;
+    color: var(--darkgrey-color) !important; /*use the variable that set in the beginning of CSS */
+    text-decoration: none;
+}
+
+
+.active{
+    font-weight:bolder !important;
+    color:var(--black-color) !important ;
+}
+
+#logo-branding{
+    width: 170px;
+    height: 170px;
+}
+
+.logoutbtn{
+    font-size: 18;
+    font-weight: bold;
+    color: var(--white-color); 
+    background-color:var(--orange-color);  
+    border-radius: 47px;
+    padding: 9px 46px;
+    text-decoration: none;
+    text-align: center;  
+}
+
+.footer {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    width: 100vp;
+    font-family: 'Inter', serif;
+}
+
+
+.social-media img{
+    width: 50px;
+    height: 50px;
+}
