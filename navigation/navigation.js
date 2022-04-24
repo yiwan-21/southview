@@ -1,10 +1,6 @@
 function openProfile() {
     const profile = document.querySelector('.profile');
-    if (profile.style.display === "none") {
-        profile.style.display = "block";
-    } else {
-        profile.style.display = "none";
-    }
+    profile.classList.toggle('active');
 }
 
 fetch('/navigation/navigation.html')
