@@ -79,10 +79,24 @@
             </section>
 
             <script>
-                function handleFormSubmit(event) {
-                    event.preventDefault();
-                    window.location.href="/Homepage/indexHomepage.html" 
-                }
+                // function handleFormSubmit(event) {
+                //     // event.preventDefault();
+                //     // window.location.href="/Homepage/indexHomepage.html" 
+
+                    
+                // }
+
+                $(document).ready(function() {
+                    $("form").submit(function() {
+                        var status = $('#status').val();
+                        if(status == 'Administrator'){
+                            window.location.href = "../admin/home.html";
+                        } else{
+                            window.location.href = "../Homepage/indexHomepage.html";
+                        }
+                    });
+                });
+                
             </script>
         </body>
 </html>
