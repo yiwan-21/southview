@@ -292,6 +292,7 @@
       const textarea = document.querySelector('.textarea');
       const input = event.target.firstElementChild;
       const text = input.value;
+      if (!text) return;
       input.value = '';
       const newNode = document.createElement('div');
       newNode.classList.add('self');
