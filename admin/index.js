@@ -2,7 +2,7 @@
 var menu_btn = document.querySelector("#menu-btn");
       var sidebar = document.querySelector("#sidebar");
       var container = document.querySelector(".my-container");
-      menu_btn.addEventListener("click", () => {
+      menu_btn?.addEventListener("click", () => {
         sidebar.classList.toggle("active-nav");
         container.classList.toggle("active-cont");
 });
@@ -53,9 +53,26 @@ function handleFormSubmit(event) {
         console.log(key, value);
     });
      console.log(values)
-     alert("Register Successfully!");
+     alert("Register/Update Successfully!");
 }
 
+
+// click logout button
+// const logout = document.querySelector(".logoutbtn");
+// logout.addEventListener("click", function (){alert("Logout Successfully!")});    
+
+
+function Alert() {
+    var answer = confirm ("Click on OK to log out!")
+    if (answer)
+    window.location.href= "../login/login.html" ;
+}
+
+function Alert1() {
+    var answer = confirm ("Click on OK to log out!")
+    if (answer)
+    window.location.href= "../../login/login.html" ;
+}
 
 
 

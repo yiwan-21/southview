@@ -17,32 +17,32 @@
 </head>
 <body>
     <div class="container-fluid">
-        <nav class="navbar fixed-top navbar-expand-md navbar-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img id="nav-logo" src="../images/logo.svg" alt="SV logo">
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../home/home.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../manage-register-account/index1.html">Manage residents account</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../manage-covid19/index.html">Manage Covid-19 reporting</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Messages</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar fixed-top navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../home.html">
+            <img id="nav-logo" src="../images/logo.svg" alt="SV logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../manage-register-account/viewsignup.html">Manage residents account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../manage-Covid19.html">Manage Covid-19 reporting</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../message.html">Messages</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
         <!-- logout button -->
         <section id="logout">
@@ -52,7 +52,8 @@
                 <div class="col-lg-9"></div>
                 <div class="col-lg-2 justify-content-end d-flex align-items-end">
                 <div class="col-lg-1"></div>
-                    <a href="#" class="logoutbtn">LOGOUT</a>
+                <!-- <a href="../../login/login.html" class="logoutbtn">LOGOUT</a> -->
+                <a href="javascript:Alert1();" class="logoutbtn">LOGOUT</a>
             </div>          
                 </div>
             </div>
@@ -62,7 +63,7 @@
         <!-- Side-Nav -->
         <div class="side-navbar active-nav d-flex justify-content-center align-items-center flex-wrap flex-column" id="sidebar">
           <div>
-            <a href="home.html">
+            <a href="../home.html">
             <!-- logo -->
             <img class="sidebar-logo" src="../images/logo.svg" alt="SV logo">
             </a>
@@ -71,19 +72,19 @@
           <ul class="nav flex-column text-white w-100">
             <br><br>
             <li>
-              <a href="viewsignup.html">           
+              <a href="./viewsignup.html">           
               <span class="mx-2 active-sidenav nav-link sidenav-font"><img class="icon" src="../images/viewsignup.svg" alt="View Icon">    View Sign Up</span>
               </a>
             </li>
             <br>
             <li>
-              <a href="register.html">           
+              <a href="./register.html">           
                 <span class="mx-2 nav-link sidenav-font"><img class="icon" src="../images/register.svg" alt="Register Icon">   Register</span>
               </a>
             </li>
             <br>
             <li>
-              <a href="viewlist.html">           
+              <a href="./viewlist.html">           
                 <span class="mx-2 nav-link sidenav-font"><img class="icon" src="../images/viewlist.svg" alt="View List Icon">   View List</span>
               </a>
             </li>
@@ -101,16 +102,7 @@
           </nav>
 
           <div class="dropdown">           
-            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              All
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">All</a></li>
-              <li><a class="dropdown-item" href="#">Block-A</a></li>
-              <li><a class="dropdown-item" href="#">Block-B</a></li>
-            </ul>
             
-            <span>
               <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Delete Options
               </button>
@@ -132,7 +124,7 @@
                   <a class="dropdown-item" href="#">Selected Checkbox</a>
                 </button>
               </ul>
-            </span>
+            
             <br><br>
           </div>
           
