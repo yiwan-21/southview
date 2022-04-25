@@ -11,13 +11,11 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-fetch('/navigation/navigation.html')
+fetch("/navigation/navigation.html")
     .then(response => response.text())
     .then(data => {
         document.body.appendChild(document.createElement('div')).classList.add('nav');
         const nav = document.querySelector('.nav');
-        nav.style.position = "fixed";
-        nav.style.top = "0";
         nav.innerHTML += data;
         const navbarTemplate = document.getElementById('navbar-template');
         const chatTemplate = document.getElementById('chat-template');
