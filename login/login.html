@@ -80,17 +80,17 @@
             </section>
 
             <script>
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const id = document.getElementById("svid").value;
-            const pw = document.getElementById("logpw").value;
-            const status = document.getElementById("status").value;
-            if (status === "Administrator") {
-                window.location.href = "../admin/home.html";
-            } else {
-                window.location.href = "../Homepage/indexHomepage.html";
-            }
-        }
+                function handleFormSubmit(event) {
+                    event.preventDefault();
+                    const id = document.getElementById("svid").value;
+                    const pw = document.getElementById("logpw").value;
+                    const status = document.getElementById("status").value;
+                    if (status === "Administrator") {
+                        window.location.href = "/admin/home.html";
+                    } else {
+                        window.location.href = "/Homepage/indexHomepage.html";
+                    }
+                }
             </script>
         </body>
 </html>

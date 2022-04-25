@@ -9,11 +9,11 @@ body {
 .faci-content{
     width: 100%;
 }
-.max-width{
+/* .max-width{
     max-width: 1300px;
     padding: 0 80px;
     margin: auto;
-}
+} */
 .owl-carousel{
     width:100%;
     justify-content: center;
@@ -27,7 +27,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 1300px;
-    height:530px;
+    height:77vh;
     transition: all 0.3s ease;
     margin:10px 20px;
 }
