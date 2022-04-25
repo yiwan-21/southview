@@ -58,13 +58,21 @@ function handleFormSubmit(event) {
 
 
 // click logout button
-const logout = document.querySelectorAll(".logoutbtn");
-logout.forEach(element => {
-    element.addEventListener('click', ()=>{
-    alert("Logout Successfully!");    
-    })
-})
+// const logout = document.querySelector(".logoutbtn");
+// logout.addEventListener("click", function (){alert("Logout Successfully!")});    
 
+
+function Alert() {
+    var answer = confirm ("Click on OK to log out!")
+    if (answer)
+    window.location.href= "../login/login.html" ;
+}
+
+function Alert1() {
+    var answer = confirm ("Click on OK to log out!")
+    if (answer)
+    window.location.href= "../../login/login.html" ;
+}
 
 
 
