@@ -39,7 +39,7 @@
                             <form onsubmit="handleFormSubmit(event)">
                             <table class="table table-borderless"  >
                                 <tr>
-                                   <td><input type="text" name="" class="form-control" placeholder="Enter SV ID" required></td> 
+                                   <td><input type="text" name="" class="form-control" placeholder="Enter SV ID" id="svid" required></td> 
                                 </tr>
                                 <tr>
                                     <td><input type="password" name="" class="form-control" placeholder="Enter Password" id="logpw" inputmode="numeric" minlength="8"
@@ -79,24 +79,17 @@
             </section>
 
             <script>
-                // function handleFormSubmit(event) {
-                //     // event.preventDefault();
-                //     // window.location.href="/Homepage/indexHomepage.html" 
-
-                    
-                // }
-
-                $(document).ready(function() {
-                    $("form").submit(function() {
-                        var status = $('#status').val();
-                        if(status == 'Administrator'){
-                            window.location.href = "../admin/home.html";
-                        } else{
-                            window.location.href = "../Homepage/indexHomepage.html";
-                        }
-                    });
-                });
-                
+                function handleFormSubmit(event) {
+                    event.preventDefault();
+                    const id = document.getElementById("svid").value;
+                    const pw = document.getElementById("logpw").value;
+                    const status = document.getElementById("status").value;
+                    if (status === "Administrator") {
+                        window.location.href = "/admin/home.html";
+                    } else {
+                        window.location.href = "/Homepage/indexHomepage.html";
+                    }
+                }
             </script>
         </body>
 </html>
