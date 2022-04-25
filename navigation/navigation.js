@@ -11,7 +11,7 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-fetch(`${window.location.origin}/navigation/navigation.html`)
+fetch("/navigation/navigation.html")
     .then(response => response.text())
     .then(data => {
         document.body.appendChild(document.createElement('div')).classList.add('nav');
@@ -23,7 +23,6 @@ fetch(`${window.location.origin}/navigation/navigation.html`)
         const chatTemplate = document.getElementById('chat-template');
         const footerTemplate = document.getElementById('footer-template');
         const css = nav.querySelector('link');
-        css.href = `${window.location.origin}/navigation/navigation.css`;
         nav.innerHTML = '';
         nav.appendChild(navbarTemplate.content);
         document.body.appendChild(chatTemplate.content);
