@@ -16,8 +16,6 @@ fetch("/navigation/navigation.html")
     .then(data => {
         document.body.appendChild(document.createElement('div')).classList.add('nav');
         const nav = document.querySelector('.nav');
-        nav.style.position = "fixed";
-        nav.style.top = "0";
         nav.innerHTML += data;
         const navbarTemplate = document.getElementById('navbar-template');
         const chatTemplate = document.getElementById('chat-template');
