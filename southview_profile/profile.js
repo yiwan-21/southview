@@ -10,18 +10,3 @@ function handleFormSubmit(event) {
      console.log(values)
      window.location.href="profile1.html"
 }
-
-// var tag=document.querySelector("#name");
-// tag.addEventListener('change', function(){
-//     tag.innerHTML=values[0];
-// })
-
-// function edit(){
-// var tag=document.querySelector('#edit')
-// .addEventListener('click', function(){
-//     const reader = new FileReader();
-//     reader.addEventListener("load", () => {
-//     const uploaded_image = reader.result;
-// });
-// });
-// }
