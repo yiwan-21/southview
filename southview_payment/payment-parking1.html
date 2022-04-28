@@ -15,16 +15,16 @@
 <body>
     <!-- nav bar -->
     <script src="/navigation/navigation.js"></script>
-    
+    <form onsubmit="submitPayment(event)">
     <div class="mx-5 my-5 card white_boundary">
         <h1>Payment - Parking</h1>
         <div class="mx-5 mt-5 mb-3 " id="grey-bg" style="background-color: rgb(0,0,0,0.5);">
             <div class="row justify-content-center">
-                <div class="col-lg-4  col-md-6 col-sm-12">
-                    <a href="../southview_payment/payment-parking1.html"><button type="button" class="btn"
+                <div class="col-lg-4  col-md-6 col-sm-12 text-center">
+                    <a href="../southview_payment/payment-parking1.html"><button type="button" class="btn active"
                             id="self-pay">Pay My Bills</button></a>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-4 col-md-6 col-sm-12 text-center">
                     <a href="../southview_payment/payment-parking2.html"><button type="button" class="btn"
                             id="anyone-pay">Pay For Anyone</button></a>
                 </div>
@@ -63,12 +63,13 @@
             <div class="row text-center">
                 <div class="col-lg-9 col-md col-sm"></div>
                 <div class="col-lg-3 mb-3 col-md-5 col-sm-9 col-xs-12">
-                    <a href="../southview_payment/payment-success.html"><button type="button" class="btn"
-                            id="btn-next-2">Next</button></a>
+                    <a href="../southview_payment/payment-success.html"><button type="submit" class="btn"
+                            id="btn-setting">Next</button></a>
                 </div>
             </div>
         </div>
     </div>
+    </form>
     <!-- footer -->
     <script type="text/javascript" src="../southview_payment/payment.js"></script>
 </body>

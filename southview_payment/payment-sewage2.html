@@ -15,47 +15,51 @@
 <body>
     <!-- nav bar -->
     <script src="/navigation/navigation.js"></script>
-    
-    <div class="mx-5 my-5 card white_boundary">
+    <form onsubmit="submitPayment(event)">
+        <div class="mx-5 my-5 card white_boundary">
             <h1>Payment - Sewage</h1>
-        <div class="mx-5 my-5 " id="grey-bg" style="background-color: rgb(0,0,0,0.5);">
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <a href="../southview_payment/payment-sewage1.html"><button type="button" class="btn" id="self-pay">Pay My Bills</button></a>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <a href="../southview_payment/payment-sewage2.html"><button type="button" class="btn" id="anyone-pay">Pay For Anyone</button></a>
-                </div>
-            </div>
-            <div class="mx-5 my-5 " id="grey-bg2" style="background-color: #C4C4C4;">
-                <div class="container">
-                    <form>
-                    <div class="row">
-                        <div class="col" id="p-text-2">
-                           <label>Payee SV-ID</label><br><input type="text" class="form-control"><br>
-                           <label>Payer E-Mail</label><br><input type="email" class="form-control">
-                        </div>
-                        <div class="col" id="p-text-2">
-                            <label><strong>RM<strong></label><input type="text" placeholder="0.00" class="form-control">
-                        </div>
-                        <div class="col" id="p-text-2">
-
-                        </div>
+            <div class="mx-5 my-5 " id="grey-bg" style="background-color: rgb(0,0,0,0.5);">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                        <a href="../southview_payment/payment-sewage1.html"><button type="button" class="btn"
+                                id="self-pay">Pay My Bills</button></a>
                     </div>
-                    </form>
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                        <a href="../southview_payment/payment-sewage2.html"><button type="button" class="btn active"
+                                id="anyone-pay">Pay For Anyone</button></a>
+                    </div>
+                </div>
+                <div class="mx-5 my-5 " id="grey-bg2" style="background-color: #C4C4C4;">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col" id="p-text-2">
+                                <label>Payee SV-ID</label><br><input type="text" class="form-control" required><br>
+                                <label>Payer E-Mail</label><br><input type="email" class="form-control" required>
+                            </div>
+                            <div class="col" id="p-text-2">
+                                <label><strong>RM<strong></label><input type="text" placeholder="0.00"
+                                    class="form-control" required>
+                            </div>
+                            <div class="col" id="p-text-2">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-9 col-md col-sm"></div>
+                    <div class="col-lg-3 mb-3 col-md-5 col-sm-9 col-xs-12">
+                        <a href="../southview_payment/payment-success.html"><button type="submit" class="btn"
+                                id="btn-setting">Next</button></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-9 col-md col-sm"></div>
-                <div class="col-lg-3 mb-3 col-md-5 col-sm-9 col-xs-12">
-                    <a href="../southview_payment/payment-success.html"><button type="button" class="btn"
-                            id="btn-next-2">Next</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </form>
     <!-- footer -->
     <script type="text/javascript" src="../southview_payment/payment.js"></script>
 </body>
