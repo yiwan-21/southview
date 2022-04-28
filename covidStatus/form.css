@@ -87,10 +87,9 @@ body {
 
 .submit {
     margin: 1rem auto 0 auto;
-    color: var(--deep-blue);
     background-color: var(--cyan);
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,4 +98,16 @@ body {
     padding: 1rem 2rem;
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+.submit:hover{
+    background-color: #23D2E3;
+    color: #fff;
+}
+
+/* lg screens */
+@media (max-width: 992px) {
+    .tab {
+        width: auto;
+    }
 }

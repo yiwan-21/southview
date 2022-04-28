@@ -97,7 +97,7 @@
       </div>
     </div>
   </div>
-
+  
   <div class="main-wrapper">
     <div class="user-list scroll-bar-left-wrapper">
       <div class="scroll-bar-left"></div>
@@ -198,6 +198,10 @@
           notification.classList.add('notification');
         }
         user.new = false;
+        if (window.innerWidth <= 768) {
+          document.querySelector('.message').classList.add('open');
+          document.querySelector('.user-list').classList.add('close');
+        }
         message.innerHTML = '';
         message.appendChild(createMessagePage(user));
         if (message) {
@@ -233,6 +237,14 @@
       messagePage.style.height = '100%';
       messagePage.innerHTML = `    
         <div class="chat-name">
+          <button class="return" onclick="returnToUser()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-left"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+            </svg>
+          </button>
+          <img src=${user.avatar} alt="avatar">
           <h2>${user.name}</h2>
         </div>
         <fieldset class="date">
@@ -328,7 +340,13 @@
           userList.appendChild(newUser);
         })
     }
-    
+
+    function returnToUser() {
+      document.querySelector('.message').classList.remove('open');
+      document.querySelector('.user-list').classList.remove('close');
+      userList.querySelectorAll('.user').forEach(user => user.classList.remove('user-active'));
+    }
+
 
   </script>
 

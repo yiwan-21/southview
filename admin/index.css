@@ -323,12 +323,16 @@ h1{
   
   /*Resize the wrap to see the search bar change!*/
   .wrap{
-    width: 20%;
-    height: 10%;
-    position: relative;
-    margin-left: 149px;
-    transform: translate(-50%, -50%);
+    width: 250px;
+    margin-left: 20px;
   }
 
-    
+  .wrap * {
+    outline: 0;
+    border: none;
+  }
+
+  .wrap button:hover {
+    background-color: #ffffff;
+  }
     

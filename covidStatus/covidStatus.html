@@ -100,7 +100,10 @@
                 <h3>Message: </h3>
                 <textarea name="message" id="message" cols="45" rows="7" required></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <div class="service-buttons">
+                <button onclick="closeService()">Close</button>
+                <button type="submit">Submit</button>
+            </div>
         </form>
     </div>
 
@@ -187,6 +190,11 @@
             const formData = new FormData(form);
             const file = Array.from(formData.values())[0]
             console.log(file);
+        }
+
+        function closeService() {
+            service.classList.remove('service-active');
+            tab.classList.remove('tab-open');
         }
 
     </script>

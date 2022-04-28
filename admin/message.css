@@ -29,6 +29,7 @@ body {
 .user-list {
     flex-basis: 25%;
     margin-right: 0;
+    min-width: 330px;
 }
 
 .message {
@@ -115,6 +116,12 @@ body {
     background-color: #001329;
     padding: 0.5rem 1rem;
     z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.return {
+    display: none;
 }
 
 fieldset.date {
@@ -158,7 +165,8 @@ fieldset.date > legend {
     align-items: center;
 }
 
-.opposite img {
+.opposite img,
+.chat-name img {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -206,4 +214,60 @@ fieldset.date > legend {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* md screens */
+@media (max-width: 768px) {
+    .main-wrapper {
+        display: block;
+    }
+
+    .user-list {
+        margin: 1rem;
+    }
+
+    .message {
+        display: none;
+        margin: 1rem;
+    }
+
+    .open {
+        display: block;        
+    }
+
+    .close {
+        display: none;
+    }
+
+    .text {
+        width: 100%;
+    }
+
+    .return {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid #1D1E42;
+        border-radius: 25px;
+        padding: 0 9px 0 7px;
+        margin-right: 16px;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        color: #FFF;
+        transition: all 0.1s;
+    }
+
+    .return:active {
+        background-color: #343569;
+    }
+}
+
+/* sm screens */
+@media (max-width: 576px) {
+    .user-list,
+    .message {
+        margin: 1rem 0;
+        border-radius: 0;
+    }
 }
