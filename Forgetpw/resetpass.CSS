@@ -8,37 +8,11 @@
     max-width: 100%;
     height: auto;
 }
-h2{
-    font-size: smaller;
-    font-weight: 600;
-}
-
 .bg{
     background-color: white;
     max-width: fit-content; 
     padding-top: 1%;
     border-radius: 15px;
-}
-
-
-
-.table input[type="text"],input[type="password"]{
-    border-radius: 10px;
-}
-
-.table input[type="submit"]{
-
-    background:#25E5F8;
-    border-radius: 20px;
-    font-family: 'ABeeZee',sans-serif;
-    font-weight: bold;
-    
-}
-
-
-.table input[type="submit"]:hover{
-    background-color: #23D2E3;
-    color: #fff;
 }
 
 #image{
@@ -48,8 +22,23 @@ h2{
     margin-top: 30px;
 }
 
-#signup,#pw,#loginlink{
-    text-decoration: none;
-    font-weight: 600 ;
-}
+.table button[type="submit"]{
 
+    background-color:#23D2E3;
+    color: black;
+    padding: 10px 20px;
+    margin:0;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    font-family: 'ABeeZee',sans-serif;
+    opacity: 0.9;
+    font-weight: bold;
+    border-radius: 15px; 
+    width: 50%;
+  }
+
+.table button[type="submit"]:hover{
+    background-color: #23D2E3;
+    color: #fff;
+}
