@@ -16,7 +16,6 @@
 
 .bg{
     background-color: white;
- 
     border:1px solid black;
      border-radius: 15px;
      text-align: left;
@@ -37,8 +36,10 @@
 }
 
 #image{
+    max-width: 80%;
+    height:auto;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 button[type="button"]{
@@ -53,4 +54,10 @@ button[type="button"]{
     font-weight: bold;
     float: left;
     border-radius: 20px;
+}
+
+
+button[type="button"]:hover{
+    background-color: #23D2E3;
+    color: #fff;
 }

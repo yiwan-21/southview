@@ -10,7 +10,16 @@
 
 .emailbox h5{ 
     font-weight: 400;
+    text-align: left;
+    margin-bottom: 15px;
 }
+
+.emailbox h6{ 
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+
 
 .title{
     margin: 15px;
@@ -42,20 +51,36 @@
 }
 
 #image{
+    max-width: 80%;
+    height:auto;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
-button[type="button"],[type="submit"]{
+
+button[type="submit"]{
     background-color:#25E5F8;
-    color:white;
-    padding: 14px 20px;
-    margin: 0;
+    color:black;
+    padding: 10px 20px;
+    margin-top: 15px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     opacity: 0.9;
     font-weight: bold;
-    float: left;
     border-radius: 20px;
+
 }
+
+button[type="submit"]:hover{
+    background-color: #23D2E3;
+    color: #fff;
+}
+
+.checkpass{
+    float: right;
+    margin:0;
+}
+
+
+

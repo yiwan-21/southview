@@ -9,10 +9,19 @@
     height: auto;
 }
 
+#image{
+    max-width: 80%;
+    height:auto;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
 .bg{
     background-color: white;
     max-width: fit-content;
     padding-top: 1%;
+    margin-bottom: 30px;
+    border-radius: 15px;
 }
 
 
@@ -24,30 +33,63 @@ hr {
     margin-top: 3px;
 }
 
-
-.table input[type="submit"]{
-    background-color:#25E5F8;
-    color: white;
-    padding: 14px 20px;
-    margin: 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    float: left;
-    width: 50%;
-  }
-
-button {
-    background-color:black;
-    color: white;
+/* signup.html */
+#nextbtn{
+    background-color:#23D2E3;
+    color: black;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
+    font-family: 'ABeeZee',sans-serif;
     opacity: 0.9;
-    float: left;
-    width: 50%;
+    font-weight: bold;
+    border-radius: 20px; 
+}
+
+#nextbtn:hover{
+    background-color: #23D2E3;
+    color: #fff;
+}
+
+/* signup2.html */
+#submitbtn,#backbtn{
+    background-color:#23D2E3;
+    color: black;
+    padding: 10px 20px;
+    margin:auto;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    font-family: 'ABeeZee',sans-serif;
+    opacity: 0.9;
+    font-weight: bold;
+    border-radius: 20px; 
+    float:right;
+    width: 45%;
+  }
+
+  #backbtn:hover{
+    color: #fff;
+}
+
+#submitbtn:hover{
+    background-color: #23D2E3;
+    color: #fff;
+  
+}
+#submitbtn{
+    margin-right: 15px;
+}
+  #backbtn{
+      background-color: black;
+      color: #fff;
+      margin-bottom: auto;
+      float:left;
+  }
+
+  .loginback{
+margin: auto;
   }
 
