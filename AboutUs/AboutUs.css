@@ -29,20 +29,20 @@ section{
     width: 40%;
     color: white;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 100px;
     text-align: left;
 }
 
 .header-txt h1{
-    font-size: 60px;
+    font-size: 5rem;
     font-family: 'Nunito', sans-serif;
     color: cyan;
     margin-bottom: 10px;
 }
 
 .header-txt p{
-    font-size: 30px;
+    font-size: 1.5rem;
     font-family: 'Nunito', sans-serif;
     font-weight: lighter;
     color: white;
@@ -53,7 +53,7 @@ section{
     border-radius: 300px;
     height: 50%;
     position: absolute;
-    top: 30%;
+    top: 20%;
     right: 0;
 }
 
@@ -142,105 +142,94 @@ section{
     text-decoration: none;
 }
 
+.first-sec{
+    padding-top: 6rem;
+    height: calc(100% + 6rem);
+}
+
 .first-heading{
-    position: absolute;
+    position: relative;
     width: 100%;
-    margin-top: 150px;
     text-align: center;
+    margin-top: 10%;
 }
 
 .first-heading h1{
-    font-size: 50px;
+    font-size: 3.5rem;
     font-family: 'Nunito', sans-serif;
     color: cyan;
-    margin-bottom: 30px;
 }
 
 .first-para{
-    position: absolute;
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 400px;
+    position: relative;
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
 
 .first-para p{
-    font-size: 20px;
+    width: 60%;
+    font-size: 1rem;
     font-family: 'Nunito', sans-serif;
     color: rgba(13, 14, 14, 0.7);
-    margin-bottom: 30px;
 }
 
 .second-box{
     position: relative;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 70%;
+    height: fit-content;
     display: block;
-    box-sizing: border-box;
     background-color: rgb(209, 209, 209);
 }
 
-.second-box #heading1{
+.flex-wrap{
+    width: 100%;
+    height: 100%;
+    padding: 5% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-wrap .flex-r1, .flex-wrap .flex-r3{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-wrap .flex-r2{
+    width: 100%;
+    height: 3px;
+    border-bottom: 3px solid white;
+    margin: 2rem 0;
+}
+
+.flex-wrap h1{
     position: relative;
-    font-size: 60px;
+    font-size: 3rem;
+    font-weight: bolder;
     font-family: 'Nunito', sans-serif;
     color: black;
     width: 30%;
-    top: 20%;
-    left: 10%;
 }
 
-.second-box #p1{
-    margin-right: 20px;
+.flex-wrap p{
     position: relative;
-    float: right;
     width: 60%;
-    font-size: 20px;
-    font-family: 'Nunito', sans-serif;
-    color: black;
-}
-
-.line{
-    position: relative;
-    border-bottom: 2px solid #fff;
-    width: 90%;
-    display: block;
-    margin-left: 5%;
-    top: 35%;
-}
-
-.second-box #heading2{
-    position: relative;
-    font-size: 60px;
-    font-family: 'Nunito', sans-serif;
-    color: black;
-    width: 30%;
-    top: 50%;
-    left: 10%;
-}
-
-.second-box #p2{
-    margin-right: 20px;
-    position: relative;
-    float: right;
-    width: 60%;
-    top: 18%;
-    font-size: 20px;
+    font-size: 1rem;
     font-family: 'Nunito', sans-serif;
     color: black;
 }
 
 .third-sec{
+    padding: 5% 0;
+    height: fit-content;
     position: relative;
-    top: 0%;
 }
 
 .third-heading{
-    position: relative;
     width: 100%;
-    top: 7%;
     text-align: center;
 }
 
@@ -259,15 +248,15 @@ section{
 }
 
 .img-gallery{
-    width: 800px;
-    height: 450px;
+    width: 50%;
+    height: 70%;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .img-slide{
     width: 500%;
-    height: 450px;
+    height: 70%;
     display: flex;
 }
 
@@ -286,9 +275,8 @@ section{
 }
 
 .nav-man{
-    position: absolute;
-    width: 800px;
-    margin-top: 50px;
+    position: relative;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -328,8 +316,7 @@ section{
 .nav-auto{
     position: absolute;
     display: flex;
-    width: 800px;
-    margin-top: 500px;
+    width: 50%;
     justify-content: center;
 }
 
@@ -360,43 +347,123 @@ section{
     background: black;
 }
 
-.fourth-heading{
-    width: 100%;
-    top: 0;
-    text-align: center;
+.fourth-sec{
+    height: fit-content
 }
 
-.fourth-heading h1{
-    position: absolute;
+.fourth-wrap{
+    position: relative;
     width: 100%;
-    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    font-size: 40px;
-    font-family: 'Nunito', sans-serif;
-    color: cyan;
+    align-items: center;
 }
 
-.fourth-sec p{
-    position: absolute;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 120px;
-}
-
-.fifth-box{
+.fourth-wrap h1{
+    position: relative;
     width: 100%;
-    height: 15%;
+    padding: 2rem 0;
     text-align: center;
-}
-
-.fifth-box p{
-    font-size: 18px;
+    font-size: 40px;
     font-family: 'Nunito', sans-serif;
     color: black;
 }
 
-.fifth-box a{
-    font-size: 22px;
+.fourth-wrap iframe{
+    position: relative;
+    width: 80%;
+}
+
+.fifth-box{
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.fifth-box p{
+    font-size: 1.2rem;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+}
+
+.fifth-box p a{
+    font-size: 1.3rem;
     font-family: 'Nunito', sans-serif;
     color: cyan;
+}
+
+@media (max-width: 1260px){
+    .header-txt h1{
+        font-size: 4rem; 
+    }
+}
+
+@media (max-width: 1010px){
+    .header-txt{
+        width: 50%;
+    }
+
+    .header-txt h1{
+        font-size: 3.5rem; 
+    }
+
+    .header-txt p{
+        font-size: 1.2rem; 
+    }
+    .header-img{
+        height: 40%;
+    }
+}
+
+@media (max-width: 800px){
+    .header-img{
+        display: none;
+    }
+
+    .header-txt{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 30%;
+        left: 0;
+        text-align: center;
+    }
+
+    .first-heading h1{
+        font-size: 3rem;
+    }
+
+    .flex-wrap h1{
+        font-size: 2.5rem;
+    }
+
+    .fifth-box p{
+        font-size: 1.1rem;
+    }
+    
+    .fifth-box p a{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 700px){
+    .first-heading h1{
+        font-size: 2.5rem;
+    }
+
+    .flex-wrap h1{
+        font-size: 2rem;
+    }
+
+    .fifth-box p{
+        font-size: 1rem;
+    }
+    
+    .fifth-box p a{
+        font-size: 1.1rem;
+    }
 }
