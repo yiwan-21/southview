@@ -70,6 +70,15 @@ textarea:focus {
     background-color: #23D2E3!important;
     color: #fff; 
 }
+ /* submit form */
+#btn-next{
+    height:45px;
+    font-size: 1.3em;
+    border-radius: 20px;
+    background-color:#25E5F8;
+    color:#fff;
+    font-family: 'ABeeZee',sans-serif;
+}
 
 button:focus {
     -moz-box-shadow: none !important;
