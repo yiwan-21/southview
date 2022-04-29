@@ -28,3 +28,15 @@ fetch("/navigation/navigation.html")
         document.head.appendChild(css);
     })
     .catch(err => console.warn('Something went wrong.', err));
+
+function toggleMenu() {
+    var x = document.getElementById("menunav");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+}
+
+
+

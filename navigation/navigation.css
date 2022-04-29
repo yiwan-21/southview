@@ -3,7 +3,8 @@
 body {
     margin: 0;
     padding-top: 6rem !important;
-    min-height: calc(100vh - 6rem);
+    /* min-height: 100%; */
+    min-height: calc(100vh - 96px - 64px);
 }
 
 /****** Navigation bar styling *******/
@@ -24,18 +25,32 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+
 }
 
-.menu {
+.max-width{
+    max-width: auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar .menu {
     padding-right: 2rem;
     display: flex;
     align-items: center;
+    align-self: center;
+    justify-content: center;
     flex-wrap: nowrap;
     position: relative;
 }
 
-.menu > a {
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar .menu li a{
     color: #25E5F8;
     font-size: 14px;
     font-weight: 500;
@@ -43,26 +58,30 @@ body {
     transition: all 0.3s ease;
     appearance: none;
     text-decoration: none;
-}
-
-.menu > i {
-    color: #25E5F8;
-    font-size: 20px;
-    font-weight: 500;
-    margin-left: 45px;
-    transition: color 0.3s ease;
+    /* display: block; */
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.menu > a:hover {
+.navbar .menu li a:hover {
     color: #fff;
     font-weight: 700;
     transform: scale(1.05);
 }
 
-.menu > i:hover {
+.navbar #person {
+    color: #25E5F8;
+    font-size: 25px;
+    font-weight: 500;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    display: block;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+
+.navbar #person:hover {
     color: #fff;
     transform: scale(1.2);
 }
@@ -72,11 +91,55 @@ body {
     cursor: pointer;
 }
 
+.menu-btn{
+    /* color: #25E5F8; */
+    font-size: 23px;
+    cursor: pointer;
+    margin-top: 2px;
+    margin-left: 45px;
+    display: none;
+    transition: all 0.3s ease;
+  }
+
+.menu-btn:hover{
+    color: #fff;
+    transform: scale(1.2);
+}
+
+.menu-btn i.active:before{
+    /* content: "\f00d"; */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='53.7' height='53.7' viewBox='0 0 53.7 53.7'><path opacity='.6' fill='%23666E6E' d='M35.6 34.4L28 26.8l7.6-7.6c.2-.2.2-.5 0-.7l-.5-.5c-.2-.2-.5-.2-.7 0l-7.6 7.6-7.5-7.6c-.2-.2-.5-.2-.7 0l-.6.6c-.2.2-.2.5 0 .7l7.6 7.6-7.6 7.5c-.2.2-.2.5 0 .7l.5.5c.2.2.5.2.7 0l7.6-7.6 7.6 7.6c.2.2.5.2.7 0l.5-.5c.2-.2.2-.5 0-.7z'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+    padding-left: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+  /* menu bars icon css */
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #25E5F8;
+  }
+  
+  .svg-icon circle {
+    stroke: #25E5F8;
+    stroke-width: 1;
+  }
+
 /****** Pop Out Profile Window ******/
 .profile {
     display: none;
     position: absolute;
-    top: 2rem;
+    top: 4.5rem;
     right: 0.5rem;
 }
 
@@ -206,8 +269,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4rem;
     background-color: #FFF;
+    height: 4rem;
 }
 
 .sv-copyright {
@@ -239,3 +302,82 @@ body {
 .my-icon:hover {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 1041px){
+
+}
+
+@media only screen and (max-width: 1042px){
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        /* left: -100%; */
+        left: 0;
+        display: none;
+        top: 0;
+        background: #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+        /* display: block; */
+    }
+    .navbar .menu.active{
+        /* left: 0; */
+        display: block;
+    }
+
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .footer{
+        display: block;
+        height: 5rem;
+    }
+    .sv-icons{
+        justify-content: center;
+    }
+    .sv-copyright{
+        font-size: 17px;
+    }
+}
+
+/* @media only screen and (max-width: 734px) {
+    .menu{
+
+    }
+} */
+@media screen and (max-width: 600px) {
+
+
+
+    /* .menu a:not(:first-child) 
+        {display: none;
+        }
+    .menu #icon {
+      float: right;
+      display: block;
+    } */
+  }
+
+
+@media screen and (max-width: 700px) {
+    
+}
+
+
