@@ -4,13 +4,13 @@
 
 /****** 1.0 HOME Section ******/
 .home{
-    height: 90vh;
+    height: 85vh;
     position: relative;
     margin: 0;
     padding: 0;
 }
 .sv_1_general{
-    height: 90vh;
+    height: 100vh;
     object-fit: cover;
 }
 .overview{
@@ -91,12 +91,13 @@ img.rounded-corners{
 .text-facilities{
     width: 50%;
     align-self: center;
+    justify-content: center;
 }
 .text-facilities h4{
     font-weight: bold;
     font-size: 30px;
     font-style: italic;
-    margin-left: 30px;
+    margin-left: 25px;
     text-align: left;
     align-items: center;
     font-family: 'Inter';
@@ -183,22 +184,23 @@ img.rounded-corners{
     font-style: italic;
     font-family:'Inter';
 }
-@media only screen and (max-width: 1210px){
+@media only screen and (max-width: 1210px),
+scren and (max-height: 637px){
     /* Home */
     .home{
-        height: 60vh;
+        height: 80vh;
     }
 
     .officehour{
-        height: 60vh;
+        height: 100vh;
     }
 
     .sv_2_white{
-        height: 60vh;
+        height: 100vh;
     }
 
     .facilities{
-        height: 60vh; 
+        height: 80vh; 
     }
 
     .box3{
@@ -206,7 +208,7 @@ img.rounded-corners{
     }
 
     .sv_3_facilities{
-        height: 60vh;
+        height: 80vh;
     }
 
     .announcement{
@@ -237,6 +239,14 @@ img.rounded-corners{
     }
 
     /* Announcement */
+    .announcement{
+        height: 80vh;
+    }
+
+    .sv_pet{
+        height: 80vh;
+    }
+
     .innerbox{
         top: 55%;
         width: 80vw;
@@ -247,48 +257,63 @@ img.rounded-corners{
 
 }
 
-
-
-@media only screen and (max-width: 850px){
+@media only screen and (max-width: 850px),
+screen and (max-height: 600px){
     .home{
-        height: 60vh;
+        height: 80vh;
     }
     .sv_1_general{
-        height: 60vh;
-        width: 100vw;
+        height: 80vh;
     }
     .svswimpool{
-        height: 25vh;
+        /* height: 25vh; */
         top: 25%;
-        width: 80vw;
+        max-width: 80vw;
+        /* width: 80vw */
         margin-bottom: 0px;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
     .desc{
         height: 25vh;
-        top: 68%;
+        padding: 60px 30px;
+        top: 58%;
         left: 50%;
         width: 550px;
         transform: translate(-50%, -50%);
     }
 
+    /* officehour */
+    .opendays h3{
+        font-size: 30px;
+        width: 80vw;
+    }
+
+    .opendays p{
+        font-size: 19px;
+    }
+
     /* facilities */
     .facilities {
-        flex-flow: column;
+        display: block;
+        height: 80vh;
     }
     .box3{
+        height: 40vh;
         width: 100%;
-        height: 40%;
         overflow: hidden;
         justify-content: center;
         order: 1;
     }
     .sv_3_facilities{
-        padding-bottom: 400px;
+        height: 40vh;
+        width: 100%;
+        /* padding-bottom: 400px; */
     }
     .text-facilities{
-        margin-top: 10%;
+        /* margin-top: 10%; */
+        height: 40vh;
         width: 100%;
         order: 2;
         background-color: white;
@@ -298,10 +323,18 @@ img.rounded-corners{
         justify-content: center;
     }
     .text-facilities h4{
-        font-size: 26px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .text-facilities p{
+        margin-top: -20px;
     }
     .text-facilities .submit-button{
-        margin-bottom: 30px;
+        position: absolute;
+        padding: 5px 10px;
+        font-size: 15px;
+        top: 232%;
+        left: 80%
     }
 
     /* announcement */
@@ -322,7 +355,8 @@ img.rounded-corners{
     }
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px),
+screen and (max-height: 542px){
     .titletext h2{
         margin-bottom: 0;
     }
@@ -335,56 +369,5 @@ img.rounded-corners{
     }
     .innerbox p{
         font-size: 15px;
-    }
-}
-
-@media only screen and (max-height: 920px){
-    .opendays{
-        width: 800px;
-    }
-    .opendays h3{
-        font-size:40px;
-        margin-top: 16px;
-    }
-    .opendays p{
-        font-size:22px;
-        font-weight: 400;
-        font-family: 'Inter';
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-}
-
-@media only screen and (max-height: 693px){
-    .opendays h3{
-        font-size:30px;
-        margin-top: 16px;
-        margin-bottom: 0;
-    }
-    .opendays p{
-        font-size:18px;
-        font-weight: 400;
-        font-family: 'Inter';
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-
-    .text-facilities p{
-        padding: 20px;
-        text-align: justify;
-        justify-content: center;
-        font-family: 'Inter', sans-serif;
-        line-height: 35px;
-    }
-
-    .text-facilities .submit-button{
-        margin-bottom: 200px;
-    }
-
-    .titletext h2{
-        font-size: 40px;
-        font-family: 'JetBrains Mono';
-        margin-bottom: 55px;
-    }
-    .innerbox{
-        padding: 20px 20px;
     }
 }
