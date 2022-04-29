@@ -96,12 +96,19 @@ function validate(val) {
 // button submit
 function handleFormSubmit(event) {
     event.preventDefault();
-    location.href="registerVisitorSuccess.html"
+    const form = event.target;
+    const formData = new FormData(form);
+    formData.forEach((value, key) => {
+        values.push(value)
+        console.log(key, value);
+    });
+     console.log(values);
+    window.location.href="registerVisitorSuccess.html"
 }
 function register(){
     window.location.href="visitorpassform.html"
 }
-function submit(){
+function success(){
     window.location.href="registerVisitorSuccess.html"
 }
 
