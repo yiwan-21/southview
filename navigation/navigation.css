@@ -25,7 +25,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-
+    justify-content: space-between;
 }
 
 .max-width{
@@ -43,6 +43,8 @@ body {
     justify-content: center;
     flex-wrap: nowrap;
     position: relative;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .navbar .menu li{
@@ -72,8 +74,9 @@ body {
     color: #25E5F8;
     font-size: 25px;
     font-weight: 500;
+    /* margin-bottom: 20px; */
+    margin: auto;
     margin-left: 25px;
-    margin-bottom: 20px;
     transition: all 0.3s ease;
     display: block;
     align-items:flex-start;
@@ -303,11 +306,7 @@ body {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 1041px){
-
-}
-
-@media only screen and (max-width: 1042px){
+@media (max-width: 1042px){
     .menu-btn{
         display: block;
         z-index: 999;
@@ -317,7 +316,7 @@ body {
     }
     .navbar .menu{
         position: fixed;
-        height: 100vh;
+        /* height: 100vh; */
         width: 100%;
         /* left: -100%; */
         left: 0;
@@ -325,7 +324,7 @@ body {
         top: 0;
         background: #111;
         text-align: center;
-        padding-top: 80px;
+        padding: 80px 40px;
         transition: all 0.3s ease;
         /* display: block; */
     }
@@ -342,9 +341,12 @@ body {
         margin: 20px 0;
         font-size: 25px;
     }
+    .max-width {
+        padding-right: 20px;
+    }
 }
 
-@media only screen and (max-width: 800px){
+@media (max-width: 800px){
     .footer{
         display: block;
         height: 5rem;
@@ -362,7 +364,7 @@ body {
 
     }
 } */
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
 
 
 
@@ -376,7 +378,7 @@ body {
   }
 
 
-@media screen and (max-width: 700px) {
+@media (max-width: 700px) {
     
 }
 
