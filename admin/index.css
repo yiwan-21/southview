@@ -139,15 +139,7 @@ a:-webkit-any-link{
 input[type=button] {
     outline:none !important;
     border:none !important;
-}
-
-.deselect-font{
-    font-size: 11pt;
-}
-
-.portraits-size{
-    width: 20px;
-    height: 20px;
+    background-color: transparent;
 }
 
 .validateicon{
@@ -160,7 +152,7 @@ input[type=button] {
 
 .pagination > li > a
 {
-    background-color: var(--darkblue-color);
+    background-color: #121212;
     color: var(--white-color);
     border:0px;
 }
@@ -182,8 +174,8 @@ input[type=button] {
 
 .pagination > .active > a:hover
 {
-    color: var(--white-color) !important;
-    background-color: var(--darkblue-color) !Important;
+    color: var(--black-color) !important;
+    background-color: var(--white-color) !Important;
 }
 
 .footer {
@@ -192,6 +184,19 @@ input[type=button] {
     width: 99.6vw;
     font-family: 'Inter', serif;
 }
+
+/* @media only screen and (max-width: 800px){
+    .footer{
+        display: block;
+        height: 5rem;
+    }
+    .sv-icons{
+        justify-content: center;
+    }
+    .sv-copyright{
+        font-size: 17px;
+    }
+} */
 
 .social-media img{
     width: 50px;
@@ -208,7 +213,7 @@ input[type=button] {
 
 }
 
-#humanicon{
+.update-pg-icon{
     width:450px;
     /* shadow */
     filter: drop-shadow(5px 5px 5px grey);
@@ -319,8 +324,6 @@ h1{
     background-color: #ffffff17;
 }
 
-
-  
   /*Resize the wrap to see the search bar change!*/
   .wrap{
     width: 250px;
@@ -336,3 +339,41 @@ h1{
     background-color: #ffffff;
   }
     
+  .btn-message{
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+    background-color: black;
+    color: white;
+  }
+
+.btn-update,.btn-save{
+    border: none;
+    box-shadow: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color:#25E5F8;
+    color:#000;
+}
+
+.btn-update:hover,.btn-update:focus, 
+.btn-save:hover,.btn-save:focus{
+    border: none;
+    box-shadow: none;
+    background-color: #23D2E3;
+    color: #fff;
+    padding: 10px;
+}
+
+.btn-back{
+    border: none;
+    box-shadow: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
