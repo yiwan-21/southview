@@ -335,15 +335,45 @@ h1{
     border: none;
   }
 
-<<<<<<< Updated upstream
   .wrap button:hover {
     background-color: #ffffff;
   }
-=======
-
-
-
-
     
->>>>>>> Stashed changes
-    
+  .btn-message{
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+    background-color: black;
+    color: white;
+  }
+
+.btn-update,.btn-save{
+    border: none;
+    box-shadow: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color:#25E5F8;
+    color:#000;
+}
+
+.btn-update:hover,.btn-update:focus, 
+.btn-save:hover,.btn-save:focus{
+    border: none;
+    box-shadow: none;
+    background-color: #23D2E3;
+    color: #fff;
+    padding: 10px;
+}
+
+.btn-back{
+    border: none;
+    box-shadow: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+

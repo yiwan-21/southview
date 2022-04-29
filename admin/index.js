@@ -88,11 +88,15 @@ function Alert() {
     if (answer)
     window.location.href= "../login/login.html" ;
 }
+
 function Alert1() {
     var answer = confirm ("Click on OK to log out!")
     if (answer)
     window.location.href= "../../login/login.html" ;
 }
+
+
+
 
 
 
