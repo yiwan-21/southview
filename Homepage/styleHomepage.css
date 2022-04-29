@@ -4,13 +4,13 @@
 
 /****** 1.0 HOME Section ******/
 .home{
-    height: 85vh;
+    height: 90vh;
     position: relative;
     margin: 0;
     padding: 0;
 }
 .sv_1_general{
-    height: 100vh;
+    height: 90vh;
     object-fit: cover;
 }
 .overview{
@@ -246,6 +246,9 @@ img.rounded-corners{
     }
 
 }
+
+
+
 @media only screen and (max-width: 850px){
     .home{
         height: 60vh;
@@ -332,5 +335,56 @@ img.rounded-corners{
     }
     .innerbox p{
         font-size: 15px;
+    }
+}
+
+@media only screen and (max-height: 920px){
+    .opendays{
+        width: 800px;
+    }
+    .opendays h3{
+        font-size:40px;
+        margin-top: 16px;
+    }
+    .opendays p{
+        font-size:22px;
+        font-weight: 400;
+        font-family: 'Inter';
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+}
+
+@media only screen and (max-height: 693px){
+    .opendays h3{
+        font-size:30px;
+        margin-top: 16px;
+        margin-bottom: 0;
+    }
+    .opendays p{
+        font-size:18px;
+        font-weight: 400;
+        font-family: 'Inter';
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .text-facilities p{
+        padding: 20px;
+        text-align: justify;
+        justify-content: center;
+        font-family: 'Inter', sans-serif;
+        line-height: 35px;
+    }
+
+    .text-facilities .submit-button{
+        margin-bottom: 200px;
+    }
+
+    .titletext h2{
+        font-size: 40px;
+        font-family: 'JetBrains Mono';
+        margin-bottom: 55px;
+    }
+    .innerbox{
+        padding: 20px 20px;
     }
 }
