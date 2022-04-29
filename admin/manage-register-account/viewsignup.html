@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Register Account</title>
+    <title>Sign Up Request</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -28,16 +28,16 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="../home.html">Home</a>
+                <a class="nav-link mx-1" aria-current="page" href="../home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../manage-register-account/viewsignup.html">Manage residents account</a>
+                <a class="nav-link mx-1 active" href="./viewsignup.html">Residents Account</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../manage-Covid19.html">Manage Covid-19 reporting</a>
+                <a class="nav-link mx-1" href="../manage-Covid19.html">Covid-19 Reporting</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../message.html">Messages</a>
+                <a class="nav-link mx-1" href="../message.html">Messages</a>
               </li>
             </ul>
           </div>
@@ -73,19 +73,19 @@
             <br><br>
             <li>
               <a href="./viewsignup.html">           
-              <span class="mx-2 active-sidenav nav-link sidenav-font"><img class="icon" src="../images/viewsignup.svg" alt="View Icon">    View Sign Up</span>
+              <span class="active-sidenav nav-link sidenav-font"><img class="icon" src="../images/viewsignup.svg" alt="View Icon"> Sign Up Request</span>
               </a>
             </li>
             <br>
             <li>
               <a href="./register.html">           
-                <span class="mx-2 nav-link sidenav-font"><img class="icon" src="../images/register.svg" alt="Register Icon">   Register</span>
+                <span class="nav-link sidenav-font"><img class="icon" src="../images/register.svg" alt="Register Icon">   Register</span>
               </a>
             </li>
             <br>
             <li>
               <a href="./viewlist.html">           
-                <span class="mx-2 nav-link sidenav-font"><img class="icon" src="../images/viewlist.svg" alt="View List Icon">   View List</span>
+                <span class="nav-link sidenav-font"><img class="icon" src="../images/viewlist.svg" alt="View List Icon">   Resident List</span>
               </a>
             </li>
           </ul>
@@ -97,70 +97,44 @@
           <nav class="navbar top-navbar navbar-light px-5">
             <a class="btn border-0" id="menu-btn">
               <img class="icon" src="../images/menu.svg" alt="Menu Icon">
-              <span class="mx-2 table-title">Sign Up List</span>
+              <span class="mx-2 table-title">Sign Up Request</span>
             </a>
           </nav>
 
           <div class="dropdown">           
-            
-              <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Delete Options
+            <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Delete Options
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <!-- select all--> 
+              <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
+                <a class="dropdown-item" href="#"><input type="button" onclick='selects()' value="Select All"/></a>
+              </button type>  
+              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a class="dropdown-item" href="#"><input type="button" value="Selected Checkbox"/></a>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <!-- select all/deselect all --> 
-                <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">             
-                  <a class="dropdown-item" href="#"><input type="button" onclick='selects()' value="Select All"/> </a>
-                </button type="button" class="btn">  
-                  <a class="dropdown-item" href="#"><input class="deselect-font" type="button" onclick='deSelect()' value="Deselect All"/> </a>
-                </button>
-                
-                <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <a class="dropdown-item" href="#">Block-A</Block-A></a>
-                </button>
-                <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <a class="dropdown-item" href="#">Block-B</a>
-                </button>
-                <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <a class="dropdown-item" href="#">Selected Checkbox</a>
-                </button>
-              </ul>
-            
-            <br><br>
-          </div>
+            </ul>
+          <br><br>
+        </div>
           
           <div class="table-responsive">
             <table id="example" class="table table-font table-borderless table-dark table-hover vertical-align: middle">
               <thead>
                   <tr>
                     <th scope="col"></th>
-                    <th scope="col">SV ID</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">IC No/Passport No</th>
-                    <th scope="col">Phone No</th>
+                    <th scope="col">Name</th>                  
                     <th scope="col">E-mail</th>
                     <th scope="col">Unit</th>
-                    <th scope="col">Vehicle No</th>
                     <th scope="col">Action</th>                 
                   </tr>
                 </thead>
                 <tbody>
                   <tr>                  
                     <th scope="row"><input type="checkbox" name="chk" value="1"></th>
-                    <td>SV2210001</td> 
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/sengfatt.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>LIEW SENG FATT</td>
-                    <td>Male</td>
-                    <td>40</td>
-                    <td>820522100223</td>
-                    <td>60183938196</td>
                     <td>ffattseng@gmail.com</td>              
                     <td>A-10-23</td>    
-                    <td>WA9909T</td> 
                     <td>                         
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -175,11 +149,11 @@
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
+                            <p>Are you sure you want to delete the selected resident's sign up request?</p> 
                           </div>
                           <div class="modal-footer border-0">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -197,7 +171,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body border-0">
-                            Data deleted successfully!
+                            Delete Successful!
                           </div>
                           <div class="modal-footer border-0">
                             <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
@@ -209,18 +183,10 @@
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="2"></th>
-                    <td>SV2210002</td> 
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/sarah.jpg" alt="portraits">    
-                    </td>
+                   
                     <td>SARAH BINTI ALI</td>
-                    <td>Female</td>
-                    <td>28</td>
-                    <td>940628100218</td>
-                    <td>60171231145</td>
                     <td>sarah@gmail.com</td>              
                     <td>B-13-09</td>    
-                    <td>NCT1270</td> 
                     <td> 
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -229,58 +195,14 @@
                       <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
-                      
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="3"></th>
-                    <td>SV2210003</td> 
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/siva.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>SIVA A/L SARVESH</td>
-                    <td>Male</td>
-                    <td>35</td>
-                    <td>870101101123</td>
-                    <td>60162233556</td>
                     <td>sivayyds@gmail.com</td>              
                     <td>B-15-08</td>    
-                    <td>LTY3345</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -290,57 +212,14 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="4"></th>
-                    <td>SV2210004</td> 
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/thomas.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>THOMAS DEILI</td>
-                    <td>Male</td>
-                    <td>50</td>
-                    <td>AC9901447</td>
-                    <td>601125798888</td>
                     <td>thomas@gmail.com</td>              
                     <td>B-13-45</td>    
-                    <td>LJN1126</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -350,57 +229,14 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="5"></th>
-                    <td>SV2210005</td> 
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/teeyong.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>LEE TEE YONG</td>
-                    <td>Male</td>
-                    <td>45</td>
-                    <td>770315120087</td>
-                    <td>60145599786</td>
                     <td>lee72yong@gmail.com</td>              
                     <td>A-18-12</td>    
-                    <td>ZCL7789</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -410,57 +246,14 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="6"></th>
-                    <td>SV2210006</td>
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/wendy.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>YEE WENDY</td>
-                    <td>Female</td>
-                    <td>25</td>
-                    <td>971110108898</td>
-                    <td>60187799636</td>
                     <td>yeewenndyyy@gmail.com</td>              
                     <td>A-05-02</td>    
-                    <td>YYD9764</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -470,57 +263,14 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="7"></th>
-                    <td>SV2210007</td>
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/chihui.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>LIEW CHI HUI</td>
-                    <td>Female</td>
-                    <td>29</td>
-                    <td>930617101166</td>
-                    <td>60185574211</td>
                     <td>liew93hui@gmail.com</td>              
                     <td>A-10-29</td>    
-                    <td>NJM9075</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -530,57 +280,14 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="8"></th>
-                    <td>SV2210008</td>
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/mark.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>MARK A/L STEVEN</td>
-                    <td>Male</td>
-                    <td>70</td>
-                    <td>520815149911</td>
-                    <td>60132298741</td>
                     <td>markyyds@gmail.com</td>              
                     <td>B-13-56</td>    
-                    <td>ZJH1997</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -590,57 +297,14 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="9"></th>
-                    <td>SV2210009</td>
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/kiki.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>TEH KIKI</td>
-                    <td>Male</td>
-                    <td>38</td>
-                    <td>840529015579</td>
-                    <td>60159963147</td>
                     <td>akiki84kumal@gmail.com</td>              
                     <td>A-10-10</td>    
-                    <td>XDJ1999</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -650,57 +314,14 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     </td>                
                   </tr>
                   <tr>
                     <th scope="row"><input type="checkbox" name="chk" value="10"></th>
-                    <td>SV2210010</td>
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/chongchenle.jpg" alt="portraits">    
-                    </td>
+                    
                     <td>CHONG CHENLE</td>
-                    <td>Male</td>
-                    <td>23</td>
-                    <td>990319102337</td>
-                    <td>60196758994</td>
                     <td>chongchenleaaa@gmail.com</td>              
                     <td>B-13-25</td>    
-                    <td>LHC2004</td> 
                     <td>
                       <a href="#">
                         <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
@@ -710,158 +331,24 @@
                         <img class="icon" src="../images/delete.svg" alt="Delete Icon">
                       </button>
                       
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </td>                
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" name="chk" value="11"></th>
-                    <td>SV2210011</td>
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/channy.jpg" alt="portraits">    
-                    </td>
-                    <td>CHANNY A/P KAVIN</td>
-                    <td>Female</td>
-                    <td>21</td>
-                    <td>010922056628</td>
-                    <td>60190225587</td>
-                    <td>channy6628@gmail.com</td>              
-                    <td>A-10-15</td>    
-                    <td>ZSC5566</td> 
-                    <td>
-                      <a href="#">
-                        <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
-                      </a>    
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <img class="icon" src="../images/delete.svg" alt="Delete Icon">
-                      </button>
-                      
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            <p>Are you sure you want to delete the data?</p> 
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Delete Successfully -->
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header border-0">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body border-0">
-                            Data deleted successfully!
-                          </div>
-                          <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </td>                
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" name="chk" value="12"></th>
-                    <td>SV2210012</td>
-                    <td>            
-                      <img class="portraits-size" src="../images/portraits/nana.jpg" alt="portraits">    
-                    </td>
-                    <td>LIM NANA</td>
-                    <td>Female</td>
-                    <td>75</td>
-                    <td>440504071234</td>
-                    <td>60185523699</td>
-                    <td>limnanaaaa@gmail.com</td>              
-                    <td>A-10-02</td>    
-                    <td>MIX7887</td> 
-                    <td>
-                      <a href="#">
-                        <img class="validateicon" src="../images/validate.svg" alt="Validate Icon">
-                      </a>    
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <img class="icon" src="../images/delete.svg" alt="Delete Icon">
-                      </button>
-      
                     </td>                
                   </tr>
                 </tbody>
           </table>
           </div>
-
     </div>
 
       
     <!-- footer -->  
-    <footer class="container-footer text-center text-lg-start">
-        <div class="footer row d-flex align-items-center">
-        <div class="col-lg-5 text-center text-lg-start social-media">
-          <a href="#">
-              <img src="../images/facebook.svg" alt="Facebook">
-          </a>
+    <footer class="container-footer text-center text-lg-center">
+      <div class="footer row d-flex align-items-center">
   
-          <a href="#">
-              <img src="../images/instagram.svg" alt="Instagram">
-          </a>
-  
-          <a href="#">
-              <img src="../images/whatsapp.svg" alt="WhatsApp">
-          </a>
-        </div>
-    
-        <!-- copyright text -->
-        <div class="col-lg-7 text-center text-lg-start">
-          Copyright © 2022 SV Community
-        </div>
-        </div>
-    </footer> 
+      <!-- copyright text -->
+      <div class="col-lg-12 m-2 text-center text-lg-center">
+        <i>Copyright © 2022 SV Community</i>
+      </div>
+      </div>
+  </footer> 
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

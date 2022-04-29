@@ -28,19 +28,45 @@ function selects(){
 }  
 
 //deselect all
-function deSelect(){  
-    var ele=document.getElementsByName('chk');  
-    for(var i=0; i<ele.length; i++){  
-        if(ele[i].type=='checkbox')  
-            ele[i].checked=false;  
+// function deSelect(){  
+//     var ele=document.getElementsByName('chk');  
+//     for(var i=0; i<ele.length; i++){  
+//         if(ele[i].type=='checkbox')  
+//             ele[i].checked=false;  
           
-    }  
-}   
+//     }  
+// }   
 
-//pagination and search
+// datatable (manage register account)
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable( {
+        columnDefs: [ {
+            "targets": [0,4],
+            "orderable": false         
+        } ],
+        select: {
+            style:    'os',
+            selector: 'td:first-child'
+        },
+        order: [[ 1, 'asc' ]]
+    } );
 } );
+
+// datatable (manage COVID-19)
+$(document).ready(function() {
+    $('#example-Covid19').DataTable( {
+        columnDefs: [ {
+            "targets": [0,6],
+            "orderable": false         
+        } ],
+        select: {
+            style:    'os',
+            selector: 'td:first-child'
+        },
+        order: [[ 1, 'asc' ]]
+    } );
+} );
+
 
 //submit form
 var values=[];
@@ -56,23 +82,18 @@ function handleFormSubmit(event) {
      alert("Register/Update Successfully!");
 }
 
-
-// click logout button
-// const logout = document.querySelector(".logoutbtn");
-// logout.addEventListener("click", function (){alert("Logout Successfully!")});    
-
-
+//logout
 function Alert() {
     var answer = confirm ("Click on OK to log out!")
     if (answer)
     window.location.href= "../login/login.html" ;
 }
-
 function Alert1() {
     var answer = confirm ("Click on OK to log out!")
     if (answer)
     window.location.href= "../../login/login.html" ;
 }
+
 
 
 
