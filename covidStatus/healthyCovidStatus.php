@@ -60,10 +60,10 @@
         const health = document.querySelector('.health');
         const report = document.querySelector('.report');
         health.addEventListener('click', () => {
-            window.location.href = 'health.html';
+            window.location.href = 'health.php';
         });
         report.addEventListener('click', () => {
-            window.location.href = 'report.html';
+            window.location.href = 'report.php';
         });
 
     </script>

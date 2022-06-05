@@ -31,7 +31,7 @@
 
             <div class="symptom">
                 <h4>Symptom</h4>
-                <div class="symptom-block">Symptomless</div>
+                <div class="symptom-block symptomless">Symptomless</div>
                 <div class="symptom-block">Slight</div>
                 <div class="symptom-block">Severe</div>
             </div>
@@ -123,17 +123,18 @@
         dayCount.style.marginLeft = `${((currDay - 1) / totalDay) * 100}%`;
         progressFill.style.width = `${currDay / totalDay * 100}%`;
 
-        const symptomBlocks = document.querySelectorAll('.symptom-block');
-        const symptomClasses = ['symptomless', 'slight', 'severe'];
-        symptomBlocks[0].classList.add(symptomClasses[0]);
-        symptomBlocks.forEach((block, index) => {
-            block.addEventListener('click', () => {
-                symptomBlocks.forEach(block => {
-                    block.classList.remove('symptomless', 'slight', 'severe');
-                });
-                block.classList.add(symptomClasses[index]);
-            });
-        });
+        //// Let resident set their own symptom
+        // const symptomBlocks = document.querySelectorAll('.symptom-block');
+        // const symptomClasses = ['symptomless', 'slight', 'severe'];
+        // symptomBlocks[0].classList.add(symptomClasses[0]);
+        // symptomBlocks.forEach((block, index) => {
+        //     block.addEventListener('click', () => {
+        //         symptomBlocks.forEach(block => {
+        //             block.classList.remove('symptomless', 'slight', 'severe');
+        //         });
+        //         block.classList.add(symptomClasses[index]);
+        //     });
+        // });
 
         const service = document.querySelector('.service');
         const tab = document.querySelector('.tab');
@@ -153,7 +154,7 @@
         })
         //health declaration
         actions[1].addEventListener('click', () => {
-            window.location.href = 'health.html';
+            window.location.href = 'health.php';
         })
         //test kit
         actions[2].addEventListener('click', () => {
