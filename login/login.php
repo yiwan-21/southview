@@ -1,3 +1,8 @@
+
+<?php
+// include("loginserv.php"); // Include loginserv for checking username and password
+?>
+
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -37,13 +42,14 @@
                         
                         <div class="col-lg-4 col-md-4  bg">
                             <h3 class="text-center">Login to Your Account</h3>
-                            <form onsubmit="handleFormSubmit(event)">
+                            <!-- onsubmit="handleFormSubmit(event)" -->
+                            <form action="loginuser.php" method="post" >
                             <table class="table table-borderless"  >
                                 <tr>
-                                   <td><input type="text" name="" class="form-control" placeholder="Enter SV ID" id="svid" required></td> 
+                                   <td><input type="text" name="svid" class="form-control" placeholder="Enter SV ID" id="svid" required></td> 
                                 </tr>
                                 <tr>
-                                    <td><input type="password" name="" class="form-control" placeholder="Enter Password" id="logpw" inputmode="numeric" minlength="8"
+                                    <td><input type="password" name="password" class="form-control" placeholder="Enter Password" id="logpw" inputmode="numeric" minlength="8"
                                         maxlength="15" size="15" required></td>
                                        
                                 </tr>
@@ -55,7 +61,7 @@
                                         <div class=" dropdown">   
                                             <h6>Choose your status:</h6>
                                             <label for="status"></label>
-                                            <select id="status">
+                                            <select id="status" name='role'>
                                                 <option id="admin" value="Administrator">Administrator</option>
                                                 <option id="resident" value="Resident">Resident</option>
                                             </select>
@@ -65,7 +71,8 @@
                                 <tr>
                                     <td>
                                         <!-- <a id=loginlink href="/southview-fe/Homepage/indexHomepage.html"> -->
-                                        <input type="submit" name="" class="form-control text-center" value="LOGIN" id="loginbtn">
+                                        <input type="submit" name="submit" class="form-control text-center" value="LOGIN" id="loginbtn">
+                                        <!-- <button name='submit' id="submitbtn" type="submit" class="form-control text-center">Login</button> -->
                                         <!-- </a> -->
                                     </td>
                                 </tr>
@@ -95,14 +102,6 @@
             }
                 function handleFormSubmit(event) {
                     event.preventDefault();
-                    const id = document.getElementById("svid").value;
-                    const pw = document.getElementById("logpw").value;
-                    const status = document.getElementById("status").value;
-                    if (status === "Administrator") {
-                        window.location.href = "/admin/home.html";
-                    } else {
-                        window.location.href = "/Homepage/indexHomepage.html";
-                    }
                 }
             </script>
         </body>
