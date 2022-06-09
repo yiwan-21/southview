@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@300&family=JetBrains+Mono:wght@800&display=swap');
+
+body {
+    margin: 0;
+    padding-top: 6rem !important;
+    /* min-height: 100%; */
+    min-height: calc(100vh - 96px - 64px);
+}
+
+/****** Navigation bar styling *******/
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.navbar {
+    font-family: 'IBM Plex Mono', sans-serif;
+    background-color: #171819;
+    margin-right: 0;
+    padding-right: 0;
+    position:fixed;
+    height: 6rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.max-width{
+    max-width: auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar .menu {
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar .menu li a{
+    color: #25E5F8;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 45px;
+    transition: all 0.3s ease;
+    appearance: none;
+    text-decoration: none;
+    /* display: block; */
+    display: flex;
+}
+
+.navbar .menu li a:hover {
+    color: #fff;
+    font-weight: 700;
+    transform: scale(1.05);
+}
+
+.navbar #person {
+    color: #25E5F8;
+    font-size: 25px;
+    font-weight: 500;
+    /* margin-bottom: 20px; */
+    margin: auto;
+    margin-left: 25px;
+    transition: all 0.3s ease;
+    display: block;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+
+.navbar #person:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+#logo {
+    width: 7rem;
+    cursor: pointer;
+}
+
+.menu-btn{
+    /* color: #25E5F8; */
+    font-size: 23px;
+    cursor: pointer;
+    margin-top: 2px;
+    margin-left: 45px;
+    display: none;
+    transition: all 0.3s ease;
+  }
+
+.menu-btn:hover{
+    color: #fff;
+    transform: scale(1.2);
+}
+
+.menu-btn i.active:before{
+    /* content: "\f00d"; */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='53.7' height='53.7' viewBox='0 0 53.7 53.7'><path opacity='.6' fill='%23666E6E' d='M35.6 34.4L28 26.8l7.6-7.6c.2-.2.2-.5 0-.7l-.5-.5c-.2-.2-.5-.2-.7 0l-7.6 7.6-7.5-7.6c-.2-.2-.5-.2-.7 0l-.6.6c-.2.2-.2.5 0 .7l7.6 7.6-7.6 7.5c-.2.2-.2.5 0 .7l.5.5c.2.2.5.2.7 0l7.6-7.6 7.6 7.6c.2.2.5.2.7 0l.5-.5c.2-.2.2-.5 0-.7z'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+    padding-left: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+  /* menu bars icon css */
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #25E5F8;
+  }
+  
+  .svg-icon circle {
+    stroke: #25E5F8;
+    stroke-width: 1;
+  }
+
+/****** Pop Out Profile Window ******/
+.profile {
+    display: none;
+    position: absolute;
+    top: 4.5rem;
+    right: 0.5rem;
+}
+
+.active {
+    display: block;
+}
+
+.profile-detail {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    z-index: 1;
+    background-color:rgba(89,83,83, 1);
+    border-radius: 10px;
+}
+
+.profile-detail > a {
+    border-bottom: 3px solid white;
+    margin: 0 1rem;
+    padding: 1.5rem 1rem;
+    font-style: normal;
+    text-align: center;
+    appearance: none;
+    text-decoration: none;
+}
+
+.profile-detail > a:hover {
+    color: #25E5F8;
+    transform: scale(1.05);
+}
+
+.profile-detail :last-child {
+    border: none;
+}
+
+.profile-detail > a {
+    color: #fff;
+    text-align:center;
+}
+
+.logout {
+    color: #f54242;
+}
+
+/****** Chatting ******/
+.chat {
+    color: #25E5F8;
+    position: fixed;
+    top: 88%;
+    left: 93%;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+}
+
+.chat:hover {
+    cursor: pointer;
+    color:#23D2E3;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    z-index: 9;
+}
+  
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #89969e;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-container h1 {
+      color: white;
+      font-family: 'Inter';
+}
+
+.form-container label {
+      padding-left: px;
+      font-family: 'Inter';
+}
+  
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    border-radius: 10px;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+}
+
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+  
+.form-container .btn {
+    background-color: #23D2E3;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 1;
+}
+  
+.form-container .cancel {
+    background-color: red;
+}
+ 
+.form-container .btn:hover, .open-button:hover {
+    opacity: 0.8;
+    color:#ddd
+}
+
+/****** FOOTER Section ******/
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFF;
+    height: 4rem;
+}
+
+.sv-copyright {
+    align-self: center;
+    font-family: 'Inter';
+    text-align: center; 
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.sv-icons {
+    padding-left: 20px;
+    display: flex;
+}
+
+.sv-icons, .emptysv{
+    flex: 1;
+}
+
+.my-icon {
+    align-self: center;
+    -webkit-background-clip: text;
+    padding-right: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.my-icon:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 1042px){
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
+    .navbar .menu{
+        position: fixed;
+        /* height: 100vh; */
+        width: 100%;
+        /* left: -100%; */
+        left: 0;
+        display: none;
+        top: 0;
+        background: #111;
+        text-align: center;
+        padding: 80px 40px;
+        transition: all 0.3s ease;
+        /* display: block; */
+    }
+    .navbar .menu.active{
+        /* left: 0; */
+        display: block;
+    }
+
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+    .max-width {
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 800px){
+    .footer{
+        display: block;
+        height: 5rem;
+    }
+    .sv-icons{
+        justify-content: center;
+    }
+    .sv-copyright{
+        font-size: 17px;
+    }
+}
+
+/* @media only screen and (max-width: 734px) {
+    .menu{
+
+    }
+} */
+@media (max-width: 600px) {
+
+
+
+    /* .menu a:not(:first-child) 
+        {display: none;
+        }
+    .menu #icon {
+      float: right;
+      display: block;
+    } */
+  }
+
+
+@media (max-width: 700px) {
+    
+}
+
+

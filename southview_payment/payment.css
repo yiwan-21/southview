@@ -1,0 +1,145 @@
+/* payment home page */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+body{
+    background-image: url(../images/Southview-Background-Normal.png);
+    font-family: 'Inter', sans-serif;
+}
+
+.white_boundary{
+    background-color: white;
+    border-radius: 10px;
+}
+
+h1{
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-img{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-setting{
+    margin-bottom: 20px;
+}
+
+.card-color{
+    background-color: #C4C4C4;
+}
+
+.card-color:hover{
+    background-color: #25E5F8;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: white;
+}
+
+/* payment success page */
+
+#grey-bg{
+    border-radius: 10px;
+}
+
+.tick{
+    width: 150px;
+    height: 150px;
+}
+
+.payment-banner{
+    font-size: 3em; 
+    font-weight: bold;
+    text-align: center;
+}
+
+#btn-setting{
+    width:250px;
+    height:60px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color:#25E5F8;
+    color:#000;
+}
+
+#btn-setting:hover{
+    background-color: #23D2E3;
+    color: #fff;
+}
+
+.payment-detail{
+    font-size: 1.5em;
+}
+
+th, strong{
+    font-weight: 900px;
+    color: black;
+}
+
+/* payment management page 1 */
+#grey-bg2{
+    border-radius: 10px;
+}
+
+#anyone-pay{
+    color:white;
+    width:300px;
+    height:60px;
+    align-content: center;
+}
+
+#anyone-pay:hover{
+    border-bottom-color: #25E5F8;
+    color:#25E5F8;
+    font-weight: bold;
+}
+
+.active{
+    border-bottom-color: #25E5F8;
+    color:#25E5F8;
+    font-weight: bold;
+}
+
+#self-pay{
+    color:white;
+    width:300px;
+    height:60px;
+    align-content: center;
+}
+
+#self-pay:hover{
+    border-bottom-color: #25E5F8;
+    color:#25E5F8;
+    font-weight: bold;
+}
+
+#radio-btn{
+    top:50px;
+    height: 30px;
+    width:30px;
+}
+
+#p-text{
+    font-size: 2em;
+    top: 50px;
+}
+
+/* payment management page 2 */
+#p-text-2{
+    position: relative;
+    font-size: 1em;
+    font-weight:bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

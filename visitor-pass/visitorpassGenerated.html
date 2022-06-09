@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lan="en" and dir="Itr">
+    <head>   
+        <meta charset="utf-8">
+        <title>Visitor Pass Generated</title>    
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+            </head>
+            <body> 
+              
+    <script src="/navigation/navigation.js"></script>
+
+                <div class="box2">
+                    <div id="content" class="background">
+                        <img id="image1" src="images/Logo SV transaparent.png" >
+                    <h1>
+                        Visitor Pass
+                    </h1>
+                    <h2>SOUTH VIEW Serviced Apartments</h2>
+                    <img id="image1" src="images/VP001.png" >
+                    <h5>Visitor Pass ID : VP001</h5>
+                        <p style="font-style: italic;">
+                            This is the property of the management. Please shows the QR code when you received at the guardhouse for identification purpose. Thank you for your kind co-operation.
+                        </p>
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    </div>
+                <button class="btn" id="download"><i class="fa fa-download"></i> Download</button>
+                </div>
+                <script>
+                    window.onload = function () {
+                    document.getElementById("download")
+                        .addEventListener("click", () => {
+                            const content = this.document.getElementById("content");
+                            var opt = {
+                                margin: 1,
+                                filename: 'visitor pass.pdf',
+                                image: { type: 'jpeg', quality: 0.98 },
+                                html2canvas: { scale: 2 },
+                                jsPDF: { unit: 'cm', format: 'letter', orientation: 'landscape' }
+                            };
+                            html2pdf().from(content).set(opt).save();
+                        })
+                    }
+                </script>   
+                </body>
+</html>

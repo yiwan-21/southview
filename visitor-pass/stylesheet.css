@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Inter&display=swap');
+*{font-family: 'Inter',sans-serif;}
+
+body{
+    margin:0;
+    padding:0;
+    font-family:'Inter',sans-serif;
+    background-image: url(images/Southview-Background-Normal.png);
+    background-size:cover;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+.wrapper {
+    display:flex;
+    justify-content: center;
+    height:80vh;
+    align-items: center; 
+}
+
+.card {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
+
+.form-control-label {
+    margin-bottom: 0
+}
+
+/* form input */
+input,
+textarea,
+button {
+    padding: 8px 15px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 18px !important;
+    font-weight: 300
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;
+    font-weight: 400
+}
+
+.btn-block {
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    background-color:#25E5F8;
+    color:#000;
+    cursor: pointer
+}
+
+.btn-block:hover {
+    background-color: #23D2E3!important;
+    color: #fff; 
+}
+ /* submit form */
+#btn-next{
+    height:45px;
+    font-size: 1.3em;
+    border-radius: 20px;
+    background-color:#25E5F8;
+    color:#fff;
+    font-family: 'ABeeZee',sans-serif;
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+
+::placeholder{
+    font-family: 'Inter',sans-serif;
+}
+
+option{
+    font-family: 'Inter',sans-serif;
+}
+
+#image1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 30%;
+  
+    margin-bottom: 10px;
+}
+
+.box{
+   width:500px;
+    padding:90px;
+    top:70%;
+    left:70%;
+    background-color:#fff;
+    margin: auto;
+    padding: 70px;
+    border:1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+.box2{
+    width: 70%;
+     padding:85px;
+     top:70%;
+     left:70%;
+     background-color:rgb(222, 220, 220);
+     margin: auto;
+     padding: 70px;
+     border:40px solid white;
+     border-radius: 15px;
+     text-align: center;
+ }
+ .box3{
+    width:70%;
+     padding:85px;
+     top:70%;
+     left:70%;
+     background-color:rgb(255, 255, 255);
+     margin: auto;
+     padding: 70px;
+     border:1px solid black;
+     border-radius: 15px;
+     overflow-y: auto;
+ }
+
+.box input[type="next"]{
+    border:0;
+    background:#25E5F8;
+    display:block;
+    margin:auto;
+    text-align: center;
+    color:white;
+    border:2px solid none;
+    padding: 10px 5px;
+    outline:none;
+    font-family: 'ABeeZee',sans-serif;
+    width: 100px;
+    border-radius: 20px;
+    cursor:pointer;
+}
+
+/* Style buttons */
+.btn {
+    background-color: #25E5F8;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+ /* download pdf */
+  .background{
+    background-color:rgb(222, 220, 220);
+    text-align: center;
+    padding-bottom: 25px;
+} 
+
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: #23D2E3;
+    color: #fff;
+  }

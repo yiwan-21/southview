@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South View</title>
+    <link rel="icon" href="../southview_payment/images/Logo SV.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../southview_payment/payment.css">
+</head>
+
+<body>
+    <!-- nav bar -->
+    <script src="/navigation/navigation.js"></script>
+    <form onsubmit="submitPayment(event)">
+        <div class="mx-5 my-5 card white_boundary">
+            <h1>Payment - Sewage</h1>
+            <div class="mx-5 my-5 " id="grey-bg" style="background-color: rgb(0,0,0,0.5);">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                        <a href="../southview_payment/payment-sewage1.html"><button type="button" class="btn"
+                                id="self-pay">Pay My Bills</button></a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                        <a href="../southview_payment/payment-sewage2.html"><button type="button" class="btn active"
+                                id="anyone-pay">Pay For Anyone</button></a>
+                    </div>
+                </div>
+                <div class="mx-5 my-5 " id="grey-bg2" style="background-color: #C4C4C4;">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col" id="p-text-2">
+                                <label>Payee SV-ID</label><br><input type="text" class="form-control" required><br>
+                                <label>Payer E-Mail</label><br><input type="email" class="form-control" required>
+                            </div>
+                            <div class="col" id="p-text-2">
+                                <label><strong>RM<strong></label><input type="text" placeholder="0.00"
+                                    class="form-control" required>
+                            </div>
+                            <div class="col" id="p-text-2">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-9 col-md col-sm"></div>
+                    <div class="col-lg-3 mb-3 col-md-5 col-sm-9 col-xs-12">
+                        <a href="../southview_payment/payment-success.html"><button type="submit" class="btn"
+                                id="btn-setting">Next</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- footer -->
+    <script type="text/javascript" src="../southview_payment/payment.js"></script>
+</body>
+
+</html>

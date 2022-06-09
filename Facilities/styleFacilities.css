@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@300&family=JetBrains+Mono:wght@800&display=swap');
+
+html{
+  height: 100%;
+}
+
+body {
+    background: url('images/Southview-Background-Normal.png');
+    background-size:cover;
+}
+
+/* Facilities Content */
+.faci-content{
+    width: 100%;
+}
+
+.owl-carousel{
+    width:100%;
+    justify-content: center;
+    display: flex;
+}
+.carousel .card{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 1300px;
+    height:77vh;
+    transition: all 0.3s ease;
+    margin:10px 20px;
+}
+
+.carousel .card:hover{
+    background: #23D2E3;
+    cursor: pointer;
+}
+.carousel .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 7px 0;
+    transition: all 0.3s ease;
+}
+.carousel .card:hover .box{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.carousel .card .text{
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+}
+.carousel .card p{
+    color: white;
+}
+.carousel .card img{
+  position: relative;
+  height: 200px;
+  width:200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #25E5F8;
+  transition: all 0.3s ease;
+}
+.carousel .card:hover img{
+  border-color: #fff;
+}
+.carousel .card:hover .text{
+    color: black;
+    font-weight: 700;
+}
+.carousel .card:hover p{
+    color: black;
+    font-size: 20px;
+}
+
+@media (max-width: 991px){
+    .max-width{
+      padding: 0 50px;
+    }
+  }
+
+@media (max-width: 840px){
+  .max-width{
+    padding: 0 23px;
+  }
+  .owl-carousel{
+    flex-wrap: wrap;
+  }
+  .carousel .card{
+    padding: 20px 25px;
+  }
+  
+}
+
+@media (max-width: 310px){
+  .max-width{
+    padding: 0 23px;
+  }
+  .carousel .card{
+    width: 100%;
+    padding: 20px 140px;
+  }
+}
+
