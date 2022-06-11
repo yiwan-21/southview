@@ -1,3 +1,37 @@
+<?php
+    include 'INCLUDES/dbh.inc.php';
+    $dbh = new dbh();
+    $conn = $dbh-> connect();
+
+    if(isset($_POST['submit'])){
+        $Resident_svID = 1;
+
+        $sql = 'SELECT Unit, `Name` FROM resident WHERE Resident_svID = \''.$Resident_svID.'\'';
+        $result = $conn-> query($sql);
+        $row = $result-> fetch_assoc();
+        $Unit = $row["Unit"];
+        $Name = $row["Name"];
+
+        $Q1 = implode(",", $_POST['Q1']);
+        $Q2 = $_POST['Q2'];
+        $Q3 = $_POST['Q3'];
+        $Q3_end = date("Y-m-d", strtotime($Q3 . "+1 week"));
+        $Q4 = $_POST['Q4'];
+        $Q5 = $_POST['Q5'];
+
+        if(empty($Q1)){
+            echo "<script>alert('Please filled in required field');</script>";
+        }
+        else{
+            $stmt = $conn-> prepare("INSERT INTO `covid-19 patient` (Resident_svID, Unit, `Name`, Symptom, Self_Living, Date_Start, Date_End, Test_Type, `Pre-Existing_Disease`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt-> bind_param('isssissss', $Resident_svID, $Unit, $Name, $Q1, $Q2, $Q3, $Q3_end, $Q4, $Q5);
+            $stmt-> execute();
+            $stmt-> close();
+            echo '<script>window.location.href = \'covidStatus.php\';</script>';
+        }
+    }      
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,41 +49,41 @@
 <body>
     <div class="tab">
         <h2>REPORT POSITIVE</h2>
-        <form onsubmit="handleFormSubmit(event)" class="form">
+        <form action = 'report.php' class="form" method = 'post'>
             <div class="question">
                 <label for="Q1">1. Do you have any of the following symptoms?<span class="red">*</span></label>
                 <div class="answer checkbox required">
-                    <input type="checkbox" name="Q1" value="Fever" id="fever">
+                    <input type="checkbox" name="Q1[]" value="Fever" id="remove">
                     <label for="fever">Fever</label>
-                    <input type="checkbox" name="Q1" value="Cough" id="cough">
+                    <input type="checkbox" name="Q1[]" value="Cough" id="remove">
                     <label for="cough">Cough</label>
-                    <input type="checkbox" name="Q1" value="Shortness of breath" id="shortness">
+                    <input type="checkbox" name="Q1[]" value="Shortness of breath" id="remove">
                     <label for="shortness">Shortness of breath</label>
-                    <input type="checkbox" name="Q1" value="Sore throat" id="sore">
+                    <input type="checkbox" name="Q1[]" value="Sore throat" id="remove">
                     <label for="sore">Sore throat</label>
-                    <input type="checkbox" name="Q1" value="Difficulty breathing" id="difficulty">
+                    <input type="checkbox" name="Q1[]" value="Difficulty breathing" id="remove">
                     <label for="difficulty">Difficulty breathing</label>
-                    <input type="checkbox" name="Q1" value="Runny nose" id="runny">
+                    <input type="checkbox" name="Q1[]" value="Runny nose" id="remove">
                     <label for="runny">Runny nose</label>
-                    <input type="checkbox" name="Q1" value="Loss of taste or smell" id="taste">
+                    <input type="checkbox" name="Q1[]" value="Loss of taste or smell" id="remove" >
                     <label for="taste">Loss of taste or smell</label>
-                    <input type="checkbox" name="Q1" value="Other" id="other">
+                    <input type="checkbox" name="Q1[]" value="Other" id="remove" >
                     <label for="other">Other</label>
-                    <input type="checkbox" name="Q1" value="None of the above" id="none">
+                    <input type="checkbox" name="Q1[]" value="None of the above" id="remove" >
                     <label for="none">None of the above</label>
                 </div>
             </div>
             <div class="question">
-                <label for="Q2">2. Are you staying alone in the apartment?<span class="red">*</span></label>
+                <label for="Q2">2. Are you staying alone in the appartment?<span class="red">*</span></label>
                 <div class="answer">
-                    <input type="radio" name="Q2" value="Yes" id="yes-2">
-                    <label for="yes-2">Yes</label>
-                    <input type="radio" name="Q2" value="No" id="no-2">
-                    <label for="no-2">No</label>
+                    <input type="radio" name="Q2" value=1 id="yes" required>
+                    <label for="saliva">Yes</label>
+                    <input type="radio" name="Q2" value=0 id="no">
+                    <label for="nasal">No</label>
                 </div>
             </div>
             <div class="question">
-                <label for="Q3">3. When did you test positive?<span class="red">*</span></label>
+                <label for="Q3">3. When did symptoms start?<span class="red">*</span></label>
                 <div class="answer">
                     <input type="date" name="Q3" id="date" required>
                 </div>
@@ -81,33 +115,10 @@
                     Action can be taken if the information provded is false.
                 </span>
             </div>
-            <button type="submit" class="submit">Submit</button>
+            <button type="submit" name="submit" class="submit" >Submit</button>
         </form>
     </div>
 
     <script src="/navigation/navigation.js"></script>
-    <script>
-        const required = document.querySelectorAll('.required');
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            let isValid = false;
-            Array.from(required[0].children).forEach(child => {
-                if (child.checked) {
-                    isValid = true;
-                }
-            });
-            if (!isValid) {
-                alert('Please fill out all required fields');
-                return;
-            }
-            formData.forEach((value, key) => {
-                console.log(key, value);
-            })
-            window.location.href = 'covidStatus.php';
-        }
-    </script>
 </body>
 </html>
