@@ -1,3 +1,7 @@
+<?PHP
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +22,7 @@
         <form onsubmit="handleFormSubmit(event)" class="form">
             <div class="question">
                 <label for="Q1">1. Do you have any of the following symptoms?<span class="red">*</span></label>
-                <div class="answer checkbox">
+                <div class="answer checkbox required">
                     <input type="checkbox" name="Q1" value="Fever" id="fever">
                     <label for="fever">Fever</label>
                     <input type="checkbox" name="Q1" value="Cough" id="cough">
@@ -86,21 +90,26 @@
 
     <script src="/navigation/navigation.js"></script>
     <script>
-        const questions = document.querySelectorAll('.question');
+        const required = document.querySelectorAll('.required');
 
         function handleFormSubmit(event) {
             event.preventDefault();
             const form = event.target;
             const formData = new FormData(form);
-            let isFilled = (Array.from(formData.values()).length - 1) === questions.length;
-            if (!isFilled) {
-                alert('Please fill all the required fields');
+            let isValid = false;
+            Array.from(required[0].children).forEach(child => {
+                if (child.checked) {
+                    isValid = true;
+                }
+            });
+            if (!isValid) {
+                alert('Please fill out all required fields');
                 return;
             }
             formData.forEach((value, key) => {
                 console.log(key, value);
             });
-            window.location.href = '/covidStatus/healthyCovidStatus.html';
+            window.location.href = '/covidStatus/healthyCovidStatus.php';
         }
     </script>
 </body>

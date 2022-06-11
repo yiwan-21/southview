@@ -40,9 +40,12 @@
                 </div>
             </div>
             <div class="question">
-                <label for="Q2">2. When did symptoms start?<span class="red">*</span></label>
+                <label for="Q2">2. Are you staying alone in the apartment?<span class="red">*</span></label>
                 <div class="answer">
-                    <input type="date" name="Q2" id="date" required>
+                    <input type="radio" name="Q2" value="Yes" id="yes-2">
+                    <label for="yes-2">Yes</label>
+                    <input type="radio" name="Q2" value="No" id="no-2">
+                    <label for="no-2">No</label>
                 </div>
             </div>
             <div class="question">
@@ -60,8 +63,9 @@
                     <label for="nasal">Self test nasal</label>
                     <input type="radio" name="Q4" value="PCR" id="pcr">
                     <label for="pcr">PCR</label>
-                    <input type="radio" name="Q4" value="Other" id="other">
-                    <label for="other">Other</label>
+                    <input type="radio" name="Q4" value="Other" id="other-4">
+                    <label for="other-4">Other</label>
+
                 </div>
             </div>
             <div class="question">
@@ -102,7 +106,7 @@
             formData.forEach((value, key) => {
                 console.log(key, value);
             })
-            window.location.href = 'covidStatus.html';
+            window.location.href = 'covidStatus.php';
         }
     </script>
 </body>

@@ -1,3 +1,23 @@
+<?PHP
+    include "../connect.php";
+    session_start();
+    // echo "<script>console.log('Svid: " . $_SESSION['svid'] . "');</script>";
+    // echo "<script>console.log('Password: " . $_SESSION['password'] . "');</script>";
+
+    $query = "SELECT COUNT(*) FROM `covid-19 patient` WHERE `Resident_svID` = '" . $_SESSION['svid'] . "'";
+    $result = mysqli_query($conn, $query);
+    while($res = mysqli_fetch_array($result)){
+        $count = $res[0];
+        // echo "<script>console.log('count: " . $count . "');</script>";
+    }
+
+    mysqli_close($conn);
+
+    if ($count == 1) {
+        header("Location: ./covidStatus.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

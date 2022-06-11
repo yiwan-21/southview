@@ -62,8 +62,8 @@
                                             <h6>Choose your status:</h6>
                                             <label for="status"></label>
                                             <select id="status" name='role'>
-                                                <option id="admin" value="Administrator">Administrator</option>
                                                 <option id="resident" value="Resident">Resident</option>
+                                                <option id="admin" value="Administrator">Administrator</option>
                                             </select>
                                         </div>
                                     </td>

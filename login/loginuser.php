@@ -1,5 +1,8 @@
 <?php
+
+include "../connect.php";
 session_start();
+
 $_SESSION["svid"] = $_POST["svid"];
 $_SESSION["password"] = $_POST["password"];
 if(isset($_SESSION["svid"])) {
@@ -22,7 +25,7 @@ if(isset($_POST['submit'])){
         $user=$_POST['svid'];
         $password=$_POST['password'];
         //Establishing Connection with server by passing server_name, user_id and pass as a patameter
-        $conn = mysqli_connect('localhost','root',"",'south view',3325);
+        // $conn = mysqli_connect('localhost','root',"",'south view',3325);
         //Selecting Database
         //$db = mysqli_select_db($conn, "test");
         //sql query to fetch information of registerd user and finds user match.
