@@ -1,3 +1,19 @@
+<?php
+    include 'INCLUDES/dbh.inc.php';
+    include 'INCLUDES/user.inc.php';
+
+    $dbh = new dbh();
+    $conn = $dbh-> connect();
+
+    if(isset($_POST['service_submit'])){
+        $Resident_svID = 1;
+
+        $service = $_POST['service'];
+        $text = trim($_POST['message']);
+        $sql = "INSERT INTO `message` (Resident_svID, Service_Type, Message_Content) VALUES (".$Resident_svID.", '".$service."', '".$text."')";
+        $conn-> query($sql);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,28 +80,33 @@
                 <h2>Daily</h2>
                 <p class="cases">
                     <span>Active Cases</span>
+                    <span><?php $users = new User(); $users-> dailyCase();?></span>
                 </p>
                 <p class="cases">
                     <span>Recovered</span>
+                    <span><?php $users = new User(); $users-> dailyRecovered();?></span>
                 </p>
             </div>
             <div class="weekly">
                 <h2>Weekly</h2>
                 <p class="cases">
                     <span>Active Cases</span>
+                    <span><?php $users = new User(); $users-> weeklyCase();?></span>
                 </p>
                 <p class="cases">
                     <span>Recovered</span>
+                    <span><?php $users = new User(); $users-> weeklyRecovered();?></span>
                 </p>
             </div>
             <h2 class="total">
                 <span>Total Active Cases</span>
+                <span><?php $users = new User(); $users-> getAllCase();?></span>
             </h2>
         </div>
 
     </div>
     <div class="service">
-        <form onsubmit="handleFormSubmit(event)">
+        <form action = "covidStatus.php" method = "post">
             <div class="selection">
                 <h3>Service needed: </h3>
                 <select name="service" id="service">
@@ -98,11 +119,11 @@
             </div>
             <div class="message">
                 <h3>Message: </h3>
-                <textarea name="message" id="message" cols="45" rows="7" required></textarea>
+                <textarea name="message" id="message" cols="45" rows="7"></textarea>
             </div>
             <div class="service-buttons">
                 <button onclick="closeService()">Close</button>
-                <button type="submit">Submit</button>
+                <button type="submit" name="service_submit">Submit</button>
             </div>
         </form>
     </div>
@@ -159,30 +180,6 @@
         actions[2].addEventListener('click', () => {
             upload.classList.toggle('upload-active');
         })
-
-        const cases = document.querySelectorAll('.cases');
-        const total = document.querySelector('.total');
-        let totalCases = 0;
-        let amount = Math.floor(Math.random() * 20);
-        totalCases += amount;
-        cases[0].appendChild(document.createTextNode(amount));
-        cases[1].appendChild(document.createTextNode(`${Math.abs(amount - Math.floor(Math.random() * 20))}`));
-        amount = Math.floor(Math.random() * 150);
-        totalCases += amount;
-        cases[2].appendChild(document.createTextNode(amount));
-        cases[3].appendChild(document.createTextNode(`${Math.abs(amount - Math.floor(Math.random() * 150))}`));
-        total.appendChild(document.createTextNode(totalCases));
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            form[1].value = '';
-            form.lastElementChild.value = '';
-            formData.forEach((value, key) => {
-                console.log(key, value);
-            });
-        }
 
         function handleFileUpload(event) {
             event.preventDefault();

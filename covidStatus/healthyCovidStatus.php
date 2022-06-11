@@ -1,3 +1,8 @@
+<?php
+    include 'INCLUDES/dbh.inc.php';
+    include 'INCLUDES/user.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,22 +24,27 @@
                 <h2>Daily</h2>
                 <p class="cases">
                     <span>Active Cases</span>
+                    <span><?php $users = new User(); $users-> dailyCase();?></span>
                 </p>
                 <p class="cases">
                     <span>Recovered</span>
+                    <span><?php $users = new User(); $users-> dailyRecovered();?></span>
                 </p>
             </div>
             <div class="weekly">
                 <h2>Weekly</h2>
                 <p class="cases">
                     <span>Active Cases</span>
+                    <span><?php $users = new User(); $users-> weeklyCase();?></span>
                 </p>
                 <p class="cases">
                     <span>Recovered</span>
+                    <span><?php $users = new User(); $users-> weeklyRecovered();?></span>
                 </p>
             </div>
             <h2 class="total">
                 <span>Total Active Cases</span>
+                <span><?php $users = new User(); $users-> getAllCase();?></span>
             </h2>
 
             <div class="health">HEALTH DECLARATION</div>
@@ -44,28 +54,14 @@
 
     <script src="/navigation/navigation.js"></script>
     <script>
-        const cases = document.querySelectorAll('.cases');
-        const total = document.querySelector('.total');
-        let totalCases = 0;
-        let amount = Math.floor(Math.random() * 20);
-        totalCases += amount;
-        cases[0].appendChild(document.createTextNode(amount));
-        cases[1].appendChild(document.createTextNode(`${Math.abs(amount - Math.floor(Math.random() * 20))}`));
-        amount = Math.floor(Math.random() * 150);
-        totalCases += amount;
-        cases[2].appendChild(document.createTextNode(amount));
-        cases[3].appendChild(document.createTextNode(`${Math.abs(amount - Math.floor(Math.random() * 150))}`));
-        total.appendChild(document.createTextNode(totalCases));
-
         const health = document.querySelector('.health');
         const report = document.querySelector('.report');
         health.addEventListener('click', () => {
-            window.location.href = 'health.html';
+            window.location.href = 'health.php';
         });
         report.addEventListener('click', () => {
-            window.location.href = 'report.html';
+            window.location.href = 'report.php';
         });
-
     </script>
 </body>
 </html>
