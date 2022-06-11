@@ -97,8 +97,9 @@
                     <label for="nasal">Self test nasal</label>
                     <input type="radio" name="Q4" value="PCR" id="pcr">
                     <label for="pcr">PCR</label>
-                    <input type="radio" name="Q4" value="Other" id="other">
-                    <label for="other">Other</label>
+                    <input type="radio" name="Q4" value="Other" id="other-4">
+                    <label for="other-4">Other</label>
+
                 </div>
             </div>
             <div class="question">

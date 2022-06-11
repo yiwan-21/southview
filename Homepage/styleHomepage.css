@@ -36,8 +36,8 @@ img.rounded-corners{
     justify-content: center;
     text-align: center;
     margin-right: 100px;
-    margin-top: 40px;
-    padding: 50px 20px;
+    margin-top: 30px;
+    padding: 40px 20px;
     border-radius: 10px;
 }
 .desc h4{
@@ -91,13 +91,13 @@ img.rounded-corners{
 .text-facilities{
     width: 50%;
     align-self: center;
+    justify-content: center;
 }
 .text-facilities h4{
     font-weight: bold;
     font-size: 30px;
     font-style: italic;
-    /* justify-content: center; */
-    margin-left: 30px;
+    margin-left: 25px;
     text-align: left;
     align-items: center;
     font-family: 'Inter';
@@ -113,7 +113,7 @@ img.rounded-corners{
     line-height: 35px;
 }
 .text-facilities .submit-button{
-    color: #fff;
+    color: #000;
     background-color: #25E5F8;
     border: none;
     margin-right: 30px;
@@ -124,7 +124,7 @@ img.rounded-corners{
 }
 .text-facilities .submit-button:hover{
     background-color: #23D2E3;
-    color: #DFDCDC;
+    color: #fff;
 }
 .box3{
     width: 50%;
@@ -137,10 +137,10 @@ img.rounded-corners{
 
 
 /****** 4.0 ANNOUNCEMENT Section ******/
+
+
 .box4{
     position: relative;
-    /* display: block; */
-    /* display: flex; */
 }
 .sv_pet{
     height: 90vh;
@@ -183,4 +183,191 @@ img.rounded-corners{
     font-weight: 300;
     font-style: italic;
     font-family:'Inter';
+}
+@media only screen and (max-width: 1210px),
+scren and (max-height: 637px){
+    /* Home */
+    .home{
+        height: 80vh;
+    }
+
+    .officehour{
+        height: 100vh;
+    }
+
+    .sv_2_white{
+        height: 100vh;
+    }
+
+    .facilities{
+        height: 80vh; 
+    }
+
+    .box3{
+        width: 50%;
+    }
+
+    .sv_3_facilities{
+        height: 80vh;
+    }
+
+    .announcement{
+        height: 60vh;
+    }
+
+    .sv_pet{
+        height: 60vh;  
+    }
+
+    .svswimpool{
+        left: 7%;
+        width: 38vw;
+    }
+    .desc{
+        height: 30vh;
+        width: 45vw;
+        left: 50%;
+        top: 15%;
+        overflow: scroll;
+    }
+    .desc h4{
+        margin-bottom: 13px;
+        font-size: 22px;
+    }
+    .desc p{
+        line-height: 30px;
+    }
+
+    /* Announcement */
+    .announcement{
+        height: 80vh;
+    }
+
+    .sv_pet{
+        height: 80vh;
+    }
+
+    .innerbox{
+        top: 55%;
+        width: 80vw;
+    }
+    .titletext h2{
+        margin-bottom: 50px;
+    }
+
+}
+
+@media only screen and (max-width: 850px),
+screen and (max-height: 600px){
+    .home{
+        height: 80vh;
+    }
+    .sv_1_general{
+        height: 80vh;
+    }
+    .svswimpool{
+        /* height: 25vh; */
+        top: 25%;
+        max-width: 80vw;
+        /* width: 80vw */
+        margin-bottom: 0px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .desc{
+        height: 25vh;
+        padding: 60px 30px;
+        top: 58%;
+        left: 50%;
+        width: 550px;
+        transform: translate(-50%, -50%);
+    }
+
+    /* officehour */
+    .opendays h3{
+        font-size: 30px;
+        width: 80vw;
+    }
+
+    .opendays p{
+        font-size: 19px;
+    }
+
+    /* facilities */
+    .facilities {
+        display: block;
+        height: 80vh;
+    }
+    .box3{
+        height: 40vh;
+        width: 100%;
+        overflow: hidden;
+        justify-content: center;
+        order: 1;
+    }
+    .sv_3_facilities{
+        height: 40vh;
+        width: 100%;
+        /* padding-bottom: 400px; */
+    }
+    .text-facilities{
+        /* margin-top: 10%; */
+        height: 40vh;
+        width: 100%;
+        order: 2;
+        background-color: white;
+    }
+    .text-facilities h4, p{
+        align-items: center;
+        justify-content: center;
+    }
+    .text-facilities h4{
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .text-facilities p{
+        margin-top: -20px;
+    }
+    .text-facilities .submit-button{
+        position: absolute;
+        padding: 5px 10px;
+        font-size: 15px;
+        top: 232%;
+        left: 80%
+    }
+
+    /* announcement */
+    .innerbox{
+        top: 55%;
+    }
+    .titletext h2{
+        font-size: 45px;
+        font-family: 'JetBrains Mono';
+        margin-bottom: 40px;
+    }
+    .announcement .innerbox{
+        width: 85%;
+        line-height: 33px;
+    }
+    .announcement .innerbox h4{
+        font-size:30px;
+    }
+}
+
+@media only screen and (max-width: 600px),
+screen and (max-height: 542px){
+    .titletext h2{
+        margin-bottom: 0;
+    }
+    .announcement .innerbox{
+        width: 85%;
+        line-height: 25px;
+    }
+    .announcement .innerbox h4{
+        font-size:20px;
+    }
+    .innerbox p{
+        font-size: 15px;
+    }
 }

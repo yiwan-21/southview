@@ -28,3 +28,15 @@ fetch("/navigation/navigation.html")
         document.head.appendChild(css);
     })
     .catch(err => console.warn('Something went wrong.', err));
+
+function toggleMenu() {
+    var menu = document.getElementById("menunav");
+    if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
+    } else {
+        menu.classList.add("active");
+    }
+}
+
+
+

@@ -112,15 +112,20 @@
 
     <script src="/navigation/navigation.js"></script>
     <script>
-        const questions = document.querySelectorAll('.question');
+        const required = document.querySelectorAll('.required');
 
         function handleFormSubmit(event) {
             event.preventDefault();
             const form = event.target;
             const formData = new FormData(form);
-            let isFilled = (Array.from(formData.values()).length - 1) === questions.length;
-            if (!isFilled) {
-                alert('Please fill all the required fields');
+            let isValid = false;
+            Array.from(required[0].children).forEach(child => {
+                if (child.checked) {
+                    isValid = true;
+                }
+            });
+            if (!isValid) {
+                alert('Please fill out all required fields');
                 return;
             }
             formData.forEach((value, key) => {

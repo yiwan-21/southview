@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION["svid"])) {
+    echo "<script>console.log('Session svid: " . $_SESSION["svid"] . "' );</script>";
+}
+if(isset($_SESSION["password"])) {
+    echo "<script>console.log('Session password: " . $_SESSION["password"] . "' );</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

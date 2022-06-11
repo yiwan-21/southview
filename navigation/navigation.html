@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <link rel="stylesheet" href="/navigation/navigation.css">
 
 </head>
@@ -16,14 +19,26 @@
             <div class="logo">
                 <img id="logo" src="/images/Logo SV.png" alt="logo" onclick="window.location.href='/Homepage/indexHomepage.html'">
             </div>
-            <div class="menu">
-                <a href="/Homepage/indexHomepage.html" class="menu-btn">HOME</a>
-                <a href="/Facilities/facilities.html" class="menu-btn">FACILITIES</a>
-                <a href="/visitor-pass/visitorpass.html" class="menu-btn">VISITOR PASS</a>
-                <a href="/covidStatus/healthyCovidStatus.html" class="menu-btn">COVID-19 STATUS</a>
-                <a href="/AboutUs/AboutUs.html" class="menu-btn">ABOUT US</a>
-                <i onclick="openProfile()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            <div class="max-width">
+                <ul class="menu" id="menunav">
+                    <li><a href="/Homepage/indexHomepage.html" class="menu-btn">HOME</a></li>
+                    <li><a href="/Facilities/facilities.html" class="menu-btn">FACILITIES</a></li>
+                    <li><a href="/visitor-pass/visitorpass.html" class="menu-btn">VISITOR PASS</a></li>
+                    <li><a href="/covidStatus/healthyCovidStatus.php" class="menu-btn">COVID-19 STATUS</a></li>
+                    <li><a href="/AboutUs/AboutUs.html" class="menu-btn">ABOUT US</a></li>
+                </ul>    
+                <div class="menu-btn">
+                    <i id="icon" onclick="toggleMenu()">
+                        <svg class="svg-icon" viewBox="0 0 20 20">
+                            <path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314
+                                c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743
+                                s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314
+                                c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path>
+                        </svg>
+                    </i>
+                </div>
+                <i id="person" onclick="openProfile()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
                         class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                     </svg>
@@ -32,7 +47,7 @@
                     <div class="profile-detail">
                         <a href="/southview_profile/profile1.html">User Profile</a>
                         <a href="/southview_payment/payment.html">Payment</a>
-                        <a href="/login/login.html"><span class="logout">Log Out</span></a>
+                        <a href="/login/login.php"><span class="logout">Log Out</span></a>
                     </div>
                 </div>
             </div>
@@ -59,7 +74,7 @@
             </form>
         </div>
     </template>
-
+   
     <template id="footer-template">
         <footer>
             <div class="footer">
@@ -89,9 +104,16 @@
                 <div class="emptysv"></div>
             </div>
         </footer>
-    </template>
-
-    <script src="navigation.js"></script>
+    </template>    
+<script src="navigation.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.menu-btn').click(function(){
+            $('.navbar .menu').toggleClass("active");
+            $('.menu-btn i').toggleClass("active");
+        });
+    })
+</script>
 </body>
 
 </html>
