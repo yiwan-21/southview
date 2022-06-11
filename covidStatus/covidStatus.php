@@ -1,3 +1,38 @@
+<?PHP
+    include "../connect.php";
+
+    session_start();
+
+    $query = "SELECT * FROM `covid-19 patient` WHERE `Resident_svID` = '" . $_SESSION['svid'] . "'";
+    $result = mysqli_query($conn, $query);
+    $startDate = "";
+    $endDate = "";
+    $symptom = "";
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $startDate = $row['Date_Start'];
+            $endDate = $row['Date_End'];
+            $symptom = $row['Symptom'];
+        }
+    }
+    // echo "<script>console.log('Start Date: " . $startDate . "' );</script>";
+    // echo "<script>console.log('End Date: " . $endDate . "' );</script>";
+    // echo "<script>console.log('Symptom: " . $symptom . "' );</script>";
+
+    if (isset($_POST['submit']) && count($_FILES) > 0) {
+        $data = addslashes(file_get_contents($_FILES['file']['tmp_name']));
+        $query = "UPDATE `covid-19 patient` SET `Testkit_Result` = '" . $data . "' WHERE `Resident_svID` = '" . $_SESSION['svid'] . "'";
+        $result = mysqli_query($conn, $query);
+        // if ($result) {
+        //     echo "<script>alert('Uploaded file to database');</script>";
+        // } else {
+        //     echo "<script>alert('Failed to upload file to database');</script>";
+        // }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +54,7 @@
         <h1>I AM CURRENTLY UNDER QUARANTINE</h1>
         <div class="grid">
             <div class="day"></div>
-            <h2 class="until">
-                Until Day 7, 27 April 2022
-            </h2>
+            <h2 class="until"></h2>
 
             <div class="progress">
                 <div class="progress-bar">
@@ -36,9 +69,12 @@
                 <div class="symptom-block">Severe</div>
             </div>
 
-            <form class="upload" onsubmit="handleFileUpload(event)">
-                <input type="file" id="file" name="file" accept="image/*"/>
-                <button type="submit" id="submit">Submit</button>
+            <form class="upload" 
+            enctype="multipart/form-data"
+            method="post"
+            >
+                <input type="file" name="file" accept="image/*"/>
+                <button type="submit" id="submit" name="submit">Submit</button>
             </form>
 
             <div class="actions">
@@ -109,14 +145,23 @@
 
     <script src="/navigation/navigation.js"></script>
     <script>
-        const currDay = 1;
-        const totalDay = 7;
+        const startDate = new Date('<?php echo $startDate;?>');
+        const endDate = new Date('<?php echo $endDate;?>');
+        const currentDate = new Date(new Date().toLocaleDateString());
+        currentDate.setHours(8);
+        const currDay = currentDate.getDate() - startDate.getDate() + 1;
+        const totalDay = endDate.getDate() - startDate.getDate() + 1;
+        // console.log(startDate, endDate, currentDate, currDay, totalDay);
         const day = document.querySelector('.day');
         const progress = document.querySelector('.progress');
 
         day.innerHTML = `<h1>Day ${currDay}</h1>`;
         const progressInnerHTML = progress.innerHTML;
         progress.innerHTML = `<p class="day-count">Day ${currDay}/${totalDay}</p>${progressInnerHTML}`;
+
+        const until = document.querySelector('.until');
+        const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        until.innerHTML = `Until Day ${totalDay}, ${endDate.getDate()} ${month[endDate.getMonth()]} ${endDate.getFullYear()}`;
 
         const dayCount = document.querySelector('.day-count');
         const progressFill = document.querySelector('.progress-fill');
@@ -125,15 +170,24 @@
 
         const symptomBlocks = document.querySelectorAll('.symptom-block');
         const symptomClasses = ['symptomless', 'slight', 'severe'];
-        symptomBlocks[0].classList.add(symptomClasses[0]);
-        symptomBlocks.forEach((block, index) => {
-            block.addEventListener('click', () => {
-                symptomBlocks.forEach(block => {
-                    block.classList.remove('symptomless', 'slight', 'severe');
-                });
-                block.classList.add(symptomClasses[index]);
-            });
-        });
+        symptom = "<?php echo $symptom?>";
+        if (symptom.toLowerCase() == "severe") {
+            symptomBlocks[2].classList.add(symptomClasses[2]);
+        } else if (symptom.toLowerCase() == "slight") {
+            symptomBlocks[1].classList.add(symptomClasses[1]);
+        } else {
+            symptomBlocks[0].classList.add(symptomClasses[0]);
+        }
+        //// Let resident set their own symptom
+        // symptomBlocks[0].classList.add(symptomClasses[0]);
+        // symptomBlocks.forEach((block, index) => {
+        //     block.addEventListener('click', () => {
+        //         symptomBlocks.forEach(block => {
+        //             block.classList.remove('symptomless', 'slight', 'severe');
+        //         });
+        //         block.classList.add(symptomClasses[index]);
+        //     });
+        // });
 
         const service = document.querySelector('.service');
         const tab = document.querySelector('.tab');
@@ -153,7 +207,7 @@
         })
         //health declaration
         actions[1].addEventListener('click', () => {
-            window.location.href = 'health.html';
+            window.location.href = 'health.php';
         })
         //test kit
         actions[2].addEventListener('click', () => {
