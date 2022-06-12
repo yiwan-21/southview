@@ -1,31 +1,81 @@
 <?php
-    include 'INCLUDES/dbh.inc.php';
-    $dbh = new dbh();
-    $conn = $dbh-> connect();
-    
-    if(isset($_POST['submit'])){
-        $Resident_svID = 1;
-        $Ques1 = $_POST['Ques1'];
-        $Ques2 = $_POST['Ques2'];
-        $Ques3 = $_POST['Ques3'];
-        $Ques4 = $_POST['Ques4'];
-        $Ques5 = $_POST['Ques5'];
+include 'INCLUDES/dbh.inc.php';
+$dbh = new dbh();
+$conn = $dbh->connect();
 
-        if(empty($Ques1)){
-            echo "<script>alert(\'Please filled in required field\');</script>";
+session_start();
+$Resident_svID = $_SESSION['svid'];
+// echo "<script>console.log('" . $Resident_svID . "');</script>";
+
+if (isset($_POST['submit'])) {
+    $Ques1 = $_POST['Ques1'];
+    $Ques2 = $_POST['Ques2'];
+    $Ques3 = $_POST['Ques3'];
+    $Ques4 = $_POST['Ques4'];
+    $Ques5 = $_POST['Ques5'];
+
+    $Ques1 = implode(', ', $Ques1);
+    if (empty($Ques1)) {
+        echo "<script>alert('Please filled in required field');</script>";
+    } else {
+        //// Update Symptom in covid-19 patient table
+        $symptom = "";
+        if (
+            strpos($Ques1, 'Fever') !== FALSE ||
+            strpos($Ques1, 'Shortness of breath') !== FALSE ||
+            strpos($Ques1, 'Difficulty breathing') !== FALSE ||
+            strpos($Ques1, 'Cough') !== FALSE
+        ) {
+            $symptom = "Severe";
+        } else if (strpos($Ques1, 'None of the above') !== FALSE) {
+            $symptom = "Symptomless";
+        } else {
+            $symptom = "Slight";
         }
-        else{
-            $stmt = $conn-> prepare("INSERT INTO health_declaration (Resident_svID, Ans_1, Ans_2, Ans_3, Ans_4, Ans_5) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt-> bind_param('isssss', $Resident_svID, $Ques1, $Ques2, $Ques3, $Ques4, $Ques5);
-            $stmt-> execute();
-            $stmt-> close();
-            echo '<script>window.location.href = \'healthyCovidStatus.php\';</script>';
+        $stmt = $conn->prepare("UPDATE `covid-19 patient` SET `Symptom` = ? WHERE `Resident_svID` = ?");
+        $stmt->bind_param("ss", $symptom, $Resident_svID);
+        $stmt->execute();
+
+        //// Insert into health declaration table
+        $stmt = $conn-> prepare("INSERT INTO health_declaration (Resident_svID, Ans_1, Ans_2, Ans_3, Ans_4, Ans_5) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt-> bind_param('isssss', $Resident_svID, $Ques1, $Ques2, $Ques3, $Ques4, $Ques5);
+        $stmt-> execute();
+
+        //// Update Date_End in covid-19 patient table
+        $stmt = $conn->prepare("SELECT Date_End FROM `covid-19 patient` WHERE `Resident_svID` = ?");
+        $stmt->bind_param("s", $Resident_svID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $Date_End = $row['Date_End'];
+        $Days = date_diff(date_create($Date_End), date_create('now'), 'Asia/Singapore')->format("%a");        
+        if ($Days === 1) {
+            $newDays = date_create('now', new DateTimeZone('Asia/Singapore'));
+            if ($symptom === "Severe") {
+                $newDays->modify('+3 day');
+                $newDays = $newDays->format('Y-m-d');
+                $stmt = $conn->prepare("UPDATE `covid-19 patient` SET `Date_End` = ? WHERE `Resident_svID` = ?");
+                $stmt->bind_param("ss", $newDays, $Resident_svID);
+                $stmt->execute();
+            } else if ($symptom === "Slight") {
+                $newDays->modify('+2 day');
+                $newDays = $newDays->format('Y-m-d');
+                $stmt = $conn->prepare("UPDATE `covid-19 patient` SET `Date_End` = ? WHERE `Resident_svID` = ?");
+                $stmt->bind_param("ss", $newDays, $Resident_svID);
+                $stmt->execute();
+            }
         }
+
+        $stmt->close();
+        echo '<script>window.location.href = \'healthyCovidStatus.php\';</script>';
     }
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,9 +85,9 @@
     <link rel="stylesheet" href="form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="tab">
         <h2>HEALTH DECLARATION</h2>
@@ -45,21 +95,21 @@
             <div class="question">
                 <label for="Ques1">1. Do you have any of the following symptoms?<span class="red">*</span></label>
                 <div class="answer checkbox">
-                    <input type="checkbox" name="Ques1" value="Fever" id="fever">
+                    <input type="checkbox" name="Ques1[]" value="Fever" id="fever">
                     <label for="fever">Fever</label>
-                    <input type="checkbox" name="Ques1" value="Cough" id="cough">
+                    <input type="checkbox" name="Ques1[]" value="Cough" id="cough">
                     <label for="cough">Cough</label>
-                    <input type="checkbox" name="Ques1" value="Shortness of breath" id="shortness">
+                    <input type="checkbox" name="Ques1[]" value="Shortness of breath" id="shortness">
                     <label for="shortness">Shortness of breath</label>
-                    <input type="checkbox" name="Ques1" value="Sore throat" id="sore">
+                    <input type="checkbox" name="Ques1[]" value="Sore throat" id="sore">
                     <label for="sore">Sore throat</label>
-                    <input type="checkbox" name="Ques1" value="Difficulty breathing" id="difficulty">
+                    <input type="checkbox" name="Ques1[]" value="Difficulty breathing" id="difficulty">
                     <label for="difficulty">Difficulty breathing</label>
-                    <input type="checkbox" name="Ques1" value="Runny nose" id="runny">
+                    <input type="checkbox" name="Ques1[]" value="Runny nose" id="runny">
                     <label for="runny">Runny nose</label>
-                    <input type="checkbox" name="Ques1" value="Loss of taste or smell" id="taste">
+                    <input type="checkbox" name="Ques1[]" value="Loss of taste or smell" id="taste">
                     <label for="taste">Loss of taste or smell</label>
-                    <input type="checkbox" name="Ques1" value="None of the above" id="none">
+                    <input type="checkbox" name="Ques1[]" value="None of the above" id="none">
                     <label for="none">None of the above</label>
                 </div>
             </div>
@@ -68,7 +118,7 @@
                 <div class="answer">
                     <input type="radio" name="Ques2" value="Yes" id="yes-1" required>
                     <label for="yes-1">Yes</label>
-                    <input type="radio" name="Ques2" value="No" id="no-1"> 
+                    <input type="radio" name="Ques2" value="No" id="no-1">
                     <label for="no-1">No</label>
                 </div>
             </div>
@@ -106,7 +156,7 @@
                     Action can be taken if the information provded is false.
                 </span>
             </div>
-            <button type="submit" name="submit" class="submit" >Submit</button>
+            <button type="submit" name="submit" class="submit">Submit</button>
         </form>
     </div>
 
@@ -135,4 +185,5 @@
         }
     </script>
 </body>
+
 </html>

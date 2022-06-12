@@ -3,9 +3,21 @@
     $dbh = new dbh();
     $conn = $dbh-> connect();
 
-    if(isset($_POST['submit'])){
-        $Resident_svID = 1;
+    session_start();
+    $Resident_svID = $_SESSION['svid'];
+    $stmt = $conn->prepare("SELECT Resident_svID FROM `covid-19 patient` WHERE `Resident_svID` = ?");
+    $stmt->bind_param("s", $Resident_svID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    if (isset($row['Resident_svID'])) {
+        $patient_svID = $row['Resident_svID'];
+        if ($patient_svID == $Resident_svID) {
+            Header("Location: ../covidStatus/covidStatus.php");
+        }
+    }
 
+    if(isset($_POST['submit'])){
         $sql = 'SELECT Unit, `Name` FROM resident WHERE Resident_svID = \''.$Resident_svID.'\'';
         $result = $conn-> query($sql);
         $row = $result-> fetch_assoc();
