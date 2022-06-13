@@ -1,4 +1,6 @@
 <?PHP
+include "INCLUDES/dbh.inc.php";
+include "INCLUDES/user.inc.php";
 include "../connect.php";
 session_start();
 // echo "<script>console.log('Svid: " . $_SESSION['svid'] . "');</script>";
