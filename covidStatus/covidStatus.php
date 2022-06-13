@@ -1,4 +1,6 @@
 <?php
+include 'INCLUDES/dbh.inc.php';
+include 'INCLUDES/user.inc.php';
 include "../connect.php";
 session_start();
 
