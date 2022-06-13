@@ -5,7 +5,6 @@ $conn = $dbh->connect();
 
 session_start();
 $Resident_svID = $_SESSION['svid'];
-// echo "<script>console.log('" . $Resident_svID . "');</script>";
 
 if (isset($_POST['submit'])) {
     $Ques1 = $_POST['Ques1'];
@@ -37,9 +36,9 @@ if (isset($_POST['submit'])) {
         $stmt->execute();
 
         //// Insert into health declaration table
-        $stmt = $conn-> prepare("INSERT INTO health_declaration (Resident_svID, Ans_1, Ans_2, Ans_3, Ans_4, Ans_5) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt-> bind_param('isssss', $Resident_svID, $Ques1, $Ques2, $Ques3, $Ques4, $Ques5);
-        $stmt-> execute();
+        $stmt = $conn->prepare("INSERT INTO health_declaration (Resident_svID, Ans_1, Ans_2, Ans_3, Ans_4, Ans_5) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('isssss', $Resident_svID, $Ques1, $Ques2, $Ques3, $Ques4, $Ques5);
+        $stmt->execute();
 
         //// Update Date_End in covid-19 patient table
         $stmt = $conn->prepare("SELECT Date_End FROM `covid-19 patient` WHERE `Resident_svID` = ?");
@@ -48,8 +47,8 @@ if (isset($_POST['submit'])) {
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
         $Date_End = $row['Date_End'];
-        $Days = date_diff(date_create($Date_End), date_create('now'), 'Asia/Singapore')->format("%a");        
-        if ($Days === 1) {
+        $Days = date_diff(date_create($Date_End), date_create('now'), 'Asia/Singapore')->format("%a");
+        if ($Days === 0) {
             $newDays = date_create('now', new DateTimeZone('Asia/Singapore'));
             if ($symptom === "Severe") {
                 $newDays->modify('+3 day');
@@ -59,6 +58,12 @@ if (isset($_POST['submit'])) {
                 $stmt->execute();
             } else if ($symptom === "Slight") {
                 $newDays->modify('+2 day');
+                $newDays = $newDays->format('Y-m-d');
+                $stmt = $conn->prepare("UPDATE `covid-19 patient` SET `Date_End` = ? WHERE `Resident_svID` = ?");
+                $stmt->bind_param("ss", $newDays, $Resident_svID);
+                $stmt->execute();
+            } else {
+                $newDays->modify('+1 day');
                 $newDays = $newDays->format('Y-m-d');
                 $stmt = $conn->prepare("UPDATE `covid-19 patient` SET `Date_End` = ? WHERE `Resident_svID` = ?");
                 $stmt->bind_param("ss", $newDays, $Resident_svID);
