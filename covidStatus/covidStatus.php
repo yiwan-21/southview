@@ -1,8 +1,9 @@
 <?php
+session_start();
+include "../checkLogin.php";
 include 'INCLUDES/dbh.inc.php';
 include 'INCLUDES/user.inc.php';
 include "../connect.php";
-session_start();
 
 
 if (isset($_POST['service_submit'])) {

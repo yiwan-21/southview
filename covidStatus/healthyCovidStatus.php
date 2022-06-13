@@ -1,10 +1,10 @@
 <?PHP
+session_start();
+include "../checkLogin.php";
 include "INCLUDES/dbh.inc.php";
 include "INCLUDES/user.inc.php";
 include "../connect.php";
-session_start();
 // echo "<script>console.log('Svid: " . $_SESSION['svid'] . "');</script>";
-// echo "<script>console.log('Password: " . $_SESSION['password'] . "');</script>";
 
 $query = "SELECT COUNT(*) FROM `covid-19 patient` WHERE `Resident_svID` = '" . $_SESSION['svid'] . "'";
 $result = mysqli_query($conn, $query);

@@ -1,9 +1,10 @@
 <?php
+session_start();
+include '../checkLogin.php';
 include 'INCLUDES/dbh.inc.php';
 $dbh = new dbh();
 $conn = $dbh->connect();
 
-session_start();
 $Resident_svID = $_SESSION['svid'];
 
 if (isset($_POST['submit'])) {
