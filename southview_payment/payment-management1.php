@@ -1,3 +1,23 @@
+<?php
+    include_once("config.php");
+    session_start();
+    // $_SESSION['svid'] = 3;
+    $result = mysqli_query($mysqli, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+    $singleRow  = mysqli_fetch_assoc($result);  
+    $payment_amount = 100.00;
+
+
+    if(isset($_POST['paid'])){
+      $svid=$_SESSION['svid'];
+      $Email =$singleRow['Email'];
+      $paymentCat = 'Management';
+        
+      $result = mysqli_query($mysqli, "INSERT INTO payment (Resident_svID,Payment_Category,Payment_Amount,Email,Payment_Date) VALUES ('$svid','$paymentCat','$payment_amount','$Email',curdate())");
+      header("Location: http://localhost:8000/southview_payment/payment-success.php");
+    }
+    mysqli_close($mysqli);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +31,26 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../southview_payment/payment.css">
 </head>
-
+<style>
+    <?php
+        include "../southview_payment/payment.css";
+    ?>
+</style>
 <body>
     <!-- nav bar -->
     <script src="/navigation/navigation.js"></script>
-    <form onsubmit="submitPayment(event)">
+    <!-- action="payment-management1.php" -->
+    <form name="paymentMForm" method="post">
         <div class="mx-5 my-5 card white_boundary">
             <h1>Payment - Management</h1>
             <div class="mx-5 mt-5 mb-3 " id="grey-bg" style="background-color: rgb(0,0,0,0.5);">
                 <div class="row justify-content-center">
                     <div class="col-lg-4  col-md-6 col-sm-12 text-center">
-                        <a href="../southview_payment/payment-management1.html"><button type="button" class="btn active"
+                        <a href="../southview_payment/payment-management1.php"><button type="button" class="btn active"
                                 id="self-pay">Pay My Bills</button></a>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-                        <a href="../southview_payment/payment-management2.html"><button type="button" class="btn"
+                        <a href="../southview_payment/payment-management2.php"><button type="button" class="btn"
                                 id="anyone-pay">Pay For Anyone</button></a>
                     </div>
                 </div>
@@ -53,10 +78,10 @@
                                 </svg>
                             </div>
                             <div class="col-lg mt-5 col-sm-12 justify-content-center" id="p-text">
-                                <strong>123456789</strong>
+                                <strong><?php echo $singleRow['Resident_svID']?></strong>
                             </div>
                             <div class="col-lg mt-5 col-sm-12 justify-content-center" id="p-text">
-                                <strong>RM</strong> 300.00
+                                <strong>RM</strong> <?php echo $payment_amount?>
                             </div>
                         </div>
                     </div>
@@ -66,8 +91,7 @@
                 <div class="row text-center">
                     <div class="col-lg-9 col-md col-sm"></div>
                     <div class="col-lg-3 mb-3 col-md-5 col-sm-9 col-xs-12">
-                        <a href="../southview_payment/payment-success.html"><button type="submit" class="btn"
-                                id="btn-setting">Next</button></a>
+                        <button type="submit" class="btn" id="btn-setting" name="paid" value="paid">Next</button>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,13 @@
+<?php
+    include 'config.php';
+    //session_start();
+    // $_SESSION['svid'] = 1;
+    // $_SESSION['paymentid'] =3;
+
+    $sql="SELECT * FROM payment ORDER BY Payment_ID DESC LIMIT 1"; 
+    $result=mysqli_query($mysqli, $sql);
+    $singleRow  = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,19 +24,24 @@
     integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
+<style>
+    <?php
+        include "../southview_payment/payment.css";
+        // echo $_SESSION['svid'];
+    ?>
+</style>
 <body>
   <!-- nav bar -->
   <script src="/navigation/navigation.js"></script>
-
-  <div class="container">
-    <div class="mx-5 my-5 card white_boundary">
-      <div id="downloadarea">
+  
+  <div class="container white_boundary my-5">
+    <div class="mx-5 my-5" id="downloadarea">
+      <div>
         <div class="row text-center">
           <div class="payment-banner col-lg-2">
           </div>
           <div class="payment-banner col-lg-1">
-            <img src="../southview_payment/images/tick.png" class="tick">
+            <img src="/southview_payment/images/tick.png" class="tick">
           </div>
           <div class="payment-banner col-lg-8 mt-5">
             Payment Successful
@@ -46,7 +61,7 @@
                   <strong>:</strong>
                 </div>
                 <div class="col-lg-5 col-sm-5 col-md-5">
-                  Management
+                  <?php echo $singleRow['Payment_Category'];?>
                 </div>
               </div>
               <div class="row">
@@ -58,7 +73,9 @@
                   <strong>:</strong>
                 </div>
                 <div class="col-lg-5 col-sm-5 col-md-5">
-                  1234567
+                  <?php
+                    echo $singleRow['Resident_svID'];
+                  ?>
                 </div>
               </div>
               <div class="row">
@@ -70,7 +87,9 @@
                   <strong>:</strong>
                 </div>
                 <div class="col-lg-5 col-sm-5 col-md-5">
-                  RM 300.00
+                  RM <?php 
+                  echo $singleRow['Payment_Amount']
+                  ?>
                 </div>
               </div>
               <div class="row">
@@ -82,28 +101,30 @@
                   <strong>:</strong>
                 </div>
                 <div class="col-lg-5 col-sm-5 col-md-6">
-                  hi@gmail.com
+                  <?php 
+                  echo $singleRow['Email'];
+                  ?>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="container-fluid">
+    </div>
+    <div class="container-fluid">
         <div class="row my-3">
           <div class="col-lg-6 col-12 text-center">
-            <button type="button" class="btn btn-pdf" id="btn-setting">
+            <button type="button" class="btn" id="btn-pdf">
               Download as PDF
             </button>
           </div>
           <div class="col-lg-6 col-12 text-center">
-            <a href="../Homepage/indexHomepage.html"><button type="button" class="btn" id="btn-setting">Back to
+            <a href="../Homepage/indexHomepage.php"><button type="button" class="btn" id="btn-setting2">Back to
                 Home</button></a>
           </div>
         </div>
 
       </div>
-    </div>
   </div>
   <!-- footer -->
   <script type="text/javascript" src="../southview_payment/payment.js"></script>
