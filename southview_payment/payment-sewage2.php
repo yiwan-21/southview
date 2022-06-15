@@ -1,3 +1,29 @@
+<?php
+    include_once("config.php");
+    if(isset($_POST['paid'])){
+        $Resident_svID = mysqli_real_escape_string($mysqli, $_POST['Resident_svID']);
+        $Email = mysqli_real_escape_string($mysqli, $_POST['Email']);
+        $Payment_Amount = mysqli_real_escape_string($mysqli, $_POST['Payment_Amount']);
+        $paymentCat = 'Sewage';
+        if(empty($Resident_svID)||empty($Email)||empty($Payment_Amount)){
+            if(empty($Resident_svID)) {
+                echo "<font color='red'>Resident SV ID field is empty.</font><br/>";
+            }
+            
+            if(empty($Email)) {
+                echo "<font color='red'>Email field is empty.</font><br/>";
+            }
+            
+            if(empty($Payment_Amount)) {
+                echo "<font color='red'>Amount field is empty.</font><br/>";
+            }
+        }else{
+            $result = mysqli_query($mysqli, "INSERT INTO payment (Resident_svID,Payment_Category,Payment_Amount,Email,Payment_Date) VALUES ('$Resident_svID','$paymentCat','$Payment_Amount','$Email',curdate())");
+            header("Location: http://localhost:8000/southview_payment/payment-success.php");
+        }
+        
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +37,25 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../southview_payment/payment.css">
 </head>
-
+<style>
+    <?php
+        include "../southview_payment/payment.css";
+    ?>
+</style>
 <body>
     <!-- nav bar -->
     <script src="/navigation/navigation.js"></script>
-    <form onsubmit="submitPayment(event)">
+    <form name="paymentSForm2" method="post" action = "payment-sewage2.php">
         <div class="mx-5 my-5 card white_boundary">
             <h1>Payment - Sewage</h1>
             <div class="mx-5 my-5 " id="grey-bg" style="background-color: rgb(0,0,0,0.5);">
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-                        <a href="../southview_payment/payment-sewage1.html"><button type="button" class="btn"
+                        <a href="../southview_payment/payment-sewage1.php"><button type="button" class="btn"
                                 id="self-pay">Pay My Bills</button></a>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-                        <a href="../southview_payment/payment-sewage2.html"><button type="button" class="btn active"
+                        <a href="../southview_payment/payment-sewage2.php"><button type="button" class="btn active"
                                 id="anyone-pay">Pay For Anyone</button></a>
                     </div>
                 </div>
@@ -34,12 +64,12 @@
 
                         <div class="row">
                             <div class="col" id="p-text-2">
-                                <label>Payee SV-ID</label><br><input type="text" class="form-control" required><br>
-                                <label>Payer E-Mail</label><br><input type="email" class="form-control" required>
+                                <label>Payee SV-ID</label><br><input type="text" class="form-control" required name="Resident_svID"><br>
+                                <label>Payer E-Mail</label><br><input type="email" class="form-control" required name="Email">
                             </div>
                             <div class="col" id="p-text-2">
                                 <label><strong>RM<strong></label><input type="text" placeholder="0.00"
-                                    class="form-control" required>
+                                    class="form-control" required name="Payment_Amount">
                             </div>
                             <div class="col" id="p-text-2">
 
@@ -53,8 +83,7 @@
                 <div class="row text-center">
                     <div class="col-lg-9 col-md col-sm"></div>
                     <div class="col-lg-3 mb-3 col-md-5 col-sm-9 col-xs-12">
-                        <a href="../southview_payment/payment-success.html"><button type="submit" class="btn"
-                                id="btn-setting">Next</button></a>
+                        <button type="submit" class="btn" id="btn-setting" name="paid" value="paid">Next</button>
                     </div>
                 </div>
             </div>

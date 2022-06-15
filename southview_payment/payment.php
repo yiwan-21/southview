@@ -21,7 +21,7 @@
         <h1>Payment</h1>
         <div class="row mt-3 mb-5 mx-5 my-5">
             <div class="col-lg-4  col-md-12  border-0 card-setting">
-                <a href="../southview_payment/payment-management1.html">
+                <a href="../southview_payment/payment-management1.php">
                     <div class="card py-3 card-color">
                         <img class="card-img-top card-img img-fluid" src="../southview_payment/images/management.png"
                             alt="managment icon">
@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-md-12  border-0 card-setting">
-                <a href="../southview_payment/payment-sewage1.html">
+                <a href="../southview_payment/payment-sewage1.php">
                     <div class="card py-3 card-color">
                         <img class="card-img-top card-img img-fluid" src="../southview_payment/images/sewage.png"
                             alt="sewage icon">
@@ -47,7 +47,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-md-12 border-0 card-setting">
-                <a href="../southview_payment/payment-parking1.html">
+                <a href="../southview_payment/payment-parking1.php">
                     <div class="card py-3 card-color">
                         <!-- <img class="card-img-top card-img" src="/southview/southview_payment/images/parking.png" -->
                         <svg class="card-img-top card-img img-fluid" width="209" height="209" viewBox="0 0 209 209" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
