@@ -61,7 +61,8 @@
         }else{
          $result = mysqli_query($conn, "UPDATE resident SET Password='$newpass' WHERE Resident_svID='" . $_SESSION['svid'] . "'");  
         }
-        
+
+        echo '<script>alert("Reset password successfully")</script>';
     }
     mysqli_close($conn);
 ?>
@@ -280,28 +281,37 @@
     </div>
     <div class="overlay" id="resetpassword">
         <div class="wrapper white-background text-center">
+            <?php
+             include 'config.php'; 
+             $result = mysqli_query($mysqli, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+             $singleRow  = mysqli_fetch_assoc($result);  
+             mysqli_close($mysqli);
+             ?>
             <h3>Reset Password</h3><a class="close" href="#">&times;</a>
             <form name='form2' method='post' action='profile2.php'>
                 <div class="mx-3">
-                <input type="password" name="oldpass" class="form-control my-3" placeholder="Enter Current Password" id=""
-                    inputmode="numeric"  minlength="8" maxlength="15" size="15" required>
+                <input type="hidden" name="oripass" class="form-control my-3" value="<?php echo $singleRow['Password'];?>" id="oripass" onkeyup='checkcurpass();'>
+                <input type="password" name="oldpass" class="form-control my-3" placeholder="Enter Current Password" id="oldpass"
+                    inputmode="numeric"  minlength="8" maxlength="15" size="15" required onkeyup='checkcurpass();'>
+                <div id="curpass">&nbsp;</div> 
+
                 <input type="password" name="newpass" class="form-control mb-3" placeholder="Enter New Password" id="logpw"
                     inputmode="numeric" minlength="8" maxlength="15" size="15" required onkeyup='check();'>
                 <input type="password" name="newpass2" class="form-control mb-3" placeholder="Enter Confirm Password" id="confirmpw"
                     inputmode="numeric" minlength="8" maxlength="15" size="15" required onkeyup='check();'>
                 </div>
                 <div id="message">&nbsp;</div> 
-                <button type="submit" class="btn btn mt-3 btn-delete" id="btn-setting" name="reset" value="reset">Reset</button>    
+                <button type="submit" class="btn btn mt-3 btn-delete" id="btn-setting" name="reset" value="reset">Reset</button>
             </form>
         </div>
     </div>
-    <div class="overlay" id="resetsuccess">
+    <!-- <div class="overlay" id="resetsuccess">
         <div class="wrapper white-background text-center">
             <a class="close" href="#">&times;</a>
             <img id="ok" src="../signup/OK.png">
             <h3>Password Reset Successfully</h3>
         </div>
-    </div>
+    </div> -->
     <!-- footer -->
     <script type="text/javascript" src="../southview_profile/profile.js"></script>
 </body>
