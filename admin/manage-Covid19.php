@@ -74,6 +74,12 @@
                           <td>'.$symptom.'</td>               
                           <td>
 
+                          <a href="" data-toggle="modal" data-target="#mymodal">
+                          <button type= "submit" name="show-button" class="btn btn-sm" >
+                            <img class="icon" src="../admin/images/output-onlinepngtools.png" alt="Delete Icon" style="width: 35px; height: auto;">
+                          </button>
+                          </a>
+
                             <a href="validate-Covid19.php?validateCovid19id='.$Patient_ID.'">
                               <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon">
                             </a>
@@ -93,6 +99,27 @@
                       }
 
                     }
+                    
+                    function showResult($Patient_ID, $conn) {
+                      $sql="select * from `covid-19 patient` where Patient_ID=$Patient_ID";
+                      $result=mysqli_query($conn,$sql);
+
+                      if($result)
+                      {
+                        $singleRow  = mysqli_fetch_assoc($result);
+                        if(isset($singleRow['Testkit_Result']))
+                        {
+                          $img_src = "data:".$singleRow['Mime'].";base64,".base64_encode($singleRow['Testkit_Result']);
+                        }
+                        else{
+                          $img_src = "../admin/images/no_image.jpg";
+                        }
+                        echo $img_src;
+                      }
+                      else{
+                          die("Connection failed: " . $conn->connect_error);
+                      }
+                    }
 
                   ?>
                 </tbody>
@@ -100,6 +127,22 @@
           </div>
 
     </div>
+    
+    <!-- Show Testkit -->
+    <div class='modal' id='mymodal'>
+      <div class='modal-dialog' id='mymodal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header' id='show-header'>
+            <h4>Test Kit Result</h4>
+            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+          </div>
+          <div class='modal-body' id='show-body'>
+              <img src="<?php showResult($Patient_ID, $conn)?>" class="img-fluid mb-2">
+          </div>
+        </div>
+      </div>
+    </div>    
+        
     <!-- footer -->  
     <?php
       include 'footer.php';
