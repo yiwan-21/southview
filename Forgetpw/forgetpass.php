@@ -1,3 +1,59 @@
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require '../vendor/autoload.php';
+
+$conn = mysqli_connect('localhost','root',"",'south view',3325);
+    if($conn->connect_error){
+        die(mysqli_connect_error() );
+    }
+session_start();
+if (isset($_POST["passwordresetlink"])){    
+    $_SESSION['otp'] = $six_digit_random_number = random_int(100000, 999999);
+    $targetEmail = $_POST['email'];
+    $_SESSION['targetEmail'] = $targetEmail;
+    header("Location:../Forgetpw/forgetpassnoti.php?targetEmail=$targetEmail");
+
+    $query = mysqli_query($conn, "UPDATE resident SET OTP= $six_digit_random_number WHERE Email='$targetEmail'");
+    if (!$query) {
+        echo "Please check your email!";
+      } 
+    $mail = new PHPMailer();
+        //Server settings
+    $mail->isSMTP();                                               //Send using SMTP
+    $mail->Host       = "smtp.office365.com";                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = "southview@outlook.my";                     //SMTP username
+    $mail->Password   = "user1abc";                               //SMTP password
+    $mail->SMTPSecure = "STARTTLS";            //Enable implicit TLS encryption
+    $mail->Port       = 587;
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom("southview@outlook.my");
+    $mail->addAddress($targetEmail);               //Name is optional
+    $mail->addReplyTo("southview@outlook.my");
+
+    $mail->Subject = "Verification Code";
+    $mail->Body = $six_digit_random_number;
+
+    if($mail->send()){
+        echo "Email sent";
+    }else{
+        echo "Email not sent";
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -37,7 +93,8 @@
                         <div class="col-lg-4 col-md-4 bg">
                             <div class="info-container">
                                 <table class="table table-borderless">
-                                    <form class="box" onsubmit="handleFormSubmit(event)">
+                                    <!-- onsubmit="handleFormSubmit(event)" -->
+                                    <form action="forgetpass.php" method="post" class="box">
                                     <img id="pwlogo" src="../Forgetpw/pwlogo.png">
 
                                 <h3 class="text-center">Forget Your Password?</h3>
@@ -45,11 +102,11 @@
                                 <div class="emailbox">
                                     <h5>Please enter the email address you'd like the verification code sent to:</h5>
                                     <h6>Enter email address:</h6>
-                                <input type="email" name="" class="form-control" placeholder="Email" id="email" required>
+                                <input type="email" name="email" class="form-control" placeholder="Email" id="email" required>
                                 </div>
                                 <tr class="text-center">
                                     <td>
-                                        <button type="submit" class="requestlink">Request verification code</button>                                    
+                                        <button type="submit" name="passwordresetlink"class="requestlink">Request verification code</button>                                    
                                  </td>
                                 </tr>
                                     <tr class="text-center">

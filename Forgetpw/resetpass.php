@@ -1,3 +1,31 @@
+<?php
+
+session_start();
+$conn = mysqli_connect('localhost','root',"",'south view',3325);
+    if($conn->connect_error){
+        die(mysqli_connect_error() );
+    }
+    
+if(isset($_POST['submit'])){
+    if(!empty($_POST['password'])&&!empty($_POST['confirmpw'])){    
+
+        $password = $_POST['password'];
+        $confirmpw = $_POST['confirmpw'];
+        $targetEmail = $_SESSION['targetEmail'];
+        
+        if ($_POST['password']!= $_POST['confirmpw'])
+        {
+            $pass_error="Oops! Password did not match! Try again.";
+        }else{
+        $query = mysqli_query($conn, "UPDATE resident SET Password='$password' WHERE Email='$targetEmail' LIMIT 1");
+        header("Location: ../login/login.php");
+            }
+
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -37,10 +65,10 @@
                         
                         <div class="col-lg-4 col-md-4  bg">
                             <h3 class="text-center">Forget Password?</h3>
-                            <form onsubmit="handleFormSubmit(event)">
+                            <form method="post" action="resetpass.php">
                             <table class="table table-borderless"  >
                                 <tr>
-                                    <td><input type="password" name="" class="form-control" placeholder="Enter Password" id="logpw" inputmode="numeric" minlength="8"
+                                    <td><input type="password" name="password" class="form-control" placeholder="Enter Password" id="logpw" inputmode="numeric" minlength="8"
                                         maxlength="15" size="15" required onkeyup='check();'></td>
                                 </tr>
 
@@ -48,20 +76,26 @@
                                     <td><input type="checkbox" onclick="myFunction()"><strong> Show Password </strong></td>
                                 </tr>
                                 
-                                    <td><input type="password" name="" class="form-control" placeholder="Enter Confirm Password" id="confirmpw" inputmode="numeric" minlength="8"
+                                    <td><input type="password" name="confirmpw" class="form-control" placeholder="Enter Confirm Password" id="confirmpw" inputmode="numeric" minlength="8"
                                         maxlength="15" size="15" required  onkeyup='check();'></td>
                                         
                                 </tr>
                                 <tr class="checkpass">
                                     <td><input type="checkbox" onclick="myFunction1()"><strong> Show Password </strong><div id="message">&nbsp;</div></td>
                                 </tr>
+
+                                <tr>
+                                    <td style='color:red;'><?php if(isset($pass_error)&!empty($pass_error)){echo $pass_error;} ?></td>
+                                </tr>
+
                                 <tr class="text-center">
                                     <td>
-                                        <button type="submit" class="changepw">Change Password</button>                                    
+                                        <button type="submit" name="submit" class="changepw">Change Password</button>                                    
                                  </td>
                                 </tr>
-                            </form>
                             </table>
+                            </form>
+
                         </div>    
                         <div class="col-lg-4 col-md-4 "></div>
                     </div>
