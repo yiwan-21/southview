@@ -1,11 +1,6 @@
 <?php
-<<<<<<< HEAD
     include '../connect.php';
     include '../checkLogin.php';
-=======
-    include 'connect.php';
-
->>>>>>> 7010eaa6be05370d867a52fe3b4189e120a23d19
 ?>  
 
 <!DOCTYPE html>
@@ -54,21 +49,18 @@
             </a>
           </nav>
 
-          <div class="dropdown">           
+          <!-- <div class="dropdown">           
             <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Delete Options
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> -->
               <!-- select all--> 
-              <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
-                <a class="dropdown-item" href="#"><input type="button" onclick='selects()' value="Select All"/></a>
-              </button type>  
-              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <!-- <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
                 <a class="dropdown-item" href="#"><input type="button" value="Selected Checkbox"/></a>
               </button>
             </ul>
           <br><br>
-        </div>
+          </div> -->
           
           <div class="table-responsive">
             <table id="example-signuprequest" class="table table-font table-borderless table-dark table-hover vertical-align: middle">

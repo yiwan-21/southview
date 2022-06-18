@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -50,10 +49,7 @@
                                        
                                 </tr>
                                 <tr class="checkpass">
-                                    <td>
-                                        <input type="checkbox" id="showPass" onclick="myFunction()">
-                                        <label for="showPass"><strong> Show Password </strong></label>
-                                    </td>
+                                    <td><input type="checkbox" onclick="myFunction()"><strong> Show Password </strong></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -75,7 +71,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <!-- <a id=loginlink href="/southview-fe/Homepage/indexHomepage.php"> -->
+                                        <!-- <a id=loginlink href="/southview-fe/Homepage/indexHomepage.html"> -->
                                         <input type="submit" name="submit" class="form-control text-center" value="LOGIN" id="loginbtn">
                                         <!-- <button name='submit' id="submitbtn" type="submit" class="form-control text-center">Login</button> -->
                                         <!-- </a> -->

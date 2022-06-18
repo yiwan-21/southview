@@ -25,8 +25,7 @@ if(isset($_POST['submit']))
       $vecno=$_POST['vecno'];
       
       // default password = SV12345678
-      $result = mysqli_query($conn, "insert into `resident` (`Name`,`Gender`,`Password`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) values('$name','$gender','SV12345678','$icno','$phoneno','$email',$age,'$unit','$vecno')");
-         
+     $result = mysqli_query($conn, "insert into `resident` (`Name`,`Gender`,`Password`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) values('$name','$gender','SV12345678','$icno','$phoneno','$email',$age,'$unit','$vecno')");
 
     if($result)
     {

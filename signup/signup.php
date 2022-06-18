@@ -1,4 +1,4 @@
-<?php require("connect.php") ?>
+<?php require("createNewUser.php") ?>
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -35,7 +35,7 @@
 
                                         <div class="col-lg-4 bg">
                                             <h2 class="text-center">Sign Up</h2>
-                                            <form action="createNewUser.php" method="post">
+                                            <form action="" method="post">
                                                 <hr>        
                                     <table class="table table-borderless">
                                                 <tr>
@@ -115,7 +115,7 @@
                                                   
                                                         <tr class="text-center">
                                                             <td>
-                                                                <a id="signuplink" href="../login/login.php">
+                                                                <a id="signuplink" href="/login/login.php">
                                                                 <button id="backbtn" type="button" class="">Back</button>
                                                                 </a>
                                                                 <button name='submit' id="submitbtn" type="submit" class="">Submit</button>
