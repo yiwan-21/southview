@@ -35,11 +35,7 @@
 
                                         <div class="col-lg-4 bg">
                                             <h2 class="text-center">Sign Up</h2>
-<<<<<<< HEAD:signup/signup.php
                                             <form action="createNewUser.php" method="post">
-=======
-                                            <form action="" method="post">
->>>>>>> 7010eaa6be05370d867a52fe3b4189e120a23d19:signup/sigup.php
                                                 <hr>        
                                     <table class="table table-borderless">
                                                 <tr>
@@ -119,11 +115,7 @@
                                                   
                                                         <tr class="text-center">
                                                             <td>
-<<<<<<< HEAD:signup/signup.php
                                                                 <a id="signuplink" href="../login/login.php">
-=======
-                                                                <a id="signuplink" href="/login/login.php">
->>>>>>> 7010eaa6be05370d867a52fe3b4189e120a23d19:signup/sigup.php
                                                                 <button id="backbtn" type="button" class="">Back</button>
                                                                 </a>
                                                                 <button name='submit' id="submitbtn" type="submit" class="">Submit</button>
