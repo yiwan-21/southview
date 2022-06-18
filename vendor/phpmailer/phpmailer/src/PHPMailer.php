@@ -750,11 +750,7 @@ class PHPMailer
      *
      * @var string
      */
-<<<<<<< HEAD
-    const VERSION = '6.6.0';
-=======
     const VERSION = '6.6.2';
->>>>>>> main
 
     /**
      * Error severity: message only, continue processing.
@@ -1070,13 +1066,8 @@ class PHPMailer
      * Addresses that have been added already return false, but do not throw exceptions.
      *
      * @param string $kind    One of 'to', 'cc', 'bcc', or 'ReplyTo'
-<<<<<<< HEAD
-     * @param string $address The email address to send, resp. to reply to
-     * @param string $name
-=======
      * @param string $address The email address
      * @param string $name    An optional username associated with the address
->>>>>>> main
      *
      * @throws Exception
      *
@@ -1084,17 +1075,11 @@ class PHPMailer
      */
     protected function addOrEnqueueAnAddress($kind, $address, $name)
     {
-<<<<<<< HEAD
-        $address = trim($address);
-        $name = trim(preg_replace('/[\r\n]+/', '', $name)); //Strip breaks and trim
-        $pos = strrpos($address, '@');
-=======
         $pos = false;
         if ($address !== null) {
             $address = trim($address);
             $pos = strrpos($address, '@');
         }
->>>>>>> main
         if (false === $pos) {
             //At-sign is missing.
             $error_message = sprintf(
@@ -1111,10 +1096,6 @@ class PHPMailer
 
             return false;
         }
-<<<<<<< HEAD
-        $params = [$kind, $address, $name];
-        //Enqueue addresses with IDN until we know the PHPMailer::$CharSet.
-=======
         if ($name !== null) {
             $name = trim(preg_replace('/[\r\n]+/', '', $name)); //Strip breaks and trim
         } else {
@@ -1123,7 +1104,6 @@ class PHPMailer
         $params = [$kind, $address, $name];
         //Enqueue addresses with IDN until we know the PHPMailer::$CharSet.
         //Domain is assumed to be whatever is after the last @ symbol in the address
->>>>>>> main
         if (static::idnSupported() && $this->has8bitChars(substr($address, ++$pos))) {
             if ('Reply-To' !== $kind) {
                 if (!array_key_exists($address, $this->RecipientsQueue)) {

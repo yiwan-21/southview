@@ -8,12 +8,6 @@ if(isset($_GET['deleteSignUpRequestid'])){
 
     if($result)
     {
-<<<<<<< HEAD
-        echo '<script type="text/javascript">'; 
-        echo 'alert("Deleted Successfully!");'; 
-        echo 'window.location.href = "viewsignup.php";';
-        echo '</script>';
-=======
         // echo '<script type="text/javascript">'; 
         // echo 'alert("Deleted Successfully!");'; 
         // echo 'window.location.href = "viewsignup.php";';
@@ -24,7 +18,6 @@ if(isset($_GET['deleteSignUpRequestid'])){
             $("#exampleModalToggle2").modal("show");
         });
         </script>';
->>>>>>> main
       
     }
     else{
@@ -33,8 +26,6 @@ if(isset($_GET['deleteSignUpRequestid'])){
 }
 
 ?>
-<<<<<<< HEAD
-=======
 
 
 <!DOCTYPE html>
@@ -75,4 +66,3 @@ if(isset($_GET['deleteSignUpRequestid'])){
                             </div>
 </body>
 </html>
->>>>>>> main

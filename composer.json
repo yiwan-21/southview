@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-    "require":{
-=======
     "require": {
->>>>>>> main
         "phpmailer/phpmailer": "^6.6"
     }
 }
