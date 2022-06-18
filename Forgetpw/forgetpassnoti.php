@@ -73,10 +73,10 @@ $targetEmail = $_SESSION['targetEmail'];
                                     <h5>We just sent a verification code over to <span id="saveEmail"></span>.</h5> 
 
                                     <h6>Enter verification code:</h6>
-                                    <input type="text" name="code" class="form-control" placeholder="Verification code" id="code" required>
-                                   
-                                     <!-- <a href="../login/login.html"> -->
-                                         <button type="submit" name='submit'>Send</button>
+                                    <input type="type" name="code" class="form-control" placeholder="Verification code" id="code" required>
+                                         
+                                     <a href="../login/login.php">
+                                         <button type="submit" name="submit">Send</button>
                                 </div>
                                 <?php if (isset($_GET['error'])) { ?>  
                                         <p style='color:red;'><?php echo $_GET['error']; ?></p>

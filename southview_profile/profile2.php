@@ -1,11 +1,12 @@
 <?php
-    include 'config.php'; 
 	session_start();
+    include '../connect.php'; 
+    include '../checkLogin.php';
 
     if(isset($_POST['update'])){
-        $age = mysqli_real_escape_string($mysqli, $_POST['age']);
-        $phoneNo = mysqli_real_escape_string($mysqli, $_POST['phoneno']);
-        $email = mysqli_real_escape_string($mysqli, $_POST['email']);
+        $age = mysqli_real_escape_string($conn, $_POST['age']);
+        $phoneNo = mysqli_real_escape_string($conn, $_POST['phoneno']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
 
         if ((count($_FILES) > 0) && !empty($_FILES['file']['tmp_name'])) {
             $data = addslashes(file_get_contents($_FILES['file']['tmp_name']));
@@ -24,20 +25,20 @@
                     echo "<font color='red'>Email field is empty.</font><br/>";
                 }		
             }else{
-            $result = mysqli_query($mysqli, "UPDATE resident SET Age='$age', Phone_No='$phoneNo', Email='$email', Profile_Picture='$data', mime='$type' WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+            $result = mysqli_query($conn, "UPDATE resident SET Age='$age', Phone_No='$phoneNo', Email='$email', Profile_Picture='$data', mime='$type' WHERE Resident_svID='" . $_SESSION['svid'] . "'");
             }
         }else{
-            $result = mysqli_query($mysqli, "UPDATE resident SET Age='$age', Phone_No='$phoneNo', Email='$email' WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+            $result = mysqli_query($conn, "UPDATE resident SET Age='$age', Phone_No='$phoneNo', Email='$email' WHERE Resident_svID='" . $_SESSION['svid'] . "'");
         }
         header("Location: http://localhost:8000/southview_profile/profile1.php");
     }
 
     if(isset($_POST['reset'])){	
-        $oldpass=mysqli_real_escape_string($mysqli, $_POST['oldpass']);
-        $newpass=mysqli_real_escape_string($mysqli, $_POST['newpass']);
-        $newpass2=mysqli_real_escape_string($mysqli, $_POST['newpass2']);
+        $oldpass=mysqli_real_escape_string($conn, $_POST['oldpass']);
+        $newpass=mysqli_real_escape_string($conn, $_POST['newpass']);
+        $newpass2=mysqli_real_escape_string($conn, $_POST['newpass2']);
 
-        $res=mysqli_query($mysqli, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+        $res=mysqli_query($conn, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
 
         $single = mysqli_fetch_assoc($res);
 
@@ -58,18 +59,18 @@
         }else if ($newpass!=$newpass2){
             echo "<font color='red'>The new password is not the same.</font><br/>";
         }else{
-         $result = mysqli_query($mysqli, "UPDATE resident SET Password='$newpass' WHERE Resident_svID='" . $_SESSION['svid'] . "'");  
+         $result = mysqli_query($conn, "UPDATE resident SET Password='$newpass' WHERE Resident_svID='" . $_SESSION['svid'] . "'");  
         }
 
         echo '<script>alert("Reset password successfully")</script>';
     }
-    mysqli_close($mysqli);
+    mysqli_close($conn);
 ?>
 <?php  
-    include 'config.php'; 
-    $result = mysqli_query($mysqli, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+    include '../connect.php'; 
+    $result = mysqli_query($conn, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
     $singleRow  = mysqli_fetch_assoc($result);  
-    mysqli_close($mysqli);
+    mysqli_close($conn);
 ?>
 
 <head>

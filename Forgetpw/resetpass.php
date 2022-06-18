@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
             <script>
                 function handleFormSubmit(event) {
                     event.preventDefault();
-                    window.location.href="../login/login.html"
+                    window.location.href="../login/login.php"
                 }
 
                 function myFunction() {

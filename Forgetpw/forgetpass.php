@@ -111,7 +111,7 @@ if (isset($_POST["passwordresetlink"])){
                                 </tr>
                                     <tr class="text-center">
                                         <td>
-                                            <a id="loginlink" href="/login/login.php">
+                                            <a id="loginlink" href="../login/login.php">
                                             <button type="button" class="backtologin">Back to Login</button>
                                             </a>
                                      </td>

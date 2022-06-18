@@ -1,4 +1,4 @@
-<?php require("connect.php") ?>
+<?php require("createNewUser.php") ?>
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   

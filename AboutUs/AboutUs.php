@@ -1,3 +1,5 @@
+<?php include "../checkLogin.php"; ?>
+
 <!DOCTYPE html>
 <head>
 
@@ -132,7 +134,7 @@
     </section>
 
     <div class="fifth-box">
-        <p><a class="nav-faq" href="FAQ.html">Need Help?</a> View the link to know more.</p>
+        <p><a class="nav-faq" href="FAQ.php">Need Help?</a> View the link to know more.</p>
     </div>
 
     <script src="/navigation/navigation.js"></script>

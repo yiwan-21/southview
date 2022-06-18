@@ -1,3 +1,5 @@
+<?php include "../navigation/logout.php"; ?>
+
 <section id="logout">
         <br><br><br><br>
         <div class="container-fluid-lg-12" >

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -81,7 +80,7 @@
                                 <tr>
                                     <td class="text-center">
                                         <a id=pw href="/Forgetpw/forgetpass.php">Forget password?</a> &nbsp;
-                                        <h6>Need an account? <a id=signup href="/signup/sigup.php">Sign up</a> &nbsp;</h6> 
+                                        <h6>Need an account? <a id=signup href="/signup/signup.php">Sign up</a> &nbsp;</h6> 
                                     </td>
                                 </tr>
                             </form>

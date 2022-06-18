@@ -1,9 +1,9 @@
 <?php
-    $host = "localhost";
+    $dbhost = "localhost";
     $database = "south view";
-    $user = "root";
-    $pass = "";
-    $conn = mysqli_connect($host, $user, $pass, $database);
+    $dbuser = "root";
+    $dbpass = "";
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
 
     // mysqli_connect_errno returns the last error code
     if ( mysqli_connect_errno() ) {

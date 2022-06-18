@@ -1,3 +1,5 @@
+<?php include "../checkLogin.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +25,7 @@
   <div class="container-fluid">
     <nav class="navbar fixed-top navbar-expand-md navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="home.php">
           <img id="nav-logo" src="images/logo.svg" alt="SV logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -33,16 +35,16 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link mx-1" aria-current="page" href="home.html">Home</a>
+              <a class="nav-link mx-1" aria-current="page" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-1" href="./manage-register-account/viewsignup.html">Residents Account</a>
+              <a class="nav-link mx-1" href="./manage-register-account/viewsignup.php">Residents Account</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-1" href="./manage-Covid19.html">Covid-19 Reporting</a>
+              <a class="nav-link mx-1" href="./manage-Covid19.php">Covid-19 Reporting</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-1 active" href="./message.html">Messages</a>
+              <a class="nav-link mx-1 active" href="./message.php">Messages</a>
             </li>
           </ul>
         </div>
@@ -57,7 +59,7 @@
           <div class="col-lg-9"></div>
           <div class="col-lg-2 justify-content-end d-flex align-items-end">
             <div class="col-lg-1"></div>
-            <!-- <a href="../login/login.html" class="logoutbtn">LOGOUT</a> -->
+            <!-- <a href="../login/login.php" class="logoutbtn">LOGOUT</a> -->
             <a href="javascript:Alert();" class="logoutbtn">LOGOUT</a>
           </div>
         </div>

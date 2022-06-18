@@ -17,15 +17,15 @@
     <template id="navbar-template">
         <nav class="navbar">
             <div class="logo">
-                <img id="logo" src="/images/Logo SV.png" alt="logo" onclick="window.location.href='/Homepage/indexHomepage.html'">
+                <img id="logo" src="/images/Logo SV.png" alt="logo" onclick="window.location.href='/Homepage/indexHomepage.php'">
             </div>
             <div class="max-width">
                 <ul class="menu" id="menunav">
-                    <li><a href="/Homepage/indexHomepage.html" class="menu-btn">HOME</a></li>
-                    <li><a href="/Facilities/facilities.html" class="menu-btn">FACILITIES</a></li>
+                    <li><a href="/Homepage/indexHomepage.php" class="menu-btn">HOME</a></li>
+                    <li><a href="/Facilities/facilities.php" class="menu-btn">FACILITIES</a></li>
                     <li><a href="/visitor-pass/visitorpass.html" class="menu-btn">VISITOR PASS</a></li>
                     <li><a href="/covidStatus/healthyCovidStatus.php" class="menu-btn">COVID-19 STATUS</a></li>
-                    <li><a href="/AboutUs/AboutUs.html" class="menu-btn">ABOUT US</a></li>
+                    <li><a href="/AboutUs/AboutUs.php" class="menu-btn">ABOUT US</a></li>
                 </ul>    
                 <div class="menu-btn">
                     <i id="icon" onclick="toggleMenu()">
@@ -45,8 +45,8 @@
                 </i>
                 <div class="profile">
                     <div class="profile-detail">
-                        <a href="/southview_profile/profile1.html">User Profile</a>
-                        <a href="/southview_payment/payment.html">Payment</a>
+                        <a href="/southview_profile/profile1.php">User Profile</a>
+                        <a href="/southview_payment/payment.php">Payment</a>
                         <a href="/navigation/logout.php"><span class="logout">Log Out</span></a>
                     </div>
                 </div>

@@ -16,6 +16,6 @@ function initMap(){
 }
 
 document.getElementById("myButton").onclick = function () {
-    location.href = "indexHomepage.html";
+    location.href = "indexHomepage.php";
 };
 
