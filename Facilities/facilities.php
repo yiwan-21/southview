@@ -1,3 +1,5 @@
+<?php include "../checkLogin.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +69,7 @@
 	<script src="/navigation/navigation.js"></script>
 	<script type="text/javascript">
 		document.getElementById("myButton").onclick = function () {
-			location.href = "indexHomepage.html";
+			location.href = "indexHomepage.php";
 		};
 	</script>
 </body>

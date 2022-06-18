@@ -4,5 +4,5 @@ if (!isset($_SESSION)) {
 }
 if (!isset($_SESSION['svid'])) {
     echo "<script>alert('You are not logged in');</script>";
-    header("Location: /login/login.php");
+    // header("Location: /login/login.php");
 }

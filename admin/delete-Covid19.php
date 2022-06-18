@@ -1,5 +1,6 @@
 <?php
-include 'connect.php';
+include '../connect.php';
+include '../checkLogin.php';
 if(isset($_GET['deleteCovid19id'])){
     $Patient_ID=$_GET['deleteCovid19id'];
 

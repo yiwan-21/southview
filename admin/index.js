@@ -101,7 +101,7 @@ $(document).ready(function() {
 function Alert() {
     var answer = confirm ("Click on OK to log out!")
     if (answer)
-    window.location.href= "/login/login.html" ;
+    window.location.href= "/login/login.php" ;
 }
 
 

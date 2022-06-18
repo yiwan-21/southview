@@ -13,7 +13,7 @@ function handleFormSubmit(event) {
 
 function Submit(event) {
     event.preventDefault();
-    window.location.href = "/login/login.html"
+    window.location.href = "/login/login.php"
 }
 
 var check = function () {

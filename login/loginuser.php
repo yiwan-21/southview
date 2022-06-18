@@ -1,6 +1,5 @@
 <?php
 
-include "../connect.php";
 session_start();
 
 $_SESSION["svid"] = $_POST["svid"];
@@ -8,7 +7,17 @@ $_SESSION["svid"] = $_POST["svid"];
 //     echo "<script>console.log('Session svid: " . $_SESSION["svid"] . "' );</script>";
 // }
 
-echo "<script>console.log('hi' );</script>";
+$host = "localhost";
+$database = "south view";
+$user = "root";
+$pass = "";
+$conn = mysqli_connect($host, $user, $pass, $database);
+
+// mysqli_connect_errno returns the last error code
+if (mysqli_connect_errno()) {
+    echo "<script>console.log('connection failed: " . mysqli_get_host_info($conn) . "');</script>";
+    die(mysqli_connect_error());
+}
 
 $error = ''; //Variable to Store error message;
 if (isset($_POST['submit'])) {
@@ -32,7 +41,7 @@ if (isset($_POST['submit'])) {
             $query = mysqli_query($conn, "SELECT * FROM administrator WHERE Password='$password' AND Administrator_svID='$user'");
             $rows = mysqli_num_rows($query);
             if ($rows == 1) {
-                header("Location: ../admin/home.html"); // Redirecting to other page
+                header("Location: ../admin/home.php"); // Redirecting to other page
             } else {
                 $error = "Username of Password is Invalid";
             }

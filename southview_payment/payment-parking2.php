@@ -1,9 +1,10 @@
 <?php
-    include_once("config.php");
+    include_once("../connect.php");
+    include '../checkLogin.php';
     if(isset($_POST['paid'])){
-        $Resident_svID = mysqli_real_escape_string($mysqli, $_POST['Resident_svID']);
-        $Email = mysqli_real_escape_string($mysqli, $_POST['Email']);
-        $Payment_Amount = mysqli_real_escape_string($mysqli, $_POST['Payment_Amount']);
+        $Resident_svID = mysqli_real_escape_string($conn, $_POST['Resident_svID']);
+        $Email = mysqli_real_escape_string($conn, $_POST['Email']);
+        $Payment_Amount = mysqli_real_escape_string($conn, $_POST['Payment_Amount']);
         $paymentCat = 'Parking';
         if(empty($Resident_svID)||empty($Email)||empty($Payment_Amount)){
             if(empty($Resident_svID)) {
@@ -18,7 +19,7 @@
                 echo "<font color='red'>Amount field is empty.</font><br/>";
             }
         }else{
-            $result = mysqli_query($mysqli, "INSERT INTO payment (Resident_svID,Payment_Category,Payment_Amount,Email,Payment_Date) VALUES ('$Resident_svID','$paymentCat','$Payment_Amount','$Email',curdate())");  
+            $result = mysqli_query($conn, "INSERT INTO payment (Resident_svID,Payment_Category,Payment_Amount,Email,Payment_Date) VALUES ('$Resident_svID','$paymentCat','$Payment_Amount','$Email',curdate())");  
             header("Location: http://localhost:8000/southview_payment/payment-success.php");
         }
         

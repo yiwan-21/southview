@@ -35,7 +35,7 @@
 
                                         <div class="col-lg-4 bg">
                                             <h2 class="text-center">Sign Up</h2>
-                                            <form action="connect.php" method="post">
+                                            <form action="createNewUser.php" method="post">
                                                 <hr>        
                                     <table class="table table-borderless">
                                                 <tr>
@@ -90,14 +90,14 @@
                                                    
                                                     <tr class="text-center clearfix">
                                                         <td>
-                                                            <h6><strong>Already have an account? <a  href="/login/login.html">Login here</strong> </a> &nbsp;</h6> 
+                                                            <h6><strong>Already have an account? <a  href="/login/login.php">Login here</strong> </a> &nbsp;</h6> 
                                                         </td>
                                                     </tr>
     
                                                   
                                                         <tr class="text-center">
                                                             <td>
-                                                                <a id="signuplink" href="../login/login.html">
+                                                                <a id="signuplink" href="../login/login.php">
                                                                 <button id="backbtn" type="button" class="">Back</button>
                                                                 </a>
                                                                 <button name='submit' id="submitbtn" type="submit" class="">Submit</button>

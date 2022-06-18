@@ -1,17 +1,18 @@
 <?php
-include 'config.php';
 session_start();
+include '../connect.php';
+include '../checkLogin.php';
 if(isset($_POST['delete'])){
     $Resident_svID = $_SESSION['svid'];
     
-    $result = mysqli_query($mysqli, "DELETE FROM resident WHERE Resident_svID=$Resident_svID");
+    $result = mysqli_query($conn, "DELETE FROM resident WHERE Resident_svID=$Resident_svID");
 
-    mysqli_close($mysqli);
+    mysqli_close($conn);
 
     header("Location: http://localhost:8000/login/login.php");
 
 }
-mysqli_close($mysqli);
+mysqli_close($conn);
 ?>
 <html lang="en">
     
@@ -34,12 +35,12 @@ mysqli_close($mysqli);
     <!-- nav bar -->
     <script src="/navigation/navigation.js"></script>
     <?php
-        include 'config.php';
+        include '../connect.php';
         $sql = "SELECT * FROM resident WHERE Resident_svID='" .  $_SESSION['svid'] . "'"; 
-        $result=mysqli_query($mysqli, $sql);
+        $result=mysqli_query($conn, $sql);
 
         $singleRow  = mysqli_fetch_assoc($result);
-         mysqli_close($mysqli);
+         mysqli_close($conn);
     ?>
     
     <div class=" profile-area">

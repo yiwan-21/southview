@@ -1,5 +1,6 @@
 <?php
-include 'connect.php';
+include '../connect.php';
+include '../checkLogin.php';
   $query = 'SELECT * FROM resident ORDER BY Resident_svID DESC LIMIT 1';
   $result = mysqli_query($conn, $query);
   $row = mysqli_fetch_array($result);

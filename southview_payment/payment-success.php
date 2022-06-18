@@ -1,11 +1,12 @@
 <?php
-    include 'config.php';
+    include '../connect.php';
+    include '../checkLogin.php';
     //session_start();
     // $_SESSION['svid'] = 1;
     // $_SESSION['paymentid'] =3;
 
     $sql="SELECT * FROM payment ORDER BY Payment_ID DESC LIMIT 1"; 
-    $result=mysqli_query($mysqli, $sql);
+    $result=mysqli_query($conn, $sql);
     $singleRow  = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>

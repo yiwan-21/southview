@@ -1,8 +1,9 @@
 <?php
-    include_once("config.php");
     session_start();
+    include_once("../connect.php");
+    include '../checkLogin.php';
     // $_SESSION['svid'] = 3;
-    $result = mysqli_query($mysqli, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+    $result = mysqli_query($conn, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
     $singleRow  = mysqli_fetch_assoc($result);  
     $payment_amount = 30.00;
 
@@ -12,10 +13,10 @@
       $Email =$singleRow['Email'];
       $paymentCat = 'Sewage';
         
-      $result = mysqli_query($mysqli, "INSERT INTO payment (Resident_svID,Payment_Category,Payment_Amount,Email,Payment_Date) VALUES ('$svid','$paymentCat','$payment_amount','$Email',curdate())");
+      $result = mysqli_query($conn, "INSERT INTO payment (Resident_svID,Payment_Category,Payment_Amount,Email,Payment_Date) VALUES ('$svid','$paymentCat','$payment_amount','$Email',curdate())");
       header("Location: http://localhost:8000/southview_payment/payment-success.php");
     }
-    mysqli_close($mysqli);
+    mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>

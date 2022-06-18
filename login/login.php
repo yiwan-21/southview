@@ -54,7 +54,10 @@
                                        
                                 </tr>
                                 <tr class="checkpass">
-                                    <td><input type="checkbox" onclick="myFunction()"><strong> Show Password </strong></td>
+                                    <td>
+                                        <input type="checkbox" id="showPass" onclick="myFunction()">
+                                        <label for="showPass"><strong> Show Password </strong></label>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -70,7 +73,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <!-- <a id=loginlink href="/southview-fe/Homepage/indexHomepage.html"> -->
+                                        <!-- <a id=loginlink href="/southview-fe/Homepage/indexHomepage.php"> -->
                                         <input type="submit" name="submit" class="form-control text-center" value="LOGIN" id="loginbtn">
                                         <!-- <button name='submit' id="submitbtn" type="submit" class="form-control text-center">Login</button> -->
                                         <!-- </a> -->
@@ -79,7 +82,7 @@
                                 <tr>
                                     <td class="text-center">
                                         <a id=pw href="/Forgetpw/forgetpass.html">Forget password?</a> &nbsp;
-                                        <h6>Need an account? <a id=signup href="/signup/sigup.html">Sign up</a> &nbsp;</h6> 
+                                        <h6>Need an account? <a id=signup href="/signup/signup.html">Sign up</a> &nbsp;</h6> 
                                         
                                     </td>
                                 </tr>
