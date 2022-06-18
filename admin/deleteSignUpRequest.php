@@ -12,16 +12,10 @@ if (isset($_GET['deleteSignUpRequestid'])) {
     echo 'alert("Deleted Successfully!");';
     echo 'window.location.href = "viewsignup.php";';
     echo '</script>';
-    echo '<script type="text/javascript">
-        $(document).ready(function(){
-            $("#exampleModalToggle2").modal("show");
-        });
-        </script>';
   } else {
     die("Connection failed: " . $conn->connect_error);
   }
 }
-
 ?>
 
 

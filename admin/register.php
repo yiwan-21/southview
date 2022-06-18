@@ -1,16 +1,14 @@
 <?php
+session_start();
+$_SESSION['svid']=1;
 include '../connect.php';
 include '../checkLogin.php';
-  $query = 'SELECT * FROM resident ORDER BY Resident_svID DESC LIMIT 1';
+
+  $query = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA='south_view' AND TABLE_NAME='resident'";
   $result = mysqli_query($conn, $query);
   $row = mysqli_fetch_array($result);
-  $lastid = $row['Resident_svID'];
-  if($lastid == " "){
-    $rID = 2200001;
-  }
-  else{
-    $rID = $lastid + 1;
-  }
+  $lastid = $row['AUTO_INCREMENT'];
+  $rID = $lastid;
 
 if(isset($_POST['submit']))
 {
@@ -23,9 +21,8 @@ if(isset($_POST['submit']))
       $email=$_POST['email'];
       $unit=$_POST['unit'];
       $vecno=$_POST['vecno'];
-      
-      // default password = SV12345678
-     $result = mysqli_query($conn, "insert into `resident` (`Name`,`Gender`,`Password`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) values('$name','$gender','SV12345678','$icno','$phoneno','$email',$age,'$unit','$vecno')");
+      $password= password_hash("SV12345678", PASSWORD_DEFAULT);
+      $result = mysqli_query($conn, "insert into `resident` (`Name`,`Gender`,`Password`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) values('$name','$gender',$password,'$icno','$phoneno','$email',$age,'$unit','$vecno')");
 
     if($result)
     {

@@ -74,25 +74,47 @@
                           <td>'.$unit.'</td> 
                           <td>'.$date_start.'</td> 
                           <td>'.$symptom.'</td>               
-                          <td>
-                          <button data-id='.$Patient_ID.' class="userinfo btn btn-success">
-                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="width: 30px; height: auto;">
+
+                          <td class="icon-td">
+                          <a href="" data-toggle="modal" data-target="#mymodal">
+                          <button type= "submit" name="show-button" class="btn btn-sm">
+                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="margin: auto; width: 30px; height: 30px;">
                           </button>
+                          </a>
 
                             <a href="validate-Covid19.php?validateCovid19id='.$Patient_ID.'">
-                              <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon">
+                              <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon" style="margin: auto;">
                             </a>
-                            &nbsp;
                             <a href="update-Covid19.php?updateCovid19id='.$Patient_ID.'">
-                              <img class="icon" src="images/update.svg" alt="Update Icon">
+                              <img class="icon" src="images/update.svg" alt="Update Icon" style="margin: auto;">
                             </a>    
                            
                             <!-- Button trigger modal -->
-                            <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'">
                             <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              <img class="icon" src="images/delete.svg" alt="Delete Icon">
+                              <img class="icon" src="images/delete.svg" alt="Delete Icon" style="margin: auto;">
                             </button> 
-                            </a>               
+                            </a>
+
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header border-0">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body border-0">
+                                    <p>Are you sure you want to delete the selected Covid-19 Reporting?</p> 
+                                  </div>
+                                  <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'">
+                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> 
                     </td>        
                         </tr>';
                       }

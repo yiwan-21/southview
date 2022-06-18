@@ -87,7 +87,7 @@
                         $email=$row['Email'];
                         $unit=$row['Unit'];
                         echo ' <tr>
-                        <th scope="row"><input type="checkbox" name="chk" value="1"></th>
+                        <th scope="row"></th>
                           <td>'.$id.'</td> 
                           <td>'.$name.'</td> 
                           <td>'.$email.'</td>  
@@ -108,7 +108,7 @@
                                 <img class="icon" src="images/delete.svg" alt="Delete Icon">
                               </button>
                               
-                              <!-- Modal -->
+                              <!-- Delete Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
@@ -117,7 +117,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                   </div>
                                   <div class="modal-body border-0">
-                                    <p>Are you sure you want to delete the selected Covid-19 Report?</p> 
+                                    <p>Are you sure you want to delete the selected Sign Up Request?</p> 
                                   </div>
                                   <div class="modal-footer border-0">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
