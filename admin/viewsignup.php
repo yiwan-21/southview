@@ -1,5 +1,11 @@
 <?php
     include 'connect.php';
+<<<<<<< HEAD
+    
+    
+
+=======
+>>>>>>> main
 ?>  
 
 <!DOCTYPE html>
@@ -48,6 +54,15 @@
             </a>
           </nav>
 
+<<<<<<< HEAD
+          <div class="dropdown">           
+            <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Delete Options
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <!-- select all--> 
+              <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
+=======
           <!-- <div class="dropdown">           
             <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Delete Options
@@ -55,6 +70,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> -->
               <!-- select all--> 
               <!-- <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
+>>>>>>> main
                 <a class="dropdown-item" href="#"><input type="button" onclick='selects()' value="Select All"/></a>
               </button type>  
               <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -62,6 +78,15 @@
               </button>
             </ul>
           <br><br>
+<<<<<<< HEAD
+        </div>
+          
+          <div class="table-responsive">
+            <table id="example-signuprequest" class="table table-font table-borderless table-dark table-hover vertical-align: middle">
+              <thead>
+                  <tr>
+                    <th scope="col"></th>
+=======
         </div> -->
           
 
@@ -70,6 +95,7 @@
               <thead>
                   <tr>       
                     <th scope="col"></th>           
+>>>>>>> main
                     <th scope="col">ID</th>                  
                     <th scope="col">Name</th>                  
                     <th scope="col">E-mail</th>
@@ -90,11 +116,28 @@
                         $email=$row['Email'];
                         $unit=$row['Unit'];
                         echo ' <tr>
+<<<<<<< HEAD
+                        <th scope="row"><input type="checkbox" name="chk" value="1"></th>
+=======
                           <th scope="row"></th>
+>>>>>>> main
                           <td>'.$id.'</td> 
                           <td>'.$name.'</td> 
                           <td>'.$email.'</td>  
                           <td>'.$unit.'</td>             
+<<<<<<< HEAD
+                          <td>
+                            
+                            <button type="submit" name="submit" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <img class="validateicon" src="images/validate.svg" alt="Validate Icon">
+                            </a>    
+                            <!-- Button trigger modal -->
+                            <a href="deleteSignUpRequest.php?deleteSignUpRequestid='.$id.'">
+                            <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <img class="icon" src="images/delete.svg" alt="Delete Icon">
+                            </button> 
+                            </a>               
+=======
                           <td style="
                           display: flex;
                           align-items: center;">
@@ -132,6 +175,7 @@
                               </div>
                             </div> 
                                           
+>>>>>>> main
                     </td>        
                         </tr>';
                       }

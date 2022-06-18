@@ -28,6 +28,42 @@ if (isset($_POST['submit'])) {
         $role = $_POST['role'];
 
 
+<<<<<<< HEAD
+        if ($role=="Administrator"){
+            $query = mysqli_query($conn, "SELECT * FROM administrator WHERE Administrator_svID='$user' LIMIT 1");
+            $rows = mysqli_fetch_assoc($query);
+            $pw = $rows['Password'];
+
+            $verify = password_verify($password, $pw);
+
+
+            if($verify){
+                header("Location: ../admin/home.html"); // Redirecting to other page
+            }
+            else{
+                #error = "Username of Password is Invalid";
+                header('Location: login.php?error=User Name or Password is invalid');
+            }
+        }else{
+            $query = mysqli_query($conn, "SELECT * FROM resident WHERE Resident_svID='$user' LIMIT 1");
+            $rows = mysqli_fetch_assoc($query);
+            $pw = $rows['Password'];
+
+
+            $verify = password_verify($password, $pw);
+            if($verify){
+                header("Location: ../Homepage/indexHomepage.php"); // Redirecting to other page
+            }
+            else{
+                header("Location: login.php?error=User Name or Password is invalid&hi=$pw&pw=$password");
+            }
+        }
+        
+        mysqli_close($conn); // Closing connection
+    }
+}
+?>  
+=======
         if ($role == "Administrator") {
             $query = mysqli_query($conn, "SELECT * FROM administrator WHERE Password='$password' AND Administrator_svID='$user'");
             $rows = mysqli_num_rows($query);
@@ -50,3 +86,4 @@ if (isset($_POST['submit'])) {
     }
 }
 ?> `
+>>>>>>> main

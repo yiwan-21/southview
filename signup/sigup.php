@@ -1,4 +1,4 @@
-
+<?php require("connect.php") ?>
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -35,7 +35,7 @@
 
                                         <div class="col-lg-4 bg">
                                             <h2 class="text-center">Sign Up</h2>
-                                            <form action="connect.php" method="post">
+                                            <form action="" method="post">
                                                 <hr>        
                                     <table class="table table-borderless">
                                                 <tr>
@@ -43,13 +43,13 @@
                                                 </tr>
             
                                                 <tr>
-                                                    <td><input type="text" placeholder="Enter IC NO/Passport NO" name="identityno" class="form-control" required></td> 
+                                                    <td><input type="number" placeholder="Enter IC NO/Passport NO" name="identityno" class="form-control" required></td> 
                                                 </tr>
                                                     <tr>
-                                                        <td><input type="text" placeholder="Enter Age" name="age" class="form-control" required></td> 
+                                                        <td><input type="number" placeholder="Enter Age" name="age" class="form-control" required></td> 
                                                      </tr>
                                                      <tr>
-                                                        <td><input type="text" placeholder="Enter Phone Number" name="phonenum" class="form-control" required></td> 
+                                                        <td><input type="number" placeholder="Enter Phone Number" name="phonenum" class="form-control" required></td> 
                                                      </tr>
                                                      <tr>
                                                        
@@ -63,10 +63,21 @@
                                                  <tr>
                                                    <td><input type="email" placeholder="Enter Email" name="email" class="form-control" required></td> 
                                                 </tr>
+
+                                                <tr>
+                                                <td style='color:red;'><?php if(isset($error_email)&!empty($error_email)){echo $error_email;} ?></td>
+                                                </tr>
             
                                                 <tr>
                                                     <td><input type="text" placeholder="Enter Unit" name="unit" class="form-control" required></td> 
+                                                    
                                                 </tr>
+
+                                                <tr>
+                                                <td style='color:red;'><?php if(isset($error)&!empty($error)){echo $error;}?>
+                                                <?php if(isset($error_unit)&!empty($error_unit)){echo $error_unit;} ?></td>
+                                                </tr>
+
                                                     <tr>
                                                         <td><input type="text" placeholder="Enter Vehicle NO" name="vehicle" class="form-control" required></td> 
                                                      </tr>
@@ -83,21 +94,28 @@
                                                             maxlength="15" size="15" required  onkeyup='check();'></td>
                                                             
                                                     </tr>
+
+                                                   
                                                     <tr class="checkpass">
                                                         <td><input type="checkbox" onclick="myFunction1()"><strong> Show Password </strong><div id="message">&nbsp;</div></td>
                                                     </tr>
                                                     
+                                                    <tr>
+                                                        <td style='color:red;'><?php if(isset($pass_error)&!empty($pass_error)){echo $pass_error;} ?></td>
+                                                    </tr>
+                                                    
+                                                    
                                                    
                                                     <tr class="text-center clearfix">
                                                         <td>
-                                                            <h6><strong>Already have an account? <a  href="/login/login.html">Login here</strong> </a> &nbsp;</h6> 
+                                                            <h6><strong>Already have an account? <a  href="/login/login.php">Login here</strong> </a> &nbsp;</h6> 
                                                         </td>
                                                     </tr>
     
                                                   
                                                         <tr class="text-center">
                                                             <td>
-                                                                <a id="signuplink" href="../login/login.html">
+                                                                <a id="signuplink" href="/login/login.php">
                                                                 <button id="backbtn" type="button" class="">Back</button>
                                                                 </a>
                                                                 <button name='submit' id="submitbtn" type="submit" class="">Submit</button>
@@ -114,12 +132,46 @@
                                
             </section>
 
-
             <script>
+if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+            <script>
+
                 function handleFormSubmit(event) {
                     event.preventDefault();
                     //window.location.href="signup2.html"
                 }
+                function myFunction() {
+                var x = document.getElementById("logpw");
+                if (x.type === "password") {
+                     x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+
+            function myFunction1() {
+                var x = document.getElementById("confirmpw");
+                if (x.type === "password") {
+                     x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+            
+                var check = function() {
+                    if (document.getElementById('logpw').value ==
+                        document.getElementById('confirmpw').value) {
+                        document.getElementById('message').style.color = 'green';
+                        document.getElementById('message').innerHTML = 'Passwords matched';
+                    } else {
+                        document.getElementById('message').style.color = 'red';
+                        document.getElementById('message').innerHTML = 'Please make sure the passwords are the same';
+                        
+              }
+            }
             
                 </script>
         </body>
