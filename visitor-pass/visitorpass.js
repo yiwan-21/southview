@@ -105,15 +105,13 @@ function handleFormSubmit(event) {
      console.log(values);
     window.location.href="registerVisitorSuccess.html"
 }
-function register(){
-    window.location.href="visitorpassform.html"
-}
-function success(){
-    window.location.href="registerVisitorSuccess.html"
-}
 
 function view(){
-    window.location.href="visitorpassGenerated.html"
+    window.location.href="visitorpassGenerated.php"
+}
+
+function register(){
+    window.location.href="visitorpassform.php"
 }
 
 //download pdf
@@ -128,6 +126,7 @@ document.querySelector(".btn-pdf").onclick = function () {
 
     html2pdf(element, opt);
   };
+  
 // Open Profile Icon && Open Chating Icon
         document.getElementById("myButton").onclick = function () {
             location.href = "indexHomepage.html";

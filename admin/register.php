@@ -22,14 +22,24 @@ if(isset($_POST['submit']))
       $email=$_POST['email'];
       $unit=$_POST['unit'];
       $vecno=$_POST['vecno'];
+<<<<<<< HEAD
   
       $result = mysqli_query($conn, "insert into `resident` (`Name`,`Gender`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) values('$name','$gender','$icno','$phoneno','$email',$age,'$unit','$vecno')");
+=======
+      
+      // default password = SV12345678
+      $result = mysqli_query($conn, "insert into `resident` (`Name`,`Gender`,`Password`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) values('$name','$gender','SV12345678','$icno','$phoneno','$email',$age,'$unit','$vecno')");
+>>>>>>> main
          
 
     if($result)
     {
         echo '<script type="text/javascript">'; 
+<<<<<<< HEAD
         echo 'alert("Register Successfully!");'; 
+=======
+        echo 'alert("Register Successfully! The default password is SV12345678.");'; 
+>>>>>>> main
         echo 'window.location.href = "viewlist.php";';
         echo '</script>';
       
@@ -127,10 +137,17 @@ if(isset($_POST['submit']))
                                           <strong>:</strong>
                                         </div>
                                           <div class="col-lg-7" id="tr-settings">
+<<<<<<< HEAD
                                               <input type="radio" name="gender" class="form-check-input" id="male" value="male" required>
                                               <label for="male"  class="form-input-label">Male</label>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                               <input type="radio" name="gender" class="form-check-input" id="female" value="female" required>
+=======
+                                              <input type="radio" name="gender" class="form-check-input" id="male" value="Male" required>
+                                              <label for="male"  class="form-input-label">Male</label>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              <input type="radio" name="gender" class="form-check-input" id="female" value="Female" required>
+>>>>>>> main
                                               <label for="female"  class="form-input-label">Female</label>  
                                           </div>
                                       </div>

@@ -1,8 +1,11 @@
 <?php
     include 'connect.php';
+<<<<<<< HEAD
     
     
 
+=======
+>>>>>>> main
 ?>  
 
 <!DOCTYPE html>
@@ -51,6 +54,7 @@
             </a>
           </nav>
 
+<<<<<<< HEAD
           <div class="dropdown">           
             <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Delete Options
@@ -58,6 +62,15 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <!-- select all--> 
               <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
+=======
+          <!-- <div class="dropdown">           
+            <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Delete Options
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> -->
+              <!-- select all--> 
+              <!-- <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
+>>>>>>> main
                 <a class="dropdown-item" href="#"><input type="button" onclick='selects()' value="Select All"/></a>
               </button type>  
               <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -65,6 +78,7 @@
               </button>
             </ul>
           <br><br>
+<<<<<<< HEAD
         </div>
           
           <div class="table-responsive">
@@ -72,6 +86,16 @@
               <thead>
                   <tr>
                     <th scope="col"></th>
+=======
+        </div> -->
+          
+
+          <div class="table-responsive">
+            <table id="example-signuprequest" class="table table-font table-borderless table-dark table-hover vertical-align: middle">
+              <thead>
+                  <tr>       
+                    <th scope="col"></th>           
+>>>>>>> main
                     <th scope="col">ID</th>                  
                     <th scope="col">Name</th>                  
                     <th scope="col">E-mail</th>
@@ -92,11 +116,16 @@
                         $email=$row['Email'];
                         $unit=$row['Unit'];
                         echo ' <tr>
+<<<<<<< HEAD
                         <th scope="row"><input type="checkbox" name="chk" value="1"></th>
+=======
+                          <th scope="row"></th>
+>>>>>>> main
                           <td>'.$id.'</td> 
                           <td>'.$name.'</td> 
                           <td>'.$email.'</td>  
                           <td>'.$unit.'</td>             
+<<<<<<< HEAD
                           <td>
                             
                             <button type="submit" name="submit" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -108,6 +137,45 @@
                               <img class="icon" src="images/delete.svg" alt="Delete Icon">
                             </button> 
                             </a>               
+=======
+                          <td style="
+                          display: flex;
+                          align-items: center;">
+                            <a href="validateSignUpRequest.php?validateSignUpRequestid='.$id.'&email='.$email.'">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            width="22" height="22"
+                            viewBox="0 0 172 172"
+                            style=" fill:#undefined;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M157.66667,86c0,39.57792 -32.08875,71.66667 -71.66667,71.66667c-39.57792,0 -71.66667,-32.08875 -71.66667,-71.66667c0,-39.57792 32.08875,-71.66667 71.66667,-71.66667c39.57792,0 71.66667,32.08875 71.66667,71.66667z" fill="#4caf50"></path><path d="M123.9905,52.32383l-48.7405,48.72258l-20.07383,-20.0595l-10.02258,10.02258l30.09642,30.11075l58.7595,-58.77383z" fill="#ffffff"></path></g></g></svg>                           
+                            </a>    
+
+                            <!-- Button trigger modal -->
+                              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img class="icon" src="images/delete.svg" alt="Delete Icon">
+                              </button>
+                              
+                              <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header border-0">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body border-0">
+                                    <p>Are you sure you want to delete the selected Covid-19 Report?</p> 
+                                  </div>
+                                  <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <a href="deleteSignUpRequest.php?deleteSignUpRequestid='.$id.'">
+                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> 
+                                          
+>>>>>>> main
                     </td>        
                         </tr>';
                       }

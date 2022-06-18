@@ -143,3 +143,37 @@ th, strong{
     margin-bottom: 10px;
 }
 
+
+#btn-pdf{
+    width:250px;
+    height:60px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color:#25E5F8;
+    color:#000;
+    position: relative;
+    bottom:30px;
+}
+
+#btn-pdf:hover{
+    background-color: #23D2E3;
+    color: #fff;
+}
+
+#btn-setting2{
+    width:250px;
+    height:60px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color:#25E5F8;
+    color:#000;
+    position: relative;
+    bottom:30px;
+}
+
+#btn-setting2:hover{
+    background-color: #23D2E3;
+    color: #fff;
+}
