@@ -91,20 +91,40 @@ include '../checkLogin.php';
                 $name = $row['Name'];
                 $unit = $row['Unit'];
                 echo ' <tr>
-                        <th scope="row"><input type="checkbox" name="chk" value="1"></th>
+                        <th scope="row"></th>
                           <td>' . $SV_ID . '</td> 
                           <td>' . $name . '</td> 
                           <td>' . $unit . '</td>              
                           <td>
                             <a href="update-profile.php?updateResidentid=' . $SV_ID . '">
                               <img class="icon" src="images/update.svg" alt="Update Icon">
-                            </a>    
+                            </a>   
+                            
                             <!-- Button trigger modal -->
-                            <a href="deleteResident.php?deleteResidentid=' . $SV_ID . '">
-                            <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              <img class="icon" src="images/delete.svg" alt="Delete Icon">
-                            </button> 
-                            </a>                
+                              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img class="icon" src="images/delete.svg" alt="Delete Icon">
+                              </button>
+
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header border-0">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body border-0">
+                                    <p>Are you sure you want to delete the selected Resident?</p> 
+                                  </div>
+                                  <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <a href="deleteResident.php?deleteResidentid=' . $SV_ID .'">
+                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>                 
                     </td>        
                         </tr>';
               }
