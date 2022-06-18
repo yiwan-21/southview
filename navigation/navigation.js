@@ -11,7 +11,7 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-fetch("/navigation/navigation.html")
+fetch("/navigation/navigation.php")
     .then(response => response.text())
     .then(data => {
         document.body.appendChild(document.createElement('div')).classList.add('nav');
@@ -30,11 +30,11 @@ fetch("/navigation/navigation.html")
     .catch(err => console.warn('Something went wrong.', err));
 
 function toggleMenu() {
-    var x = document.getElementById("menunav");
-    if (x.style.display === "none") {
-      x.style.display = "block";
+    var menu = document.getElementById("menunav");
+    if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
     } else {
-      x.style.display = "none";
+        menu.classList.add("active");
     }
 }
 

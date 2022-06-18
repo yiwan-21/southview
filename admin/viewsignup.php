@@ -1,5 +1,6 @@
 <?php
-    include 'connect.php';
+    include '../connect.php';
+    include '../checkLogin.php';
 ?>  
 
 <!DOCTYPE html>
@@ -54,22 +55,18 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> -->
               <!-- select all--> 
-              <!-- <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
-                <a class="dropdown-item" href="#"><input type="button" onclick='selects()' value="Select All"/></a>
-              </button type>  
-              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <!-- <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
                 <a class="dropdown-item" href="#"><input type="button" value="Selected Checkbox"/></a>
               </button>
             </ul>
           <br><br>
-        </div> -->
+          </div> -->
           
-
           <div class="table-responsive">
             <table id="example-signuprequest" class="table table-font table-borderless table-dark table-hover vertical-align: middle">
               <thead>
-                  <tr>       
-                    <th scope="col"></th>           
+                  <tr>
+                    <th scope="col"></th>
                     <th scope="col">ID</th>                  
                     <th scope="col">Name</th>                  
                     <th scope="col">E-mail</th>
@@ -90,7 +87,7 @@
                         $email=$row['Email'];
                         $unit=$row['Unit'];
                         echo ' <tr>
-                          <th scope="row"></th>
+                        <th scope="row"><input type="checkbox" name="chk" value="1"></th>
                           <td>'.$id.'</td> 
                           <td>'.$name.'</td> 
                           <td>'.$email.'</td>  

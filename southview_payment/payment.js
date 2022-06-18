@@ -1,5 +1,5 @@
 window.onload = function () {
-    document.querySelector(".btn-pdf")
+    document.querySelector("#btn-pdf")
         .addEventListener("click", () => {
             const content = this.document.getElementById("downloadarea");
             var opt = {
@@ -18,3 +18,9 @@ function submitPayment(event) {
     event.preventDefault();
     window.location.href = "/southview_payment/payment-success.html"
 }; 
+
+function getImage(imagename){
+    var newing=imagename.replace(/^.*\\/,"");
+    $('#display-image').html(newing);
+}
+

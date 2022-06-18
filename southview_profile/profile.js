@@ -8,12 +8,24 @@ function handleFormSubmit(event) {
         console.log(key, value);
     });
     console.log(values)
-    window.location.href = "profile1.html"
+    window.location.href = "profile1.css"
 }
 
 function Submit(event) {
     event.preventDefault();
-    window.location.href = "/login/login.html"
+    window.location.href = "/login/login.php"
+}
+
+
+var checkcurpass= function (){
+    if(document.getElementById('oldpass').value==document.getElementById('oripass').value){
+        document.getElementById('curpass').style.color ='green';
+        document.getElementById('curpass').innerHTML = 'Current password is correct';
+    }else{
+        document.getElementById('curpass').style.color ='red';
+        document.getElementById('curpass').innerHTML = 'Current password is incorrect';
+    }
+
 }
 
 var check = function () {
@@ -27,8 +39,38 @@ var check = function () {
     }
 }
 
-function hadSubmit(event) {
-    event.preventDefault();
-    window.location.href = "#resetsuccess"
-}
+//declearing html elements
 
+const imgDiv = document.querySelector('.profile-pic-div');
+const img = document.querySelector('#photo');
+const file = document.querySelector('#file');
+const uploadBtn = document.querySelector('#uploadBtn');
+
+//if user hover on img div 
+
+imgDiv.addEventListener('mouseenter', function(){
+    uploadBtn.style.display = "block";
+});
+
+//if we hover out from img div
+
+imgDiv.addEventListener('mouseleave', function(){
+    uploadBtn.style.display = "none";
+});
+
+
+file.addEventListener('change', function(){
+
+    const choosedFile = this.files[0];
+
+    if (choosedFile) {
+
+        const reader = new FileReader(); 
+
+        reader.addEventListener('load', function(){
+            img.setAttribute('src', reader.result);
+        });
+
+        reader.readAsDataURL(choosedFile);
+    }
+});
