@@ -1,5 +1,6 @@
 <?php
-include 'connect.php';
+include '../checkLogin.php';
+include '../connect.php';
 if(isset($_GET['deleteSignUpRequestid'])){
     $id=$_GET['deleteSignUpRequestid'];
 

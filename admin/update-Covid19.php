@@ -1,4 +1,5 @@
 <?php
+include '../checkLogin.php';
 include '../admin/manage-register-account/connect.php';
 $Patient_ID=$_GET['updateID'];
 $sql="select * from `covid-19 patient` where Patient_ID=$Patient_ID";
