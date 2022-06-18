@@ -1,9 +1,10 @@
 <?php
+session_start();
+include '../checkLogin.php';
 include 'INCLUDES/dbh.inc.php';
 $dbh = new dbh();
 $conn = $dbh->connect();
 
-session_start();
 $Resident_svID = $_SESSION['svid'];
 $stmt = $conn->prepare("SELECT Resident_svID FROM `covid-19 patient` WHERE `Resident_svID` = ?");
 $stmt->bind_param("s", $Resident_svID);

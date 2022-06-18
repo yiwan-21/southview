@@ -11,7 +11,7 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-fetch("/navigation/navigation.html")
+fetch("/navigation/navigation.php")
     .then(response => response.text())
     .then(data => {
         document.body.appendChild(document.createElement('div')).classList.add('nav');
