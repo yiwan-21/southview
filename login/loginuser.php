@@ -18,11 +18,13 @@ if(isset($_POST['submit'])){
         //sql query to fetch information of registerd user and finds user match.
         $role = $_POST['role'];
 
+
+        
         if ($role=="Administrator") {
             $result = mysqli_query($conn, "SELECT * FROM administrator WHERE Administrator_svID='$user' LIMIT 1");
             $row = mysqli_fetch_assoc($result);
             if(password_verify($password, $row['Password'])){
-                $_SESSION['login_user']=$row['Administrator_svID']; // Initializing Session
+                $_SESSION['svid']=$row['Administrator_svID']; // Initializing Session
                 header("location: ../admin/home.php"); // Redirecting To Other Page
             } else {
                 #error = "Username of Password is Invalid";
@@ -33,7 +35,7 @@ if(isset($_POST['submit'])){
             $result = mysqli_query($conn, "SELECT * FROM resident WHERE Resident_svID='$user' LIMIT 1");
             $row = mysqli_fetch_assoc($result);
             if(password_verify($password, $row['Password'])){
-                $_SESSION['login_user']=$row['Resident_svID']; // Initializing Session
+                $_SESSION['svid']=$row['Resident_svID']; // Initializing Session
                 header("location: ../Homepage/indexHomepage.php"); // Redirecting To Other Page
             } else {
                 header("Location: login.php?error=User Name or Password is invalid&hi=$pw&pw=$password");
