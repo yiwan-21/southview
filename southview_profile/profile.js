@@ -16,6 +16,18 @@ function Submit(event) {
     window.location.href = "/login/login.html"
 }
 
+
+var checkcurpass= function (){
+    if(document.getElementById('oldpass').value==document.getElementById('oripass').value){
+        document.getElementById('curpass').style.color ='green';
+        document.getElementById('curpass').innerHTML = 'Current password is correct';
+    }else{
+        document.getElementById('curpass').style.color ='red';
+        document.getElementById('curpass').innerHTML = 'Current password is incorrect';
+    }
+
+}
+
 var check = function () {
     if (document.getElementById('logpw').value ==
         document.getElementById('confirmpw').value) {
@@ -25,11 +37,6 @@ var check = function () {
         document.getElementById('message').style.color = 'red';
         document.getElementById('message').innerHTML = 'Please make sure the passwords are the same';
     }
-}
-
-function hadSubmit(event) {
-    event.preventDefault();
-    window.location.href = "#resetsuccess"
 }
 
 //declearing html elements
