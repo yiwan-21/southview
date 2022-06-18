@@ -1,10 +1,10 @@
 <?php
 
 session_start();
-$_SESSION['svid'] = 2;
+include '../checkLogin.php';
+include '../connect.php';
 $svid = $_SESSION['svid'];
 
-include 'config.php';
 
 // get the post records
 $vname = $_POST['vname'];
@@ -20,7 +20,7 @@ $sql = "INSERT INTO `visitor` (`Resident_svID`, `Visitor_Name`, `IC_No/Passport_
     VALUES ('$svid', '$vname', '$nric', '$vehicle', '$mob', '$date', '$stime', '$etime')";
 
 // insert in database 
-$rs = mysqli_query($mysqli, $sql);
+$rs = mysqli_query($conn, $sql);
 
 if($rs)
 {

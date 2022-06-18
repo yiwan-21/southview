@@ -1,12 +1,12 @@
 <?php
 session_start();
-$_SESSION['Visitor_ID'] = 14;
+include '../checkLogin.php';
+include '../connect.php';
+
 $visitorID = $_SESSION['Visitor_ID'];
 
-include 'config.php';
-
 $sql = "SELECT * FROM visitor ORDER BY Visitor_ID DESC LIMIT 1";
-$result = mysqli_query($mysqli, $sql);
+$result = mysqli_query($conn, $sql);
 $singleRow  = mysqli_fetch_assoc($result);
 
 $visitorID = $singleRow['Visitor_ID'];

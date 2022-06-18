@@ -282,10 +282,10 @@
     <div class="overlay" id="resetpassword">
         <div class="wrapper white-background text-center">
             <?php
-             include 'config.php'; 
-             $result = mysqli_query($mysqli, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+             include '../connect.php'; 
+             $result = mysqli_query($conn, "SELECT * FROM resident WHERE Resident_svID='" . $_SESSION['svid'] . "'");
              $singleRow  = mysqli_fetch_assoc($result);  
-             mysqli_close($mysqli);
+             mysqli_close($conn);
              ?>
             <h3>Reset Password</h3><a class="close" href="#">&times;</a>
             <form name='form2' method='post' action='profile2.php'>

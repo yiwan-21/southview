@@ -1,9 +1,6 @@
 <?php
-
-session_start();
-$_SESSION['svid'] = 1;
-
-include 'config.php';
+include '../checkLogin.php';
+include '../connect.php';
 
 ?>
 
