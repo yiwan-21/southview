@@ -414,3 +414,20 @@ h1{
         font-size: 17px;
     }
 } */
+
+
+#mymodal {
+    position: absolute;
+}
+
+#mymodal-dialog {
+    top: 5rem;
+}
+
+#show-header {
+    background-color: white;  
+}
+
+#show-body {
+    background-color: white;
+}
