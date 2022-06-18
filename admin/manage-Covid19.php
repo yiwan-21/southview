@@ -22,7 +22,11 @@
     <link rel="stylesheet" href="index.css">
     
     <!-- Latest compiled and minified CSS -->
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
     <!-- jQuery library -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <!-- Popper JS -->
@@ -84,6 +88,11 @@
                           <td>'.$date_start.'</td> 
                           <td>'.$symptom.'</td>               
                           <td>
+                          <a href="" data-toggle="modal" data-target="#mymodal">
+                          <button type= "submit" name="show-button" class="btn btn-sm" style="padding-left: 0px">
+                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="width: 30px; height: auto;">
+                          </button>
+                          </a>
 
                           <a href="" data-toggle="modal" data-target="#mymodal">
                           <button type= "submit" name="show-button" class="btn btn-sm" >
@@ -125,7 +134,23 @@
                         else{
                           $img_src = "../admin/images/no_image.jpg";
                         }
+
+                        echo '<div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" id="mymodal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header border-0" id="show-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Test Kit Result</h5>
+                              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                            </div>
+                            <div class="modal-body" id="show-body">
+                                <img src="'.$img_src.'" class="img-fluid mb-2">
+                            </div>                               
+                          </div>
+                        </div>
+                      </div>';
+
                         echo $img_src;
+
                       }
                       else{
                           die("Connection failed: " . $conn->connect_error);
@@ -140,6 +165,21 @@
     </div>
     
     <!-- Show Testkit -->
+
+    <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" id='mymodal-dialog'>
+                                <div class="modal-content">
+                                  <div class="modal-header border-0" id='show-header'>
+                                    <h5 class="modal-title" id="exampleModalLabel">Test Kit Result</h5>
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                  </div>
+                                  <div class='modal-body' id='show-body'>
+                                      <img src="<?php showResult($Patient_ID, $conn)?>" class="img-fluid mb-2">
+                                  </div>                               
+                                </div>
+                              </div>
+                            </div> 
+
     <div class='modal' id='mymodal'>
       <div class='modal-dialog' id='mymodal-dialog'>
         <div class='modal-content'>
@@ -153,7 +193,7 @@
         </div>
       </div>
     </div>    
-        
+
     <!-- footer -->  
     <?php
       include 'footer.php';
@@ -169,5 +209,3 @@
     
 </body>
 </html>
-
-
