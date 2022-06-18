@@ -1,7 +1,6 @@
 <?php
-include '../connect.php';
-include '../checkLogin.php';
-$Patient_ID=$_GET['updateCovid19id'];
+include '../admin/manage-register-account/connect.php';
+$Patient_ID=$_GET['updateID'];
 $sql="select * from `covid-19 patient` where Patient_ID=$Patient_ID";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
@@ -44,7 +43,6 @@ if(isset($_POST['submit']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.svg">    
     <title>Covid-19 Reporting</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,19 +53,52 @@ if(isset($_POST['submit']))
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <!-- custom css -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div class="container-fluid">
-    <!-- top navigation bar -->
-    <?php
-    include 'top-navbar.php';
-    ?>
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./home.html">
+                <img id="nav-logo" src="./images/logo.svg" alt="SV logo">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link mx-1" aria-current="page" href="home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link mx-1" href="./manage-register-account/viewsignup.html">Residents Account</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link mx-1" href="./manage-Covid19.html">Covid-19 Reporting</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link mx-1" href="./message.html">Messages</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-      <!-- logout button -->
-      <?php
-      include 'logout.php';
-      ?>
+        <!-- logout button -->
+        <section id="logout">
+            <br><br><br><br>
+            <div class="container-fluid-lg-12" >
+            <div class="row justify-content-center" >
+                <div class="col-lg-9"></div>
+                <div class="col-lg-2 justify-content-end d-flex align-items-end">
+                <div class="col-lg-1"></div>
+                <!-- <a href="../login/login.html" class="logoutbtn">LOGOUT</a> -->
+                <a href="javascript:Alert();" class="logoutbtn">LOGOUT</a>
+            </div>          
+                </div>
+            </div>
+            <br>
+        </section>
 
         <!-- Main Content -->
         <div class="my-container ms-5">
@@ -158,7 +189,7 @@ if(isset($_POST['submit']))
                         <div class="question">
                             <label for="Q2">2. Are you staying alone in the apartment?<span class="red">*</span></label>
                             <div class="answer col-lg-6">
-                                <input type="radio" name="Q2" class="form-check-input" id="yes" value="yes" 
+                                <input type="radio" name="stayalone" class="form-check-input" id="yes" value="yes" 
                                          <?php
                                               if($Q2==1){
                                                 echo "checked";
@@ -168,7 +199,7 @@ if(isset($_POST['submit']))
                                     <label for="yes"  class="form-input-label">Yes</label>
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="Q2" class="form-check-input" id="no" value="no" 
+                                    <input type="radio" name="stayalone" class="form-check-input" id="no" value="no" 
                                          <?php
                                               if($Q2==0){
                                                 echo "checked";
@@ -246,7 +277,7 @@ if(isset($_POST['submit']))
                         <br>
                         <div class="col-lg-7 d-grid gap-2 d-md-flex justify-content-md-end">
                           <button class="btn btn-update" name="submit">Update</button>
-                          <button class="btn px-4 btn-back" type="button" onclick="window.location.href='manage-Covid19.php'">
+                          <button class="btn px-4 btn-back" type="button" onclick="window.location.href='./manage-Covid19.php'">
                             Back
                           </button> 
                         </div>
@@ -256,7 +287,7 @@ if(isset($_POST['submit']))
                 
                 <!-- covid icon -->
                 <div class="col-lg-5 justify-content-center  align-items-start text-center d-none d-lg-block update-pg-icon">
-                    <img src="images/virus.png" alt="Virus Icon">                          
+                    <img src="./images/virus.png" alt="Virus Icon">                          
                 </div>
             </div>
           </div>
@@ -264,16 +295,22 @@ if(isset($_POST['submit']))
       </div>
       <br><br>
     <!-- footer -->  
-    <?php
-      include 'footer.php';
-    ?>
-    
+    <footer class="container-footer text-center text-lg-center">
+      <div class="footer row d-flex align-items-center">
+  
+      <!-- copyright text -->
+      <div class="col-lg-12 my-3 text-center text-lg-center">
+        <i>Copyright © 2022 SV Community</i>
+      </div>
+      </div>
+  </footer> 
+      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <!-- custom js -->
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
     
 </body>
 </html>
