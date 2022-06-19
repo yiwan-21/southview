@@ -11,7 +11,7 @@ class dbh {
         $this-> servername = 'localhost';
         $this-> username = 'root';
         $this-> password = '';
-        $this-> dbname = 'south_view';
+        $this-> dbname = 'south view';
 
         $conn = new mysqli($this->servername, $this->username, $this-> password, $this-> dbname);
         return $conn;
