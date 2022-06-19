@@ -27,8 +27,8 @@ include '../checkLogin.php';
 </head>
 
 <body>
-    <!-- <div class="container-fluid"> -->
-    <div class="bungkus">
+    <div class="container-fluid">
+    <!-- <div class="bungkus"> -->
     <!-- top navigation bar -->
     <?php
     $page = 'ResidentAcc';

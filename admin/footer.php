@@ -1,5 +1,5 @@
 
-<footer class="container-fluid container-footer text-center text-lg-center" style="padding:0;margin:0">
+<footer class="container-fluid container-footer text-center text-lg-center" style="padding:0;margin:0;position:fixed;width:100vw;bottom:0;">
       <div class="footer row d-flex align-items-center">
   
       <!-- copyright text -->

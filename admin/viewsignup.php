@@ -25,9 +25,9 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
 </head>
 <body>
-    <!-- <div class="container-fluid"> -->
+    <div class="container-fluid">
     <!-- top navigation bar -->
-    <div class="bungkus">
+    <!-- <div class="bungkus"> -->
     <?php
     $page='ResidentAcc';
     include 'top-navbar.php';
