@@ -445,10 +445,17 @@ h1{
     height: 50rem;
 }
 
+
 #show-header {
     background-color: white;  
 }
 
 #show-body {
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
     background-color: white;
+}
+
+.modal-font{
+    color: #fff !important;
 }

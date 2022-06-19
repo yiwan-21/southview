@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <!-- custom css -->
     <link rel="stylesheet" href="index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
 </head>
 <body>
     <!-- <div class="container-fluid"> -->
@@ -105,47 +108,65 @@
                             </a>    
 
                             <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <img class="icon" src="images/delete.svg" alt="Delete Icon">
-                              </button>
+                            <button type="button" data-id="'.$id.'" class="btn btn-sm delete-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <img class="icon" src="images/delete.svg" alt="Delete Icon" style="margin: auto;">
+                            </button>
                               
-                              <!-- Delete Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header border-0">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body border-0">
-                                    <p>Are you sure you want to delete the selected Sign Up Request?</p> 
-                                  </div>
-                                  <div class="modal-footer border-0">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <a href="deleteSignUpRequest.php?deleteSignUpRequestid='.$id.'">
-                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div> 
+                             
                                           
                     </td>        
                         </tr>';
                       }
 
                     }
-
+                    mysqli_close($conn);
                   ?>
                 </tbody>
           </table>
           </div>
     </div>
 
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header border-0">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <form action="deleteSignUpRequest.php" method="POST"> 
+                                  <div class="modal-body border-0">
+                                    <input type="hidden" name="userid" id='delete_id'>
+                                    <p class="modal-font">Are you sure you want to delete the selected Covid-19 Reporting?</p> 
+                                  </div>
+                                  <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <!-- <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'"> -->
+                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" name="delete">Delete</button>
+                                    <!-- </a> -->
+                  </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> 
+
     <!-- footer -->  
     <?php
       include 'footer.php';
     ?>
+    <script type='text/javascript'>
+       $(document).ready(function(){
+                $('.delete-btn').click(function(e){
+                    e.preventDefault();
+                    var userid = $(this).data('id');
+                    $('#delete_id').val(userid);
+                    $('#exampleModal').modal('show'); 
+                  });
+
+      });
+    </script>
+  
     </div>
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -154,6 +175,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <!-- custom js -->
     <script src="index.js"></script>
-    
+
+   
 </body>
 </html>

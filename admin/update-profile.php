@@ -42,6 +42,9 @@ if(isset($_POST['submit']))
         die("Connection failed: " . $conn->connect_error);
     }
 }
+
+mysqli_close($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -248,7 +251,7 @@ if(isset($_POST['submit']))
                                       <br>
                                       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <button class="btn btn-update px-4" name="submit">Update</button>
-                                        <button class="btn btn-back px-4" type="button" onclick="window.location.href='manage-register-account/viewlist.php'">
+                                        <button class="btn btn-back px-4" type="button" onclick="window.location.href='viewlist.php'">
                                           Back
                                         </button> 
                                     </div>
@@ -277,6 +280,5 @@ if(isset($_POST['submit']))
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <!-- custom js -->
     <script src="index.js"></script>
-    
 </body>
 </html>
