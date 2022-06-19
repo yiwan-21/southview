@@ -44,25 +44,26 @@
 
         if(empty($oldpass)||empty($newpass)||empty($newpass2)){
             if(empty($oldpass)) {
-                echo "<font color='red'>The field is empty.</font><br/>";
+                echo '<script>alert("The current password field is empty.")</script>';  
             }
-            
             if(empty($newpass)) {
-                echo "<font color='red'>The field is empty.</font><br/>";
+                echo '<script>alert("The new password field is empty.")</script>';  
+
             }
-            
             if(empty($newpass2)) {
-                echo "<font color='red'>The field is empty.</font><br/>";
+                echo '<script>alert("The confirm new password field is empty.")</script>';  
             }		
-        }else if($single['Password']!=$oldpass){
-            echo "<font color='red'>Current password incorrect</font><br/>";
+        }else if(password_verify($oldpass,$single['Password'])==FALSE){
+            echo '<script>alert("The current password is incorrect.")</script>';  
         }else if ($newpass!=$newpass2){
-            echo "<font color='red'>The new password is not the same.</font><br/>";
+            echo '<script>alert("The new password is not the same.")</script>';  
         }else{
-         $result = mysqli_query($conn, "UPDATE resident SET Password='$newpass' WHERE Resident_svID='" . $_SESSION['svid'] . "'");  
+            $hash=password_hash($newpass, PASSWORD_DEFAULT);
+            $result = mysqli_query($conn, "UPDATE resident SET Password='$hash' WHERE Resident_svID='" . $_SESSION['svid'] . "'");
+            echo '<script>alert("Reset password successfully")</script>';  
         }
 
-        echo '<script>alert("Reset password successfully")</script>';
+        
     }
     mysqli_close($conn);
 ?>
@@ -290,11 +291,8 @@
             <h3>Reset Password</h3><a class="close" href="#">&times;</a>
             <form name='form2' method='post' action='profile2.php'>
                 <div class="mx-3">
-                <input type="hidden" name="oripass" class="form-control my-3" value="<?php echo $singleRow['Password'];?>" id="oripass" onkeyup='checkcurpass();'>
                 <input type="password" name="oldpass" class="form-control my-3" placeholder="Enter Current Password" id="oldpass"
-                    inputmode="numeric"  minlength="8" maxlength="15" size="15" required onkeyup='checkcurpass();'>
-                <div id="curpass">&nbsp;</div> 
-
+                    inputmode="numeric"  minlength="8" maxlength="15" size="15" required>
                 <input type="password" name="newpass" class="form-control mb-3" placeholder="Enter New Password" id="logpw"
                     inputmode="numeric" minlength="8" maxlength="15" size="15" required onkeyup='check();'>
                 <input type="password" name="newpass2" class="form-control mb-3" placeholder="Enter Confirm Password" id="confirmpw"
@@ -305,14 +303,8 @@
             </form>
         </div>
     </div>
-    <!-- <div class="overlay" id="resetsuccess">
-        <div class="wrapper white-background text-center">
-            <a class="close" href="#">&times;</a>
-            <img id="ok" src="../signup/OK.png">
-            <h3>Password Reset Successfully</h3>
-        </div>
-    </div> -->
-    <!-- footer -->
+
     <script type="text/javascript" src="../southview_profile/profile.js"></script>
+   
 </body>
 </html>
