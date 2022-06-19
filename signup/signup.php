@@ -43,13 +43,13 @@
                                                 </tr>
             
                                                 <tr>
-                                                    <td><input type="number" placeholder="Enter IC NO/Passport NO" name="identityno" class="form-control" required></td> 
+                                                    <td><input type="number" placeholder="Enter IC NO/Passport NO without dash '-'" name="identityno" class="form-control" required></td> 
                                                 </tr>
                                                     <tr>
                                                         <td><input type="number" placeholder="Enter Age" name="age" class="form-control" required></td> 
                                                      </tr>
                                                      <tr>
-                                                        <td><input type="number" placeholder="Enter Phone Number" name="phonenum" class="form-control" required></td> 
+                                                        <td><input type="number" placeholder="Enter Phone Number without dash '-'" name="phonenum" class="form-control" required></td> 
                                                      </tr>
                                                      <tr>
                                                        
@@ -69,13 +69,13 @@
                                                 </tr>
             
                                                 <tr>
-                                                    <td><input type="text" placeholder="Enter Unit" name="unit" class="form-control" required></td> 
+                                                    <td><input type="text" placeholder="Enter Unit ,X-xx-xx" name="unit" class="form-control" required></td> 
                                                     
                                                 </tr>
 
                                                 <tr>
-                                                <td style='color:red;'><?php if(isset($error)&!empty($error)){echo $error;}?>
-                                                <?php if(isset($error_unit)&!empty($error_unit)){echo $error_unit;} ?></td>
+                                                <td style='color:red;'><?php if(isset($error)&!empty($error)){echo $error;} if(isset($error_unit)&!empty($error_unit)){echo $error_unit;}?>
+                                                </td>
                                                 </tr>
 
                                                     <tr>
