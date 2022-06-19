@@ -41,7 +41,7 @@ function send_SVID_email($SV_ID,$name,$email){
 if(isset($_GET['validateSignUpRequestid'])){
     $id=$_GET['validateSignUpRequestid'];
     $email=$_GET['email'];
-    $send_email=mysqli_real_escape_string($conn,$email);
+    // $send_email=mysqli_real_escape_string($conn,$email);
     $sql="insert into `resident` (`Name`,`Password`,`Gender`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) select `Name`,`Password`,`Gender`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No` from `resident_signup` where `signup_ID`=$id";
     $result=mysqli_query($conn,$sql);
 
@@ -62,7 +62,7 @@ if(isset($_GET['validateSignUpRequestid'])){
         $result_delete=mysqli_query($conn,$sql_delete);
         if($result_delete){
         echo '<script type="text/javascript">'; 
-        echo 'alert("Validate Successfully! Email has been sent to the respective resident.");'; 
+        echo 'alert("Validated Successfully! An email has been sent to the respective resident.");'; 
         echo 'window.location.href = "viewsignup.php";';
         echo '</script>';
         }    
