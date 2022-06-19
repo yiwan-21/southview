@@ -36,8 +36,7 @@ body{
 }
 
 .navbar-dark{
-    padding:0px;
-    padding-right: 40px;
+    padding:0 !important;
     background-color: var(--grey-color); 
 }
 
@@ -123,6 +122,19 @@ body{
 .icon{
     width: 20px;
     height: 20px;
+}
+
+.icon-td {
+    padding-left: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.icon-td > a {
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 a:-webkit-any-link{
@@ -423,3 +435,20 @@ h1{
         font-size: 17px;
     }
 } */
+
+.userinfo{
+    background-color: Transparent;
+    border: none;
+}
+
+#mymodal {
+    height: 50rem;
+}
+
+#show-header {
+    background-color: white;  
+}
+
+#show-body {
+    background-color: white;
+}

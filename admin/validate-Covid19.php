@@ -1,5 +1,6 @@
 <?php
 include '../connect.php';
+include '../checkLogin.php';
 $Patient_ID=$_GET['validateCovid19id'];
 $sql="select * from `covid-19 patient` where Patient_ID=$Patient_ID";
 $result=mysqli_query($conn,$sql);

@@ -1,8 +1,3 @@
-
-<?php
-// include("loginserv.php"); // Include loginserv for checking username and password
-?>
-
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
     <head>   
@@ -43,7 +38,7 @@
                         <div class="col-lg-4 col-md-4  bg">
                             <h3 class="text-center">Login to Your Account</h3>
                             <!-- onsubmit="handleFormSubmit(event)" -->
-                            <form action="loginuser.php" method="post" >
+                            <form method="post" action="loginuser.php" >
                             <table class="table table-borderless"  >
                                 <tr>
                                    <td><input type="text" name="svid" class="form-control" placeholder="Enter SV ID" id="svid" required></td> 
@@ -62,11 +57,17 @@
                                             <h6>Choose your status:</h6>
                                             <label for="status"></label>
                                             <select id="status" name='role'>
-                                                <option id="resident" value="Resident">Resident</option>
                                                 <option id="admin" value="Administrator">Administrator</option>
+                                                <option id="resident" value="Resident">Resident</option>
                                             </select>
                                         </div>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <!-- <td style='color:red;'><?php if(isset($error)&!empty($error)){echo $error;} ?></td> -->
+                                    <?php if (isset($_GET['error'])) { ?>
+                                        <p style='color:red;'><?php echo $_GET['error']; ?></p>
+                                    <?php } ?>
                                 </tr>
                                 <tr>
                                     <td>
@@ -78,9 +79,8 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">
-                                        <a id=pw href="/Forgetpw/forgetpass.html">Forget password?</a> &nbsp;
-                                        <h6>Need an account? <a id=signup href="/signup/sigup.html">Sign up</a> &nbsp;</h6> 
-                                        
+                                        <a id=pw href="/Forgetpw/forgetpass.php">Forget password?</a> &nbsp;
+                                        <h6>Need an account? <a id=signup href="/signup/signup.php">Sign up</a> &nbsp;</h6> 
                                     </td>
                                 </tr>
                             </form>

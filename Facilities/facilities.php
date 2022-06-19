@@ -1,19 +1,4 @@
-<?php
-    $host = "localhost";
-    $database = "south_view";
-    $user = "root";
-    $pass = "";
-
-    $mysqli = mysqli_connect($host, $user, $pass, $database);
-    
-    //mysqli_connect_errno returns the last error code
-    if ( mysqli_connect_errno() ) {
-        // die() is equivalent to exit()
-        die( "Database connection failed: " . mysqli_connect_error() );
-    } 
-    
-    // echo "Database connected successfully <br>";
-?>
+<?php include "../checkLogin.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +31,10 @@
 
 </head>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f5b8efdd7d16cf97a7002f49004eda0192c79e0d
 <body>
 	<section>
 		<!-- Facilities Page -->
@@ -85,7 +73,11 @@
 	<script src="/navigation/navigation.js"></script>
 	<script type="text/javascript">
 		document.getElementById("myButton").onclick = function () {
+<<<<<<< HEAD
 			location.href = "indexHomepage.html";
+=======
+			location.href = "indexHomepage.php";
+>>>>>>> f5b8efdd7d16cf97a7002f49004eda0192c79e0d
 		};
 	</script>
 </body>

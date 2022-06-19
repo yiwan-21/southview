@@ -28,7 +28,7 @@
     <div id="navbar-template">
         <nav class="navbar">
             <div class="logo">
-                <img id="logo" src="/images/Logo SV.png" alt="logo" onclick="window.location.href='/Homepage/indexHomepage.html'">
+                <img id="logo" src="/images/Logo SV.png" alt="logo" onclick="window.location.href='/Homepage/indexHomepage.php'">
             </div>
             <div class="max-width">
                 <ul class="menu" id="menunav">
@@ -37,7 +37,7 @@
                     <li><a href="/visitor-pass/visitorpass.html" class="menu-btn">VISITOR PASS</a></li>
                     <li><a href="/covidStatus/healthyCovidStatus.php" class="menu-btn">COVID-19 STATUS</a></li>
                     <li><a href="/AboutUs/AboutUs.php" class="menu-btn">ABOUT US</a></li>
-                </ul>
+                </ul>    
                 <div class="menu-btn">
                     <i id="icon" onclick="toggleMenu()">
                         <svg class="svg-icon" viewBox="0 0 20 20">
@@ -55,9 +55,9 @@
                 </i>
                 <div class="profile">
                     <div class="profile-detail">
-                        <a href="/southview_profile/profile1.html">User Profile</a>
-                        <a href="/southview_payment/payment.html">Payment</a>
-                        <a href="/login/login.html"><span class="logout">Log Out</span></a>
+                        <a href="/southview_profile/profile1.php">User Profile</a>
+                        <a href="/southview_payment/payment.php">Payment</a>
+                        <a href="/navigation/logout.php"><span class="logout">Log Out</span></a>
                     </div>
                 </div>
             </div>

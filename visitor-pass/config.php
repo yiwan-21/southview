@@ -1,10 +1,10 @@
 <?php
 $databaseHost = 'localhost';
 $databaseName = 'south view';
-$databaseUsername = 'user1';
-$databasePassword = 'user1abc';
+$databaseUsername = 'root';
+$databasePassword = '';
 
-$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName,3325);
 
 if ( mysqli_connect_errno() ) {
 	// die() is equivalent to exit()

@@ -1,5 +1,6 @@
 <?php
-    include 'connect.php';
+    include '../connect.php';
+    include '../checkLogin.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +20,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <!-- custom css -->
     <link rel="stylesheet" href="index.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <!-- <div class="container-fluid"> -->
@@ -73,48 +78,85 @@
                           <td>'.$unit.'</td> 
                           <td>'.$date_start.'</td> 
                           <td>'.$symptom.'</td>               
-                          <td>
+
+                          <td class="icon-td">
+                          <button data-id='.$Patient_ID.' class="userinfo btn btn-sm">
+                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="margin: auto; width: 30px; height: 30px;">
+                          </button>
 
                             <a href="validate-Covid19.php?validateCovid19id='.$Patient_ID.'">
-                              <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon">
+                              <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon" style="margin: auto;">
                             </a>
-                            &nbsp;
                             <a href="update-Covid19.php?updateCovid19id='.$Patient_ID.'">
-                              <img class="icon" src="images/update.svg" alt="Update Icon">
+                              <img class="icon" src="images/update.svg" alt="Update Icon" style="margin: auto;">
                             </a>    
                            
                             <!-- Button trigger modal -->
-                            <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'">
                             <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              <img class="icon" src="images/delete.svg" alt="Delete Icon">
+                              <img class="icon" src="images/delete.svg" alt="Delete Icon" style="margin: auto;">
                             </button> 
-                            </a>               
+                            </a> 
                     </td>        
                         </tr>';
                       }
 
                     }
-
+                    
                   ?>
                 </tbody>
           </table>
           </div>
 
     </div>
+    
+    <!-- Show Testkit -->
+
+    <div class="modal fade" id="mymodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header border-0" id='show-header'>
+                                    <h5 class="modal-title" id="exampleModalLabel">Test Kit Result</h5>
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                  </div>
+                                  <div class='modal-body' id='show-body'>
+                                  </div>                            
+                                </div>
+                              </div>
+                            </div>    
+
     <!-- footer -->  
     <?php
       include 'footer.php';
     ?>
     </div>
+    
+    <script type='text/javascript'>
+            $(document).ready(function(){
+                $('.userinfo').click(function(){
+                    var userid = $(this).data('id');
+                    $.ajax({
+                        url: 'view-Covid19.php',
+                        type: 'post',
+                        data: {userid: userid},
+                        success: function(response){ 
+                            $('.modal-body').html(response); 
+                            $('#mymodal').modal('show'); 
+                        }
+                    });
+                });
+            });
+    </script>
+        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <!-- custom js -->
     <script src="index.js"></script>
-    
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     
 </body>
 </html>
-
-

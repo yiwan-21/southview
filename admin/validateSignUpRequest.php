@@ -3,8 +3,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
-include 'connect.php';
-
+include '../connect.php';
+include '../checkLogin.php';
 
 function send_SVID_email($SV_ID,$name,$email){
     $mail = new PHPMailer();

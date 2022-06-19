@@ -1,3 +1,10 @@
+<?php
+session_start();
+include "../checkLogin.php";
+include "../connect.php";
+$_SESSION['svid'] = 1;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,11 +15,8 @@
   <title>Messages</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- custom css -->
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="message.css">
@@ -23,26 +27,25 @@
   <div class="container-fluid">
     <nav class="navbar fixed-top navbar-expand-md navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="home.php">
           <img id="nav-logo" src="images/logo.svg" alt="SV logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link mx-1" aria-current="page" href="home.html">Home</a>
+              <a class="nav-link mx-1" aria-current="page" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-1" href="./manage-register-account/viewsignup.html">Residents Account</a>
+              <a class="nav-link mx-1" href="./manage-register-account/viewsignup.php">Residents Account</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-1" href="./manage-Covid19.html">Covid-19 Reporting</a>
+              <a class="nav-link mx-1" href="./manage-Covid19.php">Covid-19 Reporting</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-1 active" href="./message.html">Messages</a>
+              <a class="nav-link mx-1 active" href="./message.php">Messages</a>
             </li>
           </ul>
         </div>
@@ -57,7 +60,7 @@
           <div class="col-lg-9"></div>
           <div class="col-lg-2 justify-content-end d-flex align-items-end">
             <div class="col-lg-1"></div>
-            <!-- <a href="../login/login.html" class="logoutbtn">LOGOUT</a> -->
+            <!-- <a href="../login/login.php" class="logoutbtn">LOGOUT</a> -->
             <a href="javascript:Alert();" class="logoutbtn">LOGOUT</a>
           </div>
         </div>
@@ -98,7 +101,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="main-wrapper">
     <div class="user-list scroll-bar-left-wrapper">
       <div class="scroll-bar-left"></div>
@@ -111,69 +114,131 @@
 
 
   <br><br>
-    <!-- footer -->  
-    <footer class="container-footer text-center text-lg-center">
-      <div class="footer row d-flex align-items-center">
-  
+  <!-- footer -->
+  <footer class="container-footer text-center text-lg-center">
+    <div class="footer row d-flex align-items-center">
+
       <!-- copyright text -->
       <div class="col-lg-12 my-3 text-center text-lg-center">
         <i>Copyright © 2022 SV Community</i>
       </div>
-      </div>
-  </footer> 
+    </div>
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   <script>
     const userList = document.querySelector('.user-list').firstElementChild;
     const message = document.querySelector('.message').firstElementChild;
 
-    const users = [
-      {
-        name: 'Jacob Jones',
-        avatar: 'https://images.unsplash.com/photo-1558624232-75ee22af7e67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2hhcmFjdGVyfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti!',
-        time: '04/24/2022 18:56:07 GMT+0800',
-        new: true,
-      },
-      {
-        name: 'Leslie Alexander',
-        avatar: 'https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhcmFjdGVyfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio obcaecati qui nostrum?',
-        time: '04/23/2022 13:24:47 GMT+0800',
-        new: false,
-      },
-      {
-        name: 'Eleanor Pena',
-        avatar: 'https://images.unsplash.com/photo-1586374579358-9d19d632b6df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGljb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-        message: 'Lorem ipsum dolor sit amet.',
-        time: '04/22/2022 12:56:07 GMT+0800',
-        new: false,
-      },
-      {
-        name: 'Kathryn Murphy',
-        avatar: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODh8fGljb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-        message: 'Lorem ipsum dolor sit amet consectetur.',
-        time: '04/24/2022 09:30:00 GMT+0800',
-        new: true,
-      },
-      {
-        name: 'Wade Warren',
-        avatar: 'https://images.unsplash.com/photo-1576490467522-680bc4892baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGNhcnRvb258ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio obcaecati qui nostrum?',
-        time: '04/23/2022 13:24:47 GMT+0800',
-        new: false,
-      },
-      {
-        name: 'Marvin McKinney',
-        avatar: 'https://images.unsplash.com/photo-1541534401786-2077eed87a74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti!',
-        time: '04/24/2022 18:56:07 GMT+0800',
-        new: true,
-      },
-    ];
+    // const users = [
+    //   {
+    //     name: 'Jacob Jones',
+    //     avatar: 'https://images.unsplash.com/photo-1558624232-75ee22af7e67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2hhcmFjdGVyfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+    //     message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti!',
+    //     time: '04/24/2022 18:56:07 GMT+0800',
+    //     new: true,
+    //   },
+    //   {
+    //     name: 'Leslie Alexander',
+    //     avatar: 'https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhcmFjdGVyfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+    //     message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio obcaecati qui nostrum?',
+    //     time: '04/23/2022 13:24:47 GMT+0800',
+    //     new: false,
+    //   },
+    //   {
+    //     name: 'Eleanor Pena',
+    //     avatar: 'https://images.unsplash.com/photo-1586374579358-9d19d632b6df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGljb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+    //     message: 'Lorem ipsum dolor sit amet.',
+    //     time: '04/22/2022 12:56:07 GMT+0800',
+    //     new: false,
+    //   },
+    //   {
+    //     name: 'Kathryn Murphy',
+    //     avatar: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODh8fGljb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+    //     message: 'Lorem ipsum dolor sit amet consectetur.',
+    //     time: '04/24/2022 09:30:00 GMT+0800',
+    //     new: true,
+    //   },
+    //   {
+    //     name: 'Wade Warren',
+    //     avatar: 'https://images.unsplash.com/photo-1576490467522-680bc4892baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGNhcnRvb258ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    //     message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio obcaecati qui nostrum?',
+    //     time: '04/23/2022 13:24:47 GMT+0800',
+    //     new: false,
+    //   },
+    //   {
+    //     name: 'Marvin McKinney',
+    //     avatar: 'https://images.unsplash.com/photo-1541534401786-2077eed87a74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    //     message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti!',
+    //     time: '04/24/2022 18:56:07 GMT+0800',
+    //     new: true,
+    //   },
+    // ];
+    const usersMessage = [];
+    const users = [];
+    // $query = "SELECT * FROM message GROUP BY Resident_svID DESC";
+    <?php
+    $query = "SELECT m.*, r.* FROM message m 
+              INNER JOIN resident r 
+              ON m.Resident_svID = r.Resident_svID";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      $admin = $row['Administrator_svID'];
+      // $svid = $row['Resident_svID'];
+      // $query2 = "SELECT Profile_Picture, mime FROM resident WHERE Resident_svID = '$svid'";
+      // $result2 = mysqli_query($conn, $query2);
+      // $row2 = mysqli_fetch_assoc($result2);
+      $avatar = $row['Profile_Picture'];
+      $mime = $row['mime'];
+      if (is_null($avatar)) {
+        $avatar = "../southview_profile/image.jpg";
+      } else {
+        $avatar = "data:$mime;base64," . base64_encode($avatar);
+      }
+      if (is_null($admin)) {
+        $side = "opposite"; // the chat bubble on the left (resident)
+      } else {
+        $side = "self"; // the chat bubble on the right (admin)
+      }
+      echo "usersMessage.push({
+          side: '$side',
+          svid: '" . $row['Resident_svID'] . "',
+          avatar: '" . $avatar . "',
+          message: '" . $row['Message_Content'] . "',
+          new: '" . ($row['Seen'] == '0') . "',
+        });";
+    }
+
+    $query = "SELECT m1.* FROM message m1 
+              LEFT JOIN message m2
+              ON (m1.Resident_svID = m2.Resident_svID AND m1.Message_ID < m2.Message_ID) 
+              WHERE m2.Message_ID IS NULL 
+              GROUP BY m1.Resident_svID";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      $svid = $row['Resident_svID'];
+      // echo "alert('svid: ".$row['Message_Content']."');";
+      $query2 = "SELECT `Name`, Profile_Picture, mime  FROM resident WHERE Resident_svID = '$svid'";
+      $result2 = mysqli_query($conn, $query2);
+      $row2 = mysqli_fetch_assoc($result2);
+      $name = $row2['Name'];
+      $avatar = $row2['Profile_Picture'];
+      $mime = $row2['mime'];
+      if (is_null($avatar)) {
+        $avatar = "../southview_profile/image.jpg";
+      } else {
+        $avatar = "data:$mime;base64," . base64_encode($avatar);
+      }
+      echo "users.push({
+          svid: '$svid',
+          name: '" . $name . "',
+          avatar: '" . $avatar . "',
+          message: '" . $row['Message_Content'] . "',
+          new: '" . ($row['Seen'] == '0') . "',
+        });";
+    }
+    ?>
 
     users.forEach(user => {
       const newUser = createUser(user);
@@ -185,13 +250,17 @@
           notification.classList.remove('notification-active');
           notification.classList.add('notification');
         }
-        user.new = false;
+        if (user.new) {
+          user.new = false;
+          <?php mysqli_query($conn, "UPDATE message SET Seen = '1' WHERE Resident_svID = '$svid'"); ?>
+        }
         if (window.innerWidth <= 768) {
           document.querySelector('.message').classList.add('open');
           document.querySelector('.user-list').classList.add('close');
         }
         message.innerHTML = '';
         message.appendChild(createMessagePage(user));
+        usersMessage.filter(e => e.svid === user.svid).forEach(e => appendMessage(e));
         if (message) {
           message.scrollTop = message.scrollHeight - message.clientHeight
         }
@@ -210,7 +279,6 @@
                   <img src="${user.avatar}" alt="avatar">
                   <div class="text">
                       <span class="name">${user.name}</span>
-                      <span class="time">${new Date(user.time).toLocaleDateString()}</span>
                       <div>
                           ${user.message}
                       </div>
@@ -223,57 +291,14 @@
     function createMessagePage(user) {
       const messagePage = document.createElement('div');
       messagePage.style.height = '100%';
-      messagePage.innerHTML = `    
-        <div class="chat-name">
-          <button class="return" onclick="returnToUser()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-left"
-              viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-            </svg>
-          </button>
-          <img src=${user.avatar} alt="avatar">
-          <h2>${user.name}</h2>
-        </div>
-        <fieldset class="date">
-          <legend>
-            ${new Date(user.time).toLocaleDateString()}
-          </legend>
-        </fieldset>
-        
-        <div class="textarea">
-          <div class="opposite">
-            <img src=${user.avatar} alt="avatar">
-            <div class="opposite-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores provident fuga quos.
-            </div>
-          </div>
-          <div class="self">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis debitis quaerat, cum eum
-              quam possimus omnis quae culpa voluptates iusto?
-          </div>
-          <div class="opposite">
-              <img src=${user.avatar} alt="avatar">
-              <div class="opposite-text">
-                  Lorem ipsum dolor sit amet.
-              </div>
-          </div>
-          <div class="self">
-              Lorem, ipsum.
-          </div>
-          <div class="opposite">
-              <img src=${user.avatar} alt="avatar">
-              <div class="opposite-text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas vitae ad deserunt eveniet
-                  accusamus facere laboriosam quaerat omnis, vero nulla?
-              </div>
-          </div>
-        </div>
-
+      messagePage.innerHTML =
+        `
+        <div class="textarea"></div>
         <div class="reply-wrapper">
-          <form class="reply" onsubmit="sendMessage(event)">
-              <input type="text" placeholder="Write a message...">
-              <button type="submit">
+          <form class="reply" method="post">
+              <input type="hidden" name="svid" value=${user.svid}>
+              <input type="text" name="message" placeholder="Write a message...">
+              <button type="submit" name="submitMessage">
                   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M21.944 2.36621L11.0137 13.2966" stroke="#001329" stroke-linecap="round"
                           stroke-linejoin="round" />
@@ -282,9 +307,60 @@
                   </svg>
               </button>
           </form>
-        </div>
-        `;
+        </div>`;
       return messagePage;
+    }
+
+    <?php 
+      if (isset($_POST['submitMessage'])) {
+        $svid = $_POST['svid'];
+        $message = $_POST['message'];
+        $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1')";
+        $result = mysqli_query($conn, $query);
+        echo "usersMessage.push({
+          side: 'self',
+          svid: '$svid',
+          message: '$message',
+          new: 0,
+        });";
+        echo "users.filter(e => e.svid === '$svid')[0].message = '$message';";
+        // echo "alert(users.filter(e => e.svid === '$svid')[0].message);";
+      }
+    ?>
+     
+    function appendMessage(user) {
+      const textarea = document.querySelector('.textarea');
+      const newNode = document.createElement('div');
+      newNode.classList.add(user.side);
+      if (user.side == 'opposite') {
+        newNode.insertAdjacentHTML('afterbegin', `<img src=${user.avatar} alt="avatar">`);
+        textElement = document.createElement('div');
+        textElement.classList.add('opposite-text');
+        textElement.textContent = user.message;
+        newNode.appendChild(textElement);
+      } else {
+        newNode.textContent = user.message;
+      }
+      textarea.appendChild(newNode);
+      // if (message) {
+      //   message.scrollTop = textarea.scrollHeight - newNode.clientHeight;
+      // }
+      // if (user.side == 'self') {
+      //   messagePage.innerHTML += `<div class="textarea">
+      //   <div class="self">
+      //     ${user.message}
+      //   </div>
+      //   </div>`
+      // } else {
+      //   messagePage.innerHTML += `<div class="textarea">
+      //   <div class="opposite">
+      //     <img src=${user.avatar} alt="avatar">
+      //     <div class="opposite-text">
+      //         ${user.message}
+      //     </div>
+      //   </div>
+      //   </div>`
+      // }
     }
 
     function sendMessage(event) {
@@ -334,8 +410,6 @@
       document.querySelector('.user-list').classList.remove('close');
       userList.querySelectorAll('.user').forEach(user => user.classList.remove('user-active'));
     }
-
-
   </script>
 
   <!-- custom js -->

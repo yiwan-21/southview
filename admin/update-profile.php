@@ -1,5 +1,6 @@
 <?php
 include '../connect.php';
+include '../checkLogin.php';
 $id=$_GET['updateResidentid'];
 $sql="select * from `resident` where Resident_svID=$id";
 $result=mysqli_query($conn,$sql);

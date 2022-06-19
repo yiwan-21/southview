@@ -1,11 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION["svid"])) {
-    echo "<script>console.log('Session svid: " . $_SESSION["svid"] . "' );</script>";
-}
-if(isset($_SESSION["password"])) {
-    echo "<script>console.log('Session password: " . $_SESSION["password"] . "' );</script>";
-}
+include "../checkLogin.php";
+// if(isset($_SESSION["svid"])) {
+//     echo "<script>console.log('Session svid: " . $_SESSION["svid"] . "' );</script>";
+// }
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +100,7 @@ if(isset($_SESSION["password"])) {
 	<script src="../navigation/navigation.js"></script>
 	<script type="text/javascript">
 		document.getElementById("myButton").onclick = function () {
-			location.href = "../Facilities/facilities.html";
+			location.href = "../Facilities/facilities.php";
 		};
 	</script>
 </body>

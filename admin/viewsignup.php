@@ -1,5 +1,6 @@
 <?php
-    include 'connect.php';
+    include '../connect.php';
+    include '../checkLogin.php';
 ?>  
 
 <!DOCTYPE html>
@@ -55,22 +56,18 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> -->
               <!-- select all--> 
-              <!-- <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal">             
-                <a class="dropdown-item" href="#"><input type="button" onclick='selects()' value="Select All"/></a>
-              </button type>  
-              <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <!-- <button type="button" class="btn btn-sm btn-select" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
                 <a class="dropdown-item" href="#"><input type="button" value="Selected Checkbox"/></a>
               </button>
             </ul>
           <br><br>
-        </div> -->
+          </div> -->
           
-
           <div class="table-responsive">
             <table id="example-signuprequest" class="table table-font table-borderless table-dark table-hover vertical-align: middle">
               <thead>
-                  <tr>       
-                    <th scope="col"></th>           
+                  <tr>
+                    <th scope="col"></th>
                     <th scope="col">ID</th>                  
                     <th scope="col">Name</th>                  
                     <th scope="col">E-mail</th>
@@ -91,7 +88,7 @@
                         $email=$row['Email'];
                         $unit=$row['Unit'];
                         echo ' <tr>
-                          <th scope="row"></th>
+                        <th scope="row"></th>
                           <td>'.$id.'</td> 
                           <td>'.$name.'</td> 
                           <td>'.$email.'</td>  
@@ -112,7 +109,7 @@
                                 <img class="icon" src="images/delete.svg" alt="Delete Icon">
                               </button>
                               
-                              <!-- Modal -->
+                              <!-- Delete Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
                                 <div class="modal-content">
@@ -121,7 +118,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                   </div>
                                   <div class="modal-body border-0">
-                                    <p>Are you sure you want to delete the selected Covid-19 Report?</p> 
+                                    <p>Are you sure you want to delete the selected Sign Up Request?</p> 
                                   </div>
                                   <div class="modal-footer border-0">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

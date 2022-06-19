@@ -1,9 +1,6 @@
 <?php
-
-session_start();
-$_SESSION['svid'] = 1;
-
-include 'config.php';
+include '../checkLogin.php';
+include '../connect.php';
 
 ?>
 
@@ -12,6 +9,7 @@ include 'config.php';
 <head>
     <meta charset="utf-8">
     <title>Visitor Pass</title>
+    <link rel="icon" href="../images/Logo SV.png">
     <link rel="stylesheet" href="stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="visitorpass.js"></script>
@@ -77,7 +75,7 @@ include 'config.php';
                                     <strong>:</strong>
                                 </div>
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-4" id="tr-settings">
-                                    <input type="tel" class="form-control" id="mob" name="mob" pattern="[0-9]{3}-[0-9]{7}" placeholder="012-3456789" onblur="validate(4)" required>
+                                    <input type="tel" class="form-control" id="mob" name="mob" placeholder="0123456789" onblur="validate(4)" required>
                                 </div>
                             </div>
                             <div class="row">

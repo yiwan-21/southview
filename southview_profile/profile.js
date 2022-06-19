@@ -13,8 +13,9 @@ function handleFormSubmit(event) {
 
 function Submit(event) {
     event.preventDefault();
-    window.location.href = "/login/login.html"
+    window.location.href = "/login/login.php"
 }
+
 
 var check = function () {
     if (document.getElementById('logpw').value ==
@@ -25,11 +26,6 @@ var check = function () {
         document.getElementById('message').style.color = 'red';
         document.getElementById('message').innerHTML = 'Please make sure the passwords are the same';
     }
-}
-
-function hadSubmit(event) {
-    event.preventDefault();
-    window.location.href = "#resetsuccess"
 }
 
 //declearing html elements

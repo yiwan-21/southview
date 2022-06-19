@@ -1,5 +1,6 @@
 <?php
-include 'connect.php';
+include '../connect.php';
+include '../checkLogin.php';
 if(isset($_GET['deleteResidentid'])){
     $SV_ID=$_GET['deleteResidentid'];
 

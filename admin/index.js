@@ -19,13 +19,13 @@ var menu_btn = document.querySelector("#menu-btn");
 
 
 //select all
-function selects(){  
-    var ele=document.getElementsByName('chk');  
-    for(var i=0; i<ele.length; i++){  
-        if(ele[i].type=='checkbox')  
-            ele[i].checked=true;  
-    }  
-}  
+// function selects(){  
+//     var ele=document.getElementsByName('chk');  
+//     for(var i=0; i<ele.length; i++){  
+//         if(ele[i].type=='checkbox')  
+//             ele[i].checked=true;  
+//     }  
+// }  
 
 //deselect all
 // function deSelect(){  
@@ -101,7 +101,7 @@ $(document).ready(function() {
 function Alert() {
     var answer = confirm ("Click on OK to log out!")
     if (answer)
-    window.location.href= "/login/login.html" ;
+    window.location.href= "../navigation/logout.php";
 }
 
 

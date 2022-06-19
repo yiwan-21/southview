@@ -1,12 +1,11 @@
 <?php
-    include 'config.php';
-    //session_start();
-    // $_SESSION['svid'] = 1;
-    // $_SESSION['paymentid'] =3;
+    include '../connect.php';
+    include '../checkLogin.php';
 
     $sql="SELECT * FROM payment ORDER BY Payment_ID DESC LIMIT 1"; 
-    $result=mysqli_query($mysqli, $sql);
+    $result=mysqli_query($conn, $sql);
     $singleRow  = mysqli_fetch_assoc($result);
+    mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +26,6 @@
 <style>
     <?php
         include "../southview_payment/payment.css";
-        // echo $_SESSION['svid'];
     ?>
 </style>
 <body>
