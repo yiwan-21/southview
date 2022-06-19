@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$conn = mysqli_connect('localhost','root',"",'south view',3325);
+$conn = mysqli_connect('localhost','root',"",'south view');
     if($conn->connect_error){
         die(mysqli_connect_error() );
     }
@@ -17,7 +17,8 @@ if(isset($_POST['submit'])){
         {
             $pass_error="Oops! Password did not match! Try again.";
         }else{
-        $query = mysqli_query($conn, "UPDATE resident SET Password='$password' WHERE Email='$targetEmail' LIMIT 1");
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+        $query = mysqli_query($conn, "UPDATE resident SET Password='$hash' WHERE Email='$targetEmail' LIMIT 1");
         header("Location: ../login/login.php");
             }
 

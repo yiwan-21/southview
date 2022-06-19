@@ -27,8 +27,9 @@
 
 </head>
 <body>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid"> -->
         <!-- top navigation bar -->
+      <div class="bungkus">
         <?php
         $page='Covid19';
         include 'top-navbar.php';
@@ -78,9 +79,10 @@
                           <td>'.$unit.'</td> 
                           <td>'.$date_start.'</td> 
                           <td>'.$symptom.'</td>               
+
                           <td class="icon-td">
                           <button data-id='.$Patient_ID.' class="userinfo btn btn-sm">
-                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="width: 30px; height: auto;">
+                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="margin: auto; width: 30px; height: 30px;">
                           </button>
 
                             <a href="validate-Covid19.php?validateCovid19id='.$Patient_ID.'">
@@ -95,6 +97,7 @@
                               <img class="icon" src="images/delete.svg" alt="Delete Icon" style="margin: auto;">
                             </button> 
                                                   
+                            </a> 
                     </td>        
                         </tr>';
                       }
@@ -145,6 +148,7 @@
                                     <!-- </a> -->
                   </form>
                                   </div>
+                                  </div>                            
                                 </div>
                               </div>
                             </div>                
@@ -153,6 +157,7 @@
     <?php
       include 'footer.php';
     ?>
+    </div>
     
     <script type='text/javascript'>
             $(document).ready(function(){
@@ -192,5 +197,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    
 </body>
 </html>

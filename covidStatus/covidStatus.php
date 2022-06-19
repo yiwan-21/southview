@@ -7,8 +7,6 @@ include "../connect.php";
 
 
 if (isset($_POST['service_submit'])) {
-    include 'INCLUDES/dbh.inc.php';
-    include 'INCLUDES/user.inc.php';
     $dbh = new dbh();
     $connect = $dbh->connect();
     $Resident_svID = $_SESSION['svid'];
@@ -142,11 +140,11 @@ if (isset($_POST['submit']) && count($_FILES) > 0) {
             <div class="selection">
                 <h3>Service needed: </h3>
                 <select name="service" id="service">
-                    <option value="delivery">Taking Delivery</option>
-                    <option value="meal">Food and Drink Order</option>
-                    <option value="daily">Daily Necessities</option>
-                    <option value="clinical">Clinical Assist</option>
-                    <option value="others">Others</option>
+                    <option value="Taking Delivery">Taking Delivery</option>
+                    <option value="Food and Drink Order">Food and Drink Order</option>
+                    <option value="Daily Necessities">Daily Necessities</option>
+                    <option value="Clinical Assist">Clinical Assist</option>
+                    <option value="Others">Others</option>
                 </select>
             </div>
             <div class="message">

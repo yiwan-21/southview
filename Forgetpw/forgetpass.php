@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
-$conn = mysqli_connect('localhost','root',"",'south view',3325);
+$conn = mysqli_connect('localhost','root',"",'south view');
     if($conn->connect_error){
         die(mysqli_connect_error() );
     }
@@ -24,8 +24,8 @@ if (isset($_POST["passwordresetlink"])){
     $mail->isSMTP();                                               //Send using SMTP
     $mail->Host       = "smtp.office365.com";                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = "southview@outlook.my";                     //SMTP username
-    $mail->Password   = "user1abc";                               //SMTP password
+    $mail->Username   = "southview22@outlook.my";                     //SMTP username
+    $mail->Password   = "sv2022";                               //SMTP password
     $mail->SMTPSecure = "STARTTLS";            //Enable implicit TLS encryption
     $mail->Port       = 587;
     $mail->SMTPOptions = array(
@@ -37,9 +37,9 @@ if (isset($_POST["passwordresetlink"])){
     );                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom("southview@outlook.my");
+    $mail->setFrom("southview22@outlook.my");
     $mail->addAddress($targetEmail);               //Name is optional
-    $mail->addReplyTo("southview@outlook.my");
+    $mail->addReplyTo("southview22@outlook.my");
 
     $mail->Subject = "Verification Code";
     $mail->Body = $six_digit_random_number;

@@ -3,6 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
+session_start();
 include '../connect.php';
 include '../checkLogin.php';
 
@@ -167,7 +168,7 @@ mysqli_close($conn);
                                               <strong>:</strong>
                                           </div>
                                           <div class="col-lg-7" name="id" id="tr-settings">
-                                          <input type="text" style="background-color:darkgray" class="form-control"       type="text" name="SV_ID" id="input-style" value="<?php echo $rID; ?>" disabled 
+                                          <input type="text" style="background-color:darkgray" class="form-control" type="text" name="SV_ID" id="input-style" value="<?php echo $rID; ?>" disabled 
                                            >                                       
                                           </div>
                                       </div>

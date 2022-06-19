@@ -173,7 +173,6 @@ mysqli_close($conn);
                                         </div>
                                         <div class="col-6 col-sm-6 col-md-6 col-lg-4" id="tr-settings">
                                         <?php echo $singleRow['Vehicle_No']; ?>
-                                        <?php echo $singleRow['Resident_svID']; ?>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center mt-3">

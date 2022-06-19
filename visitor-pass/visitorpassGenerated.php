@@ -3,12 +3,11 @@ session_start();
 include '../checkLogin.php';
 include '../connect.php';
 
-$visitorID = $_SESSION['Visitor_ID'];
-
 $sql = "SELECT * FROM visitor ORDER BY Visitor_ID DESC LIMIT 1";
 $result = mysqli_query($conn, $sql);
 $singleRow  = mysqli_fetch_assoc($result);
 
+$residentID= $singleRow['Resident_svID'];
 $visitorID = $singleRow['Visitor_ID'];
 $vname = $singleRow['Visitor_Name'];
 $vehicle = $singleRow['Vehicle_No'];
@@ -17,10 +16,17 @@ $date = $singleRow['Date'];
 $stime = $singleRow['Start_Time'];
 $etime = $singleRow['End_Time'];
 
+$sql = "SELECT * FROM resident WHERE Resident_svID='$residentID'";
+$result = mysqli_query($conn, $sql);
+$singleRow  = mysqli_fetch_assoc($result);
+
+$residentName=$singleRow['Name'];
+
 $data = "Visitor ID : " . $visitorID
     . "%0A" . "Visitor Name : " . $vname
+    . "%0A" . "Resident Name : " . $residentName
     . "%0A" . "Vehicle No : " . $vehicle
-    . "%0A" . "Phone No : " . $mob
+    . "%0A" . "Phone No : 0" . $mob
     . "%0A" . "Date : " . $date
     . "%0A" . "Start Time : " . $stime
     . "%0A" . "End Time : " . $etime;
@@ -39,6 +45,7 @@ $output["img"] = $url;
 <head>
     <meta charset="utf-8">
     <title>Visitor Pass Generated</title>
+    <link rel="icon" href="../images/Logo SV.png">
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 </head>
@@ -61,7 +68,7 @@ $output["img"] = $url;
                 </div>';
             } ?>
 
-            <h5>Visitor Pass ID : <?php echo $singleRow['Visitor_ID']; ?></h5>
+            <h5>Visitor Pass ID : <?php echo $visitorID; ?></h5>
             <p style="font-style: italic;">
                 This is the property of the management. Please shows the QR code when you received at the guardhouse for identification purpose. Thank you for your kind co-operation.
             </p>
