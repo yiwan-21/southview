@@ -31,10 +31,6 @@
 
 </head>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f5b8efdd7d16cf97a7002f49004eda0192c79e0d
 <body>
 	<section>
 		<!-- Facilities Page -->
