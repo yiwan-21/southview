@@ -1,8 +1,3 @@
-:root {
-    --deep-blue: #33658A;
-    --cyan: #25E5F8;
-}
-
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -55,7 +50,7 @@ body {
 }
 
 .answer input[type="date"] {
-    border: solid 1px var(--deep-blue);
+    border: solid 1px #33658A;
     border-radius: 30px;
     padding: 0.5rem 1rem;
 }
@@ -64,7 +59,7 @@ body {
     width: 25rem;
     appearance: none;
     border: none;
-    border-bottom: solid 1px var(--deep-blue);
+    border-bottom: solid 1px #33658A;
     padding-top: 0.5rem;
 }
 
@@ -73,7 +68,7 @@ body {
 }
 
 .comfirmation {
-    color: var(--deep-blue);
+    color: #33658A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +82,7 @@ body {
 
 .submit {
     margin: 1rem auto 0 auto;
-    background-color: var(--cyan);
+    background-color: #25E5F8;
     border: none;
     border-radius: 20px;
     display: flex;
