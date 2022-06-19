@@ -25,6 +25,14 @@ body{
     background-size: cover;
     margin:0px;
     font-family: 'Inter', serif;
+    height: 100vh;
+}
+
+.bungkus{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .navbar-dark{
@@ -74,6 +82,7 @@ body{
 .side-navbar {
     width: 180px;
     height: 70%;
+    top: 15%;
     position: fixed;
     margin-left: -300px;
     background-color: var(--black-color);

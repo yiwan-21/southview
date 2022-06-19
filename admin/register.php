@@ -1,19 +1,13 @@
 <?php
 include 'connect.php';
-  $query = 'SELECT * FROM resident ORDER BY Resident_svID DESC LIMIT 1';
+  $query = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA='south_view' AND TABLE_NAME='resident'";
   $result = mysqli_query($conn, $query);
   $row = mysqli_fetch_array($result);
-  $lastid = $row['Resident_svID'];
-  if($lastid == " "){
-    $rID = 2200001;
-  }
-  else{
-    $rID = $lastid + 1;
-  }
+  $lastid = $row['AUTO_INCREMENT'];
+  $rID = $lastid;
 
 if(isset($_POST['submit']))
 {
-      
       $name=$_POST['name'];      
       $gender=$_POST['gender'];
       $age=$_POST['age'];
@@ -115,7 +109,7 @@ if(isset($_POST['submit']))
                                               <strong>:</strong>
                                           </div>
                                           <div class="col-lg-7" name="id" id="tr-settings">
-                                          <input type="text" style="background-color:darkgray" class="form-control"       type="text" name="SV_ID" id="input-style" value="<?php echo $rID; ?>" disabled 
+                                          <input type="text" style="background-color:darkgray" class="form-control" type="text" name="SV_ID" id="input-style" value="<?php echo $rID; ?>" disabled 
                                            >                                       
                                           </div>
                                       </div>
