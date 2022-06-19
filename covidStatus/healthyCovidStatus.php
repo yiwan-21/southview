@@ -1,5 +1,6 @@
 <?PHP
 session_start();
+$_SESSION['svid'] = 220001;
 include "../checkLogin.php";
 include "INCLUDES/dbh.inc.php";
 include "INCLUDES/user.inc.php";
