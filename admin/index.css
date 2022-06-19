@@ -451,6 +451,8 @@ h1{
 }
 
 #show-body {
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
     background-color: white;
     border-bottom-left-radius: 3rem;
     border-bottom-right-radius: 3rem;
