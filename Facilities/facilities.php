@@ -73,11 +73,7 @@
 	<script src="/navigation/navigation.js"></script>
 	<script type="text/javascript">
 		document.getElementById("myButton").onclick = function () {
-<<<<<<< HEAD
-			location.href = "indexHomepage.html";
-=======
 			location.href = "indexHomepage.php";
->>>>>>> f5b8efdd7d16cf97a7002f49004eda0192c79e0d
 		};
 	</script>
 </body>
