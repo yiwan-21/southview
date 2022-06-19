@@ -49,7 +49,13 @@
                                        
                                 </tr>
                                 <tr class="checkpass">
-                                    <td><input type="checkbox" onclick="myFunction()"><strong> Show Password </strong></td>
+                                    <td><input type="checkbox" id="showpas" onclick="myFunction()">
+                                    <label for="showpas">
+                                        <strong> 
+                                            Show Password 
+                                        </strong>
+                                    </label>
+                                </td>
                                 </tr>
                                 <tr>
                                     <td>

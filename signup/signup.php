@@ -53,10 +53,11 @@
                                                      </tr>
                                                      <tr>
                                                        
-                                                    <td><input type="radio" name="gender" class="male" value="male" required>
-                                                        <strong>Male</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-                                                            type="radio" name="gender" class="female" value="female">
-                                                        <strong>Female</strong></td> 
+                                                    <td><input type="radio" name="gender" class="male" value="male" id="male" required>
+                                                        <label for="male"><strong>Male</strong></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                            type="radio" name="gender" class="female" value="female" id="female">
+                                                        <label for="female"><strong>Female</strong></label>
+                                                    </td> 
                                                  </tr>
 
                                                  
@@ -87,7 +88,9 @@
                                                     </tr>
 
                                                     <tr class="checkpass">
-                                                        <td><input type="checkbox" onclick="myFunction()"><strong> Show Password </strong></td>
+                                                        <td><input type="checkbox" onclick="myFunction()" id="showpas1">
+                                                        <label for="showpas1"><strong> Show Password </strong></label>
+                                                    </td>
                                                     </tr>
                                                     
                                                         <td><input type="password"  class="form-control" placeholder="Enter Confirm Password" name="confirmpw" id="confirmpw" inputmode="numeric" minlength="8"
@@ -97,7 +100,9 @@
 
                                                    
                                                     <tr class="checkpass">
-                                                        <td><input type="checkbox" onclick="myFunction1()"><strong> Show Password </strong><div id="message">&nbsp;</div></td>
+                                                        <td><input type="checkbox" onclick="myFunction1()" id="showpas2">
+                                                        <label for="showpas2"><strong> Show Password </strong></label>
+                                                        <div id="message">&nbsp;</div></td>
                                                     </tr>
                                                     
                                                     <tr>
