@@ -1,6 +1,6 @@
 
 <nav class="navbar fixed-top navbar-expand-md navbar-dark">
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding-left: 12px !important;">
           <a class="navbar-brand" href="home.php">
             <img id="nav-logo" src="images/logo.svg" alt="SV logo">
           </a>

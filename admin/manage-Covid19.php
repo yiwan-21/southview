@@ -21,19 +21,6 @@
     <!-- custom css -->
     <link rel="stylesheet" href="index.css">
     
-    <!-- Latest compiled and minified CSS -->
-
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    
 </head>
 <body>
     <div class="container-fluid">
@@ -87,76 +74,53 @@
                           <td>'.$unit.'</td> 
                           <td>'.$date_start.'</td> 
                           <td>'.$symptom.'</td>               
-                          <td>
-                          <a href="" data-toggle="modal" data-target="#mymodal">
-                          <button type= "submit" name="show-button" class="btn btn-sm" style="padding-left: 0px">
-                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="width: 30px; height: auto;">
-                          </button>
-                          </a>
 
+                          <td class="icon-td">
                           <a href="" data-toggle="modal" data-target="#mymodal">
-                          <button type= "submit" name="show-button" class="btn btn-sm" >
-                            <img class="icon" src="../admin/images/output-onlinepngtools.png" alt="Delete Icon" style="width: 35px; height: auto;">
+                          <button type= "submit" name="show-button" class="btn btn-sm">
+                            <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="margin: auto; width: 30px; height: 30px;">
                           </button>
                           </a>
 
                             <a href="validate-Covid19.php?validateCovid19id='.$Patient_ID.'">
-                              <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon">
+                              <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon" style="margin: auto;">
                             </a>
-                            &nbsp;
                             <a href="update-Covid19.php?updateCovid19id='.$Patient_ID.'">
-                              <img class="icon" src="images/update.svg" alt="Update Icon">
+                              <img class="icon" src="images/update.svg" alt="Update Icon" style="margin: auto;">
                             </a>    
                            
                             <!-- Button trigger modal -->
-                            <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'">
                             <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              <img class="icon" src="images/delete.svg" alt="Delete Icon">
+                              <img class="icon" src="images/delete.svg" alt="Delete Icon" style="margin: auto;">
                             </button> 
-                            </a>               
+                            </a>
+
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header border-0">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body border-0">
+                                    <p>Are you sure you want to delete the selected Covid-19 Reporting?</p> 
+                                  </div>
+                                  <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'">
+                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> 
                     </td>        
                         </tr>';
                       }
 
                     }
                     
-                    function showResult($Patient_ID, $conn) {
-                      $sql="select * from `covid-19 patient` where Patient_ID=$Patient_ID";
-                      $result=mysqli_query($conn,$sql);
-
-                      if($result)
-                      {
-                        $singleRow  = mysqli_fetch_assoc($result);
-                        if(isset($singleRow['Testkit_Result']))
-                        {
-                          $img_src = "data:".$singleRow['Mime'].";base64,".base64_encode($singleRow['Testkit_Result']);
-                        }
-                        else{
-                          $img_src = "../admin/images/no_image.jpg";
-                        }
-
-                        echo '<div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" id="mymodal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header border-0" id="show-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Test Kit Result</h5>
-                              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                            </div>
-                            <div class="modal-body" id="show-body">
-                                <img src="'.$img_src.'" class="img-fluid mb-2">
-                            </div>                               
-                          </div>
-                        </div>
-                      </div>';
-
-                        echo $img_src;
-
-                      }
-                      else{
-                          die("Connection failed: " . $conn->connect_error);
-                      }
-                    }
-
                   ?>
                 </tbody>
           </table>
@@ -166,7 +130,7 @@
     
     <!-- Show Testkit -->
 
-    <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="mymodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" id='mymodal-dialog'>
                                 <div class="modal-content">
                                   <div class="modal-header border-0" id='show-header'>
@@ -174,37 +138,48 @@
                                     <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                                   </div>
                                   <div class='modal-body' id='show-body'>
-                                      <img src="<?php showResult($Patient_ID, $conn)?>" class="img-fluid mb-2">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                   </div>                               
                                 </div>
                               </div>
-                            </div> 
-
-    <div class='modal' id='mymodal'>
-      <div class='modal-dialog' id='mymodal-dialog'>
-        <div class='modal-content'>
-          <div class='modal-header' id='show-header'>
-            <h4>Test Kit Result</h4>
-            <button type='button' class='close' data-dismiss='modal'>&times;</button>
-          </div>
-          <div class='modal-body' id='show-body'>
-              <img src="<?php showResult($Patient_ID, $conn)?>" class="img-fluid mb-2">
-          </div>
-        </div>
-      </div>
-    </div>    
+                            </div>    
 
     <!-- footer -->  
     <?php
       include 'footer.php';
     ?>
-      
+    
+    <script type='text/javascript'>
+            $(document).ready(function(){
+                $('.userinfo').click(function(){
+                    var userid = $(this).data('id');
+                    $.ajax({
+                        url: 'view-Covid19.php',
+                        type: 'post',
+                        data: {userid: userid},
+                        success: function(response){ 
+                            $('.modal-body').html(response); 
+                            $('#myModal').modal('show'); 
+                        }
+                    });
+                });
+            });
+    </script>
+        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <!-- custom js -->
     <script src="index.js"></script>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     
     
 </body>

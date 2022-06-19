@@ -17,17 +17,6 @@ function Submit(event) {
 }
 
 
-var checkcurpass= function (){
-    if(document.getElementById('oldpass').value==document.getElementById('oripass').value){
-        document.getElementById('curpass').style.color ='green';
-        document.getElementById('curpass').innerHTML = 'Current password is correct';
-    }else{
-        document.getElementById('curpass').style.color ='red';
-        document.getElementById('curpass').innerHTML = 'Current password is incorrect';
-    }
-
-}
-
 var check = function () {
     if (document.getElementById('logpw').value ==
         document.getElementById('confirmpw').value) {
