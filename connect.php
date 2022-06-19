@@ -1,8 +1,8 @@
 <?php
     $dbhost = "localhost";
     $database = "south view";
-    $dbuser = "root";
-    $dbpass = "";
+    $dbuser = "user1";
+    $dbpass = "user1abc";
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
 
     // mysqli_connect_errno returns the last error code
