@@ -83,7 +83,7 @@
             </form> -->
             <!------------- NEW CHAT TEMPLATE ------------->
             <div class="chat-window" id="myForm">
-                <div class="wrapper">
+                <div class="chat-wrapper">
                 <div class="chat-area">
                     <header>
                     <?php
@@ -99,8 +99,9 @@
                     ?>
                     <!-- <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a> -->
                     <!-- <img src="php/images/<?php /*echo $row['img'];*/ ?>" alt=""> -->
-                    <div class="back-icon"><i class="fas fa-times" onclick="closeForm()"></i></div>
-                    <img src="/navigation/php/images/czh.jpg" alt="">
+                    <div class="back-icon" onclick="closeForm()"><i class="fas fa-times"></i></div>
+                    
+                    <img src="../navigation/image.jpg" alt="">
                     <div class="details">
                         <span><?php echo "SV Management" ?></span>
                         <p><i><?php echo "Your Caring Apartment Advisor"; ?></i></p>
