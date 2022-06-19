@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 class User extends dbh {
 
@@ -29,7 +30,7 @@ class User extends dbh {
         $ddate = date('Y-m-d');
         $date = new DateTime($ddate);
         $week = $date-> format('W');
-        $sql = 'SELECT * FROM `covid-19 patient` WHERE WEEK(Date_Start) = '. $week .' OR WEEK(Date_End) = '. $week;
+        $sql = 'SELECT * FROM `covid-19 patient` WHERE WEEK(Date_Start) = '. $week;
         $result = $this-> connect()-> query($sql);
         $weeklyCase = $result->num_rows;
         echo $weeklyCase;
@@ -38,8 +39,8 @@ class User extends dbh {
     public function weeklyRecovered(){
         $ddate = date('Y-m-d');
         $date = new DateTime($ddate);
-        $day = $date-> format('d');
-        $sql = 'SELECT * FROM `covid-19 patient` WHERE DAY(Date_End) = '. $day;
+        $week = $date-> format('W');
+        $sql = 'SELECT * FROM `covid-19 patient` WHERE WEEK(Date_End) = '. $week;
         $result = $this-> connect()-> query($sql);
         $weeklyRec = $result->num_rows;
         echo $weeklyRec;
