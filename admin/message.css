@@ -1,8 +1,3 @@
-:root {
-    --deep-blue: #33658A;
-    --cyan: #25E5F8;
-}
-
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -44,8 +39,8 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0.5rem 1rem 0 0;
-    margin-left: 0.5rem;
-    border-bottom: solid 1px var(--deep-blue);
+    margin: 0 0.5rem;
+    border-bottom: solid 1px #33658A;
     cursor: pointer;
 }
 
@@ -143,26 +138,32 @@ fieldset.date > legend {
     margin-left: 1rem;
     display: flex;
     flex-direction: column;
-    min-height: 36rem;
+    min-height: 33rem;
 }
 
 .self,
 .opposite-text {
     background-color: #1D1E42;
     color: #FFF;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 0.5rem 0 1.5rem 0;
+    padding: 0.5rem 1rem;
     max-width: 70%;
 }
 
 .self {
     align-self: flex-end;
+    border-radius: 18px 18px 0 18px;
+}
+
+.opposite-text {
+    border-radius: 18px 18px 18px 0;
 }
 
 .opposite {
     align-self: flex-start;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .opposite img,
@@ -208,7 +209,7 @@ fieldset.date > legend {
 .reply button {
     height: 100%;
     aspect-ratio: 1;
-    background-color: var(--cyan);
+    background-color: #25E5F8;
     border: none;
     border-radius: 3px;
     display: flex;

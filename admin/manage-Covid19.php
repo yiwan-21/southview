@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
@@ -92,16 +93,17 @@
                             </a>    
                            
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" data-id='.$Patient_ID.' class="btn btn-sm delete-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               <img class="icon" src="images/delete.svg" alt="Delete Icon" style="margin: auto;">
                             </button> 
+                                                  
                             </a> 
                     </td>        
                         </tr>';
                       }
 
                     }
-                    
+                    mysqli_close($conn);
                   ?>
                 </tbody>
           </table>
@@ -112,6 +114,7 @@
     <!-- Show Testkit -->
 
     <div class="modal fade" id="mymodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" id='mymodal-dialog'>
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header border-0" id='show-header'>
@@ -119,10 +122,36 @@
                                     <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                                   </div>
                                   <div class='modal-body' id='show-body'>
+                                  </div>                              
                                   </div>                            
                                 </div>
                               </div>
-                            </div>    
+                            </div>  
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header border-0">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <form action="delete-Covid19.php" method="POST"> 
+                                  <div class="modal-body border-0">
+                                    <input type="hidden" name="userid" id='delete_id'>
+                                    <p class="modal-font">Are you sure you want to delete the selected Covid-19 Reporting?</p> 
+                                  </div>
+                                  <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <!-- <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'"> -->
+                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" name="delete">Delete</button>
+                                    <!-- </a> -->
+                  </form>
+                                  </div>
+                                  </div>                            
+                                </div>
+                              </div>
+                            </div>                
 
     <!-- footer -->  
     <?php
@@ -145,6 +174,17 @@
                     });
                 });
             });
+
+            $(document).ready(function(){
+                $('.delete-btn').click(function(e){
+                    e.preventDefault();
+                    var userid = $(this).data('id');
+                    $('#delete_id').val(userid);
+                    $('#exampleModal').modal('show'); 
+                  });
+
+                });
+
     </script>
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

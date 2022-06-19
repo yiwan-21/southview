@@ -1,7 +1,7 @@
 <?php
     include('../connect.php');
     session_start();
-    $svID = $_SESSION["svid"] = 220001;
+    $svID = $_SESSION["svid"];
     // chat things
     $_SESSION['role'] = "Resident";
 ?>

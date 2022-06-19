@@ -1,5 +1,6 @@
 <?PHP
 session_start();
+
 include "../checkLogin.php";
 include "INCLUDES/dbh.inc.php";
 include "INCLUDES/user.inc.php";

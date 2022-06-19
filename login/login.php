@@ -49,7 +49,13 @@
                                        
                                 </tr>
                                 <tr class="checkpass">
-                                    <td><input type="checkbox" onclick="myFunction()"><strong> Show Password </strong></td>
+                                    <td><input type="checkbox" id="showpas" onclick="myFunction()">
+                                    <label for="showpas">
+                                        <strong> 
+                                            Show Password 
+                                        </strong>
+                                    </label>
+                                </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -57,8 +63,8 @@
                                             <h6>Choose your status:</h6>
                                             <label for="status"></label>
                                             <select id="status" name='role'>
-                                                <option id="admin" value="Administrator">Administrator</option>
                                                 <option id="resident" value="Resident">Resident</option>
+                                                <option id="admin" value="Administrator">Administrator</option>
                                             </select>
                                         </div>
                                     </td>

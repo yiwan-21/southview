@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
         $user=$_POST['svid'];
         $password=$_POST['password'];
         //Establishing Connection with server by passing server_name, user_id and pass as a patameter
-        $conn = mysqli_connect('localhost','root',"",'south view',3325);
+        $conn = mysqli_connect('localhost','root',"",'south view');
         //Selecting Database
         //$db = mysqli_select_db($conn, "test");
         //sql query to fetch information of registerd user and finds user match.
@@ -26,9 +26,13 @@ if(isset($_POST['submit'])){
             $rows = mysqli_fetch_assoc($query);
             $pw = $rows['Password'];
             
+<<<<<<< HEAD
+            $verify = password_verify($password, $pw)                                                                                                                                                                                           ;
+            
+            
+=======
             $verify = password_verify($password, $pw);
-            
-            
+>>>>>>> 492565ef180e2d8ffb120256333a96838e328fde
             if($verify){
                 $_SESSION["svid"] = $user;
                 header("Location: ../admin/home.php"); // Redirecting to other page
@@ -41,7 +45,6 @@ if(isset($_POST['submit'])){
             $query = mysqli_query($conn, "SELECT * FROM resident WHERE Resident_svID='$user' LIMIT 1");
             $rows = mysqli_fetch_assoc($query);
             $pw = $rows['Password'];
-            
             
             $verify = password_verify($password, $pw);
             if($verify){
