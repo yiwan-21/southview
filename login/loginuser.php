@@ -1,18 +1,5 @@
 <?php
 session_start();
-<<<<<<< Updated upstream
-=======
-$_SESSION["svid"] = $_POST["svid"];
-$_SESSION["password"] = $_POST["password"];
-if(isset($_SESSION["svid"])) {
-    echo "<script>console.log('Session svid: " . $_SESSION["svid"] . "' );</script>";
-}
-if(isset($_SESSION["password"])) {
-    echo "<script>console.log('Session password: " . $_SESSION["password"] . "' );</script>";
-}
-
-echo "<script>console.log('hi' );</script>";
->>>>>>> Stashed changes
 
 $error=''; //Variable to Store error message;
 if(isset($_POST['submit'])){
@@ -25,13 +12,6 @@ if(isset($_POST['submit'])){
         $user=$_POST['svid'];
         $password=$_POST['password'];
         //Establishing Connection with server by passing server_name, user_id and pass as a patameter
-<<<<<<< Updated upstream
-        $conn = mysqli_connect('localhost','root',"",'south view');
-        //Selecting Database
-        //$db = mysqli_select_db($conn, "test");
-        //sql query to fetch information of registerd user and finds user match.
-        $role = $_POST['role'];
-=======
         $conn = mysqli_connect('localhost','root',"",'south view',3325);
         //Selecting Database
         //$db = mysqli_select_db($conn, "test");
