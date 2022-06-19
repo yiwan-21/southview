@@ -27,9 +27,9 @@
 
 </head>
 <body>
-    <!-- <div class="container-fluid"> -->
+    <div class="container-fluid">
         <!-- top navigation bar -->
-      <div class="bungkus">
+      <!-- <div class="bungkus"> -->
         <?php
         $page='Covid19';
         include 'top-navbar.php';
