@@ -302,7 +302,7 @@ $_SESSION['svid'] = 1;
                   </span>
                   <img src="${user.avatar}" alt="avatar">
                   <div class="text">
-                      <span class="name">${user.name}</span>
+                  <span class="name">${user.name}</span>
                       <div>
                           ${(user.side === 'self' ? `
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="20" height="20" fill="#FFF">
@@ -324,7 +324,10 @@ $_SESSION['svid'] = 1;
       const messagePage = document.createElement('div');
       messagePage.style.height = '100%';
       messagePage.innerHTML =
-        `<div class="textarea"></div>
+        `<div class="chat-name">
+          ${'<?php echo $_SESSION['serviceType'];?>' === 'other' ? '' : user.type}
+        </div>
+        <div class="textarea"></div>
         <div class="reply-wrapper">
           <form class="reply" method="post">
               <input type="hidden" name="svid" value=${user.svid}>
@@ -346,7 +349,7 @@ $_SESSION['svid'] = 1;
       if (isset($_POST['submitMessage'])) {
         $svid = $_POST['svid'];
         $message = $_POST['message'];
-        $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1')";
+        $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen, Service_Type) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1', '".(($_SESSION['serviceType']) == 'other' ? null : $_SESSION['serviceType'])."')";
         $result = mysqli_query($conn, $query);
         echo "usersMessage.push({
           side: 'self',
