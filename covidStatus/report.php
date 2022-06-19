@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
     $Q2 = $_POST['Q2'];
     $Q3 = $_POST['Q3'];
     $Q3_end = date("Y-m-d", strtotime($Q3 . "+1 week"));
+    $Q3_end = date("Y-m-d", strtotime($Q3_end . "-1 day"));
     $Q4 = $_POST['Q4'];
     $Q5 = $_POST['Q5'];
 
