@@ -21,6 +21,9 @@
     <!-- custom css -->
     <link rel="stylesheet" href="index.css">
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <div class="container-fluid">
@@ -76,11 +79,9 @@
                           <td>'.$symptom.'</td>               
 
                           <td class="icon-td">
-                          <a href="" data-toggle="modal" data-target="#mymodal">
-                          <button type= "submit" name="show-button" class="btn btn-sm">
+                          <button data-id='.$Patient_ID.' class="userinfo btn btn-sm">
                             <img class="icon" src="images/output-onlinepngtools.png" alt="Show Icon" style="margin: auto; width: 30px; height: 30px;">
                           </button>
-                          </a>
 
                             <a href="validate-Covid19.php?validateCovid19id='.$Patient_ID.'">
                               <img class="'. ($validate_status==1 ? "validatedicon" : "validateicon").'" src="images/validate.svg" alt="Validate Icon" style="margin: auto;">
@@ -93,28 +94,7 @@
                             <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               <img class="icon" src="images/delete.svg" alt="Delete Icon" style="margin: auto;">
                             </button> 
-                            </a>
-
-                            <!-- Delete Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header border-0">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body border-0">
-                                    <p>Are you sure you want to delete the selected Covid-19 Reporting?</p> 
-                                  </div>
-                                  <div class="modal-footer border-0">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <a href="delete-Covid19.php?deleteCovid19id='.$Patient_ID.'">
-                                    <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div> 
+                            </a> 
                     </td>        
                         </tr>';
                       }
@@ -131,17 +111,14 @@
     <!-- Show Testkit -->
 
     <div class="modal fade" id="mymodal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" id='mymodal-dialog'>
+                              <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header border-0" id='show-header'>
                                     <h5 class="modal-title" id="exampleModalLabel">Test Kit Result</h5>
                                     <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                                   </div>
                                   <div class='modal-body' id='show-body'>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  </div>                               
+                                  </div>                            
                                 </div>
                               </div>
                             </div>    
@@ -161,7 +138,7 @@
                         data: {userid: userid},
                         success: function(response){ 
                             $('.modal-body').html(response); 
-                            $('#myModal').modal('show'); 
+                            $('#mymodal').modal('show'); 
                         }
                     });
                 });
@@ -175,12 +152,9 @@
     <!-- custom js -->
     <script src="index.js"></script>
     <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    
     
 </body>
 </html>
