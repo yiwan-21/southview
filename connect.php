@@ -3,6 +3,7 @@
     $database = "south view";
     $dbuser = "user1";
     $dbpass = "user1abc";
+
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
 
     // mysqli_connect_errno returns the last error code

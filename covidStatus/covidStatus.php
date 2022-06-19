@@ -7,8 +7,6 @@ include "../connect.php";
 
 
 if (isset($_POST['service_submit'])) {
-    include 'INCLUDES/dbh.inc.php';
-    include 'INCLUDES/user.inc.php';
     $dbh = new dbh();
     $connect = $dbh->connect();
     $Resident_svID = $_SESSION['svid'];
