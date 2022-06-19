@@ -1,8 +1,8 @@
 <?php
 include '../connect.php';
 include '../checkLogin.php';
-if(isset($_GET['deleteCovid19id'])){
-    $Patient_ID=$_GET['deleteCovid19id'];
+if(isset($_POST['delete'])){
+    $Patient_ID=$_POST['userid'];
 
     $sql="delete from `covid-19 patient` where Patient_ID=$Patient_ID";
     $result=mysqli_query($conn,$sql);
@@ -19,5 +19,5 @@ if(isset($_GET['deleteCovid19id'])){
         die("Connection failed: " . $conn->connect_error);
     }
 }
-
+mysqli_close($conn);
 ?>

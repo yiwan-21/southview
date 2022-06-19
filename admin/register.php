@@ -12,8 +12,8 @@ function send_SVID_email($SV_ID,$name,$email,$randomPassword){
     $mail->isSMTP();                                               //Send using SMTP
     $mail->Host       = "smtp.office365.com";                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = "southview@outlook.my";                     //SMTP username
-    $mail->Password   = "user1abc";                               //SMTP password
+    $mail->Username   = "southview22@outlook.my";                     //SMTP username
+    $mail->Password   = "sv2022";                               //SMTP password
     $mail->SMTPSecure = "STARTTLS";            //Enable implicit TLS encryption
     $mail->Port       = 587;
     $mail->SMTPOptions = array(
@@ -25,9 +25,9 @@ function send_SVID_email($SV_ID,$name,$email,$randomPassword){
     );//TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom("southview@outlook.my");
+    $mail->setFrom("southview22@outlook.my");
     $mail->addAddress($email);               //Name is optional
-    $mail->addReplyTo("southview@outlook.my");
+    $mail->addReplyTo("southview22@outlook.my");
 
     $mail->Subject = "You have successfully registered as the SOUTHVIEW apartment resident!";
 
@@ -64,7 +64,7 @@ if(isset($_POST['submit']))
       $email=$_POST['email'];
       $unit=$_POST['unit'];
       $vecno=$_POST['vecno'];
-        //usage 
+      
       $randomPassword = generateRandomPassword(10);
       $password= password_hash($randomPassword, PASSWORD_DEFAULT);
       $result = mysqli_query($conn, "insert into `resident` (`Name`,`Gender`,`Password`,`IC_No/Passport_No`,`Phone_No`,`Email`,`Age`,`Unit`,`Vehicle_No`) values('$name','$gender','$password','$icno','$phoneno','$email',$age,'$unit',
@@ -90,6 +90,7 @@ if(isset($_POST['submit']))
         die("Connection failed: " . $conn->connect_error);
     }
 }
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -294,5 +295,7 @@ if(isset($_POST['submit']))
     <script src="index.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

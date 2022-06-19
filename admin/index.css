@@ -427,13 +427,15 @@ h1{
     }
 } */
 
-#mymodal {
-    position: absolute;
+.userinfo{
+    background-color: Transparent;
+    border: none;
 }
 
-#mymodal-dialog {
-    top: 5rem;
+#mymodal {
+    height: 50rem;
 }
+
 
 #show-header {
     background-color: white;  
@@ -441,4 +443,10 @@ h1{
 
 #show-body {
     background-color: white;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+}
+
+.modal-font{
+    color: #fff !important;
 }

@@ -12,8 +12,8 @@ function send_SVID_email($SV_ID,$name,$email){
     $mail->isSMTP();                                               //Send using SMTP
     $mail->Host       = "smtp.office365.com";                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = "southview@outlook.my";                     //SMTP username
-    $mail->Password   = "user1abc";                               //SMTP password
+    $mail->Username   = "southview22@outlook.my";                     //SMTP username
+    $mail->Password   = "sv2022";                               //SMTP password
     $mail->SMTPSecure = "STARTTLS";            //Enable implicit TLS encryption
     $mail->Port       = 587;
     $mail->SMTPOptions = array(
@@ -25,9 +25,9 @@ function send_SVID_email($SV_ID,$name,$email){
     );//TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom("southview@outlook.my");
+    $mail->setFrom("southview22@outlook.my");
     $mail->addAddress($email);               //Name is optional
-    $mail->addReplyTo("southview@outlook.my");
+    $mail->addReplyTo("southview22@outlook.my");
 
     $mail->Subject = "You have successfully registered as the SOUTHVIEW apartment resident!";
 
