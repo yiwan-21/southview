@@ -17,7 +17,8 @@ if(isset($_POST['submit'])){
         {
             $pass_error="Oops! Password did not match! Try again.";
         }else{
-        $query = mysqli_query($conn, "UPDATE resident SET Password='$password' WHERE Email='$targetEmail' LIMIT 1");
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+        $query = mysqli_query($conn, "UPDATE resident SET Password='$hash' WHERE Email='$targetEmail' LIMIT 1");
         header("Location: ../login/login.php");
             }
 

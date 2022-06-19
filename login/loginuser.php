@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
             $rows = mysqli_fetch_assoc($query);
             $pw = $rows['Password'];
             
-            $verify = password_verify($password, $pw);
+            $verify = password_verify($password, $pw)                                                                                                                                                                                           ;
             
             
             if($verify){
