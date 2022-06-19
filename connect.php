@@ -1,6 +1,6 @@
 <?php
     $dbhost = "localhost";
-    $database = "south_view_2";
+    $database = "south view";
     $dbuser = "root";
     $dbpass = "";
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database);
