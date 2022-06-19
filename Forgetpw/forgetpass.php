@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
-$conn = mysqli_connect('localhost','root',"",'south view',3325);
+$conn = mysqli_connect('localhost','root',"",'south view');
     if($conn->connect_error){
         die(mysqli_connect_error() );
     }

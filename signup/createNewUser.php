@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost','root',"",'south view',3325);
+$conn = mysqli_connect('localhost','root',"",'south view');
 $hasError = false;
 if ($conn->connect_error) {
     die(mysqli_connect_error());
