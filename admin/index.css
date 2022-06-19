@@ -28,12 +28,12 @@ body{
     height: 100vh;
 }
 
-.bungkus{
+/* .bungkus{
     height: 100vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-}
+} */
 
 .navbar-dark{
     padding:0 !important;
