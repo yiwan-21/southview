@@ -427,12 +427,13 @@ h1{
     }
 } */
 
-#mymodal {
-    position: absolute;
+.userinfo{
+    background-color: Transparent;
+    border: none;
 }
 
-#mymodal-dialog {
-    top: 5rem;
+#mymodal {
+    height: 50rem;
 }
 
 #show-header {

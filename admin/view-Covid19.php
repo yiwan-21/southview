@@ -1,8 +1,8 @@
 <?php
     include '../checkLogin.php';
-    include '../admin/manage-register-account/connect.php';
+    include '../connect.php';
     $userid = $_POST['userid'];
-    $sql="select * from `covid-19 patient` where Patient_ID=$Patient_ID";
+    $sql="select * from `covid-19 patient` where Patient_ID=$userid";
     $result=mysqli_query($conn,$sql);
     if($result){
         $singleRow  = mysqli_fetch_assoc($result);
@@ -12,12 +12,11 @@
         else{
             $img_src = "../admin/images/no_image.jpg";
         }
+        echo '<img src="'.$img_src.'" class="img-fluid mb-2">';
     }
     else{
         die("Connection failed: " . $conn->connect_error);
     }
-    while( $row = mysqli_fetch_array($result) ){
+    
 ?>
-<img src="<?php echo $img_src;?>" class="img-fluid mb-2">
 
-<?php }?>
