@@ -26,7 +26,13 @@ if(isset($_POST['submit'])){
             $rows = mysqli_fetch_assoc($query);
             $pw = $rows['Password'];
             
+<<<<<<< HEAD
+            $verify = password_verify($password, $pw)                                                                                                                                                                                           ;
+            
+            
+=======
             $verify = password_verify($password, $pw);
+>>>>>>> 492565ef180e2d8ffb120256333a96838e328fde
             if($verify){
                 $_SESSION["svid"] = $user;
                 header("Location: ../admin/home.php"); // Redirecting to other page
