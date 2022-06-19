@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['svid']=1;
 include '../connect.php';
 include '../checkLogin.php';
 
@@ -12,7 +11,6 @@ include '../checkLogin.php';
 
 if(isset($_POST['submit']))
 {
-      
       $name=$_POST['name'];      
       $gender=$_POST['gender'];
       $age=$_POST['age'];
@@ -112,7 +110,7 @@ if(isset($_POST['submit']))
                                               <strong>:</strong>
                                           </div>
                                           <div class="col-lg-7" name="id" id="tr-settings">
-                                          <input type="text" style="background-color:darkgray" class="form-control"       type="text" name="SV_ID" id="input-style" value="<?php echo $rID; ?>" disabled 
+                                          <input type="text" style="background-color:darkgray" class="form-control" type="text" name="SV_ID" id="input-style" value="<?php echo $rID; ?>" disabled 
                                            >                                       
                                           </div>
                                       </div>

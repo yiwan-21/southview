@@ -17,6 +17,7 @@ include "../checkLogin.php";
 	<link rel="icon" href="images/Logo SV.png">
 	<script src="scriptHomepage.js"></script>
 	<!-- CSS only -->
+	<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -47,9 +48,7 @@ include "../checkLogin.php";
 				<img class="svswimpool rounded-corners" src="images/svswimmingpool.webp" alt="">
 				<div class="desc">
 					<h4>SOUTH VIEW SERVICED APARTMENT</h4>
-					<p>South View Serviced Apartments is a freehold high-end high-rise luxury serviced residence in the affluent locale of Bangsar South in Kampung Kerinchi.
-
-						Sitting strategically on the border of Kuala Lumpur and Petaling Jaya, South View Serviced Apartments enjoy the ease of accessibility and connectivity, and convenience and choices are aplenty......</p>
+					<p>South View Serviced Apartments is a freehold high-end high-rise luxury serviced residence in the affluent locale of Bangsar South in Kampung Kerinchi. Sitting strategically on the border of Kuala Lumpur and Petaling Jaya, South View Serviced Apartments enjoy the ease of accessibility and connectivity, and convenience and choices are aplenty......</p>
 				</div>
 			</div>
 		</div>

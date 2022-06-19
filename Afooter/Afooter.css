@@ -7,9 +7,11 @@ body {
 
 .footer {
     display: flex;
+    position: absolute;
     align-items: center;
     justify-content:center;
     background-color: #fff;
+    bottom: 0;
     height: 4rem;
 }
 
