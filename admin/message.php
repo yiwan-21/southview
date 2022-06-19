@@ -176,38 +176,61 @@ $_SESSION['svid'] = 1;
     //   },
     // ];
     const usersMessage = [];
+    const users = [];
     // $query = "SELECT * FROM message GROUP BY Resident_svID DESC";
     <?php
-    $query = "SELECT * FROM message";
+    $query = "SELECT m.*, r.* FROM message m 
+              INNER JOIN resident r 
+              ON m.Resident_svID = r.Resident_svID";
     $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($result)) {
       $admin = $row['Administrator_svID'];
-      $svid = $row['Resident_svID'];
-      $query2 = "SELECT * FROM resident WHERE Resident_svID = '$svid'";
-      $result2 = mysqli_query($conn, $query2);
-      $row2 = mysqli_fetch_assoc($result2);
-      $name = $row2['Name'];
-      $avatar = $row2['Profile_Picture'];
+      // $svid = $row['Resident_svID'];
+      // $query2 = "SELECT Profile_Picture, mime FROM resident WHERE Resident_svID = '$svid'";
+      // $result2 = mysqli_query($conn, $query2);
+      // $row2 = mysqli_fetch_assoc($result2);
+      $avatar = $row['Profile_Picture'];
+      $mime = $row['mime'];
       if (is_null($avatar)) {
         $avatar = "../southview_profile/image.jpg";
+      } else {
+        $avatar = "data:$mime;base64," . base64_encode($avatar);
       }
       if (is_null($admin)) {
         $side = "opposite"; // the chat bubble on the left (resident)
       } else {
         $side = "self"; // the chat bubble on the right (admin)
       }
-
-      // users = [{
-      //   side: $side,
-      //   svid: $svid,
-      //   name: $name,
-      //   avatar: $avatar,
-      //   message: [],
-      //   new: false,
-      // }]
-
       echo "usersMessage.push({
           side: '$side',
+          svid: '" . $row['Resident_svID'] . "',
+          avatar: '" . $avatar . "',
+          message: '" . $row['Message_Content'] . "',
+          new: '" . ($row['Seen'] == '0') . "',
+        });";
+    }
+
+    $query = "SELECT m1.* FROM message m1 
+              LEFT JOIN message m2
+              ON (m1.Resident_svID = m2.Resident_svID AND m1.Message_ID < m2.Message_ID) 
+              WHERE m2.Message_ID IS NULL 
+              GROUP BY m1.Resident_svID";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      $svid = $row['Resident_svID'];
+      // echo "alert('svid: ".$row['Message_Content']."');";
+      $query2 = "SELECT `Name`, Profile_Picture, mime  FROM resident WHERE Resident_svID = '$svid'";
+      $result2 = mysqli_query($conn, $query2);
+      $row2 = mysqli_fetch_assoc($result2);
+      $name = $row2['Name'];
+      $avatar = $row2['Profile_Picture'];
+      $mime = $row2['mime'];
+      if (is_null($avatar)) {
+        $avatar = "../southview_profile/image.jpg";
+      } else {
+        $avatar = "data:$mime;base64," . base64_encode($avatar);
+      }
+      echo "users.push({
           svid: '$svid',
           name: '" . $name . "',
           avatar: '" . $avatar . "',
@@ -237,8 +260,9 @@ $_SESSION['svid'] = 1;
         }
         message.innerHTML = '';
         message.appendChild(createMessagePage(user));
+        usersMessage.filter(e => e.svid === user.svid).forEach(e => appendMessage(e));
         if (message) {
-          // message.scrollTop = message.scrollHeight - message.clientHeight
+          message.scrollTop = message.scrollHeight - message.clientHeight
         }
       });
       userList.appendChild(newUser);
@@ -268,36 +292,9 @@ $_SESSION['svid'] = 1;
       const messagePage = document.createElement('div');
       messagePage.style.height = '100%';
       messagePage.innerHTML =
-        `<div class="chat-name">
-          <button class="return" onclick="returnToUser()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-left"
-              viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-            </svg>
-          </button>
-          <img src=${user.avatar} alt="avatar">
-          <h2>${user.name}</h2>
-        </div>
-        <fieldset class="date"></fieldset>`;
-      if (user.side == 'self') {
-        messagePage.innerHTML += `<div class="textarea">
-        <div class="self">
-          ${user.message}
-        </div>
-        </div>`
-      } else {
-        messagePage.innerHTML += `<div class="textarea">
-        <div class="opposite">
-          <img src=${user.avatar} alt="avatar">
-          <div class="opposite-text">
-              ${user.message}
-          </div>
-        </div>
-        </div>`
-      }
-      messagePage.innerHTML +=
-        `<div class="reply-wrapper">
+        `
+        <div class="textarea"></div>
+        <div class="reply-wrapper">
           <form class="reply" method="post">
               <input type="hidden" name="svid" value=${user.svid}>
               <input type="text" name="message" placeholder="Write a message...">
@@ -310,8 +307,7 @@ $_SESSION['svid'] = 1;
                   </svg>
               </button>
           </form>
-        </div>
-        `;
+        </div>`;
       return messagePage;
     }
 
@@ -321,10 +317,51 @@ $_SESSION['svid'] = 1;
         $message = $_POST['message'];
         $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1')";
         $result = mysqli_query($conn, $query);
-        echo "alert('svid: ".$svid."'+ ' |admin: ".$_SESSION['svid']."'+ ' |msg: ".$message."')";
+        echo "usersMessage.push({
+          side: 'self',
+          svid: '$svid',
+          message: '$message',
+          new: 0,
+        });";
+        echo "users.filter(e => e.svid === '$svid')[0].message = '$message';";
+        // echo "alert(users.filter(e => e.svid === '$svid')[0].message);";
       }
     ?>
      
+    function appendMessage(user) {
+      const textarea = document.querySelector('.textarea');
+      const newNode = document.createElement('div');
+      newNode.classList.add(user.side);
+      if (user.side == 'opposite') {
+        newNode.insertAdjacentHTML('afterbegin', `<img src=${user.avatar} alt="avatar">`);
+        textElement = document.createElement('div');
+        textElement.classList.add('opposite-text');
+        textElement.textContent = user.message;
+        newNode.appendChild(textElement);
+      } else {
+        newNode.textContent = user.message;
+      }
+      textarea.appendChild(newNode);
+      // if (message) {
+      //   message.scrollTop = textarea.scrollHeight - newNode.clientHeight;
+      // }
+      // if (user.side == 'self') {
+      //   messagePage.innerHTML += `<div class="textarea">
+      //   <div class="self">
+      //     ${user.message}
+      //   </div>
+      //   </div>`
+      // } else {
+      //   messagePage.innerHTML += `<div class="textarea">
+      //   <div class="opposite">
+      //     <img src=${user.avatar} alt="avatar">
+      //     <div class="opposite-text">
+      //         ${user.message}
+      //     </div>
+      //   </div>
+      //   </div>`
+      // }
+    }
 
     function sendMessage(event) {
       event.preventDefault();
