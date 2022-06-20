@@ -1,10 +1,11 @@
 <?php
 include '../connect.php';
 include '../checkLogin.php';
-if(isset($_GET['deleteResidentid'])){
-    $SV_ID=$_GET['deleteResidentid'];
+if(isset($_POST['delete'])){
+    $SV_ID=$_POST['userid'];
 
-    $sql="delete from `resident` where Resident_svID=$SV_ID";
+    $sql="delete from `resident` where `Resident_svID`='$SV_ID'";
+    // echo "<script> console.log($SV_ID);</script>";
     $result=mysqli_query($conn,$sql);
 
     if($result)
@@ -18,7 +19,7 @@ if(isset($_GET['deleteResidentid'])){
     else{
         die("Connection failed: " . $conn->connect_error);
     }
-    mysqli_close($conn);
-}
     
+}
+mysqli_close($conn);
 ?>

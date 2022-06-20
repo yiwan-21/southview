@@ -311,9 +311,9 @@ label{
     border: 1px solid grey;
 }
 
-.profile-pic-div img{
+/* .profile-pic-div img{
     cursor: pointer;
-}
+} */
 
 #photo{
     height: 100%;

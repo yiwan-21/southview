@@ -36,6 +36,9 @@ if(isset($_POST['submit']))
         die("Connection failed: " . $conn->connect_error);
     }
 }
+
+mysqli_close($conn);
+
 ?>
 
 
@@ -158,7 +161,7 @@ if(isset($_POST['submit']))
                         <div class="question">
                             <label for="Q2">2. Are you staying alone in the apartment?<span class="red">*</span></label>
                             <div class="answer col-lg-6">
-                                <input type="radio" name="Q2" class="form-check-input" id="yes" value="yes" 
+                                <input type="radio" name="Q2" class="form-check-input" id="yes" value="1" 
                                          <?php
                                               if($Q2==1){
                                                 echo "checked";
@@ -168,7 +171,7 @@ if(isset($_POST['submit']))
                                     <label for="yes"  class="form-input-label">Yes</label>
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="Q2" class="form-check-input" id="no" value="no" 
+                                    <input type="radio" name="Q2" class="form-check-input" id="no" value="0" 
                                          <?php
                                               if($Q2==0){
                                                 echo "checked";
@@ -274,6 +277,6 @@ if(isset($_POST['submit']))
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <!-- custom js -->
     <script src="index.js"></script>
-    
+
 </body>
 </html>

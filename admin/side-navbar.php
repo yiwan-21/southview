@@ -1,5 +1,5 @@
 
-<div class="side-navbar active-nav d-flex justify-content-center align-items-center flex-wrap flex-column" id="sidebar">
+<div class="side-navbar active-nav d-flex justify-content-center align-items-center flex-wrap flex-column" id="sidebar" style="z-index:10;">
           <div>
             <a href="home.php">
             <!-- logo -->

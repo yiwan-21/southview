@@ -100,9 +100,9 @@ function handleFormSubmit(event) {
     const formData = new FormData(form);
     formData.forEach((value, key) => {
         values.push(value)
-        console.log(key, value);
+        // console.log(key, value);
     });
-     console.log(values);
+    //  console.log(values);
     window.location.href="registerVisitorSuccess.html"
 }
 

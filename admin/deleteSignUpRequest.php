@@ -1,9 +1,8 @@
 <?php
 include '../connect.php';
 include '../checkLogin.php';
-if (isset($_GET['deleteSignUpRequestid'])) {
-  $id = $_GET['deleteSignUpRequestid'];
-
+if (isset($_POST['delete'])) {
+  $id=$_POST['userid'];
   $sql = "delete from `resident_signup` where signup_ID=$id";
   $result = mysqli_query($conn, $sql);
 
@@ -16,6 +15,7 @@ if (isset($_GET['deleteSignUpRequestid'])) {
     die("Connection failed: " . $conn->connect_error);
   }
 }
+mysqli_close($conn);
 ?>
 
 

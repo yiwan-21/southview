@@ -25,33 +25,10 @@ $_SESSION['svid'] = 1;
 
 <body>
   <div class="container-fluid">
-    <nav class="navbar fixed-top navbar-expand-md navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="home.php">
-          <img id="nav-logo" src="images/logo.svg" alt="SV logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link mx-1" aria-current="page" href="home.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-1" href="./manage-register-account/viewsignup.php">Residents Account</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-1" href="./manage-Covid19.php">Covid-19 Reporting</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-1 active" href="./message.php">Messages</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
+    <?php
+  $page='Messages';
+  include 'top-navbar.php';
+?>
     <!-- logout button -->
     <section id="logout">
       <br><br><br><br>
@@ -70,22 +47,24 @@ $_SESSION['svid'] = 1;
     <section id="button">
 
       <br><br>
-      <button type="button" class="btn mx-3 btn-warning position-relative btn-message">
-        Help Request
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          10
-          <span class="visually-hidden">unread messages</span>
-        </span>
-      </button>
-
-      <button type="button" class="btn btn-warning position-relative btn-message">
-        Others
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          3
-          <span class="visually-hidden">unread messages</span>
-        </span>
-      </button>
-    </section>
+      <form method="post">
+        <button type="submit" class="btn mx-3 btn-warning position-relative btn-message" name="type" value="help">
+          Help Request
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="unread_help">
+            
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </button>
+        
+        <button type="submit" class="btn btn-warning position-relative btn-message" name="type" value="other">
+          Others
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="unread_other">
+            
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </button>
+      </form>
+      </section>
     <br>
     <div class="container-lg-12">
       <div class="row justify-content-start">
@@ -130,6 +109,11 @@ $_SESSION['svid'] = 1;
   <script>
     const userList = document.querySelector('.user-list').firstElementChild;
     const message = document.querySelector('.message').firstElementChild;
+    <?php 
+      if (isset($_POST['type'])) {
+        $_SESSION['serviceType'] = $_POST['type'];
+      }
+    ?>
 
     // const users = [
     //   {
@@ -230,17 +214,35 @@ $_SESSION['svid'] = 1;
       } else {
         $avatar = "data:$mime;base64," . base64_encode($avatar);
       }
+      if (is_null($row['Administrator_svID'])) {
+        $side = "opposite"; // the chat bubble on the left (resident)
+      } else {
+        $side = "self"; // the chat bubble on the right (admin)
+      }
       echo "users.push({
+          type: '" . $row['Service_Type'] . "',
           svid: '$svid',
           name: '" . $name . "',
           avatar: '" . $avatar . "',
+          side: '$side',
           message: '" . $row['Message_Content'] . "',
           new: '" . ($row['Seen'] == '0') . "',
         });";
     }
     ?>
 
-    users.forEach(user => {
+    document.getElementById('unread_help').textContent = users.filter(user => !!user.type && user.new).length;
+    document.getElementById('unread_other').textContent = users.filter(user => !user.type && user.new).length;
+
+    users.filter(user => {
+      // alert(!user.type);
+      if ('<?php echo $_SESSION['serviceType']?>' === 'other') {
+        return !user.type;
+      } else {
+        return !!user.type;
+      }
+    })
+    .forEach(user => {
       const newUser = createUser(user);
       newUser.addEventListener('click', () => {
         userList.querySelectorAll('.user').forEach(user => user.classList.remove('user-active'));
@@ -250,10 +252,9 @@ $_SESSION['svid'] = 1;
           notification.classList.remove('notification-active');
           notification.classList.add('notification');
         }
-        if (user.new) {
-          user.new = false;
-          <?php mysqli_query($conn, "UPDATE message SET Seen = '1' WHERE Resident_svID = '$svid'"); ?>
-        }
+        // if (user.new) {
+        //   user.new = false;
+        // }
         if (window.innerWidth <= 768) {
           document.querySelector('.message').classList.add('open');
           document.querySelector('.user-list').classList.add('close');
@@ -278,8 +279,16 @@ $_SESSION['svid'] = 1;
                   </span>
                   <img src="${user.avatar}" alt="avatar">
                   <div class="text">
-                      <span class="name">${user.name}</span>
+                  <span class="name">${user.name}</span>
                       <div>
+                          ${(user.side === 'self' ? `
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="20" height="20" fill="#FFF">
+                              <path d="M137.4 406.6l-128-127.1C3.125 272.4 0 264.2 0 255.1s3.125-16.38 9.375-22.63l128-127.1c9.156-9.156 22.91-11.9 34.88-6.943S192 115.1 192 128v255.1c0 12.94-7.781 24.62-19.75 29.58S146.5 415.8 137.4 406.6z"/>
+                            </svg>` 
+                            : 
+                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="20" height="20" fill="#FFF">
+                              <path d="M118.6 105.4l128 127.1C252.9 239.6 256 247.8 256 255.1s-3.125 16.38-9.375 22.63l-128 127.1c-9.156 9.156-22.91 11.9-34.88 6.943S64 396.9 64 383.1V128c0-12.94 7.781-24.62 19.75-29.58S109.5 96.23 118.6 105.4z"/>
+                            </svg>`)}
                           ${user.message}
                       </div>
                   </div>
@@ -292,7 +301,7 @@ $_SESSION['svid'] = 1;
       const messagePage = document.createElement('div');
       messagePage.style.height = '100%';
       messagePage.innerHTML =
-        `
+      `${'<?php echo $_SESSION['serviceType'];?>' === 'other' ? '' : `<div class="chat-name">${user.type}</div>`}
         <div class="textarea"></div>
         <div class="reply-wrapper">
           <form class="reply" method="post">
@@ -315,7 +324,7 @@ $_SESSION['svid'] = 1;
       if (isset($_POST['submitMessage'])) {
         $svid = $_POST['svid'];
         $message = $_POST['message'];
-        $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1')";
+        $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen, Service_Type) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1', '".(($_SESSION['serviceType']) == 'other' ? null : $_SESSION['serviceType'])."')";
         $result = mysqli_query($conn, $query);
         echo "usersMessage.push({
           side: 'self',

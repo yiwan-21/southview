@@ -25,7 +25,15 @@ body{
     background-size: cover;
     margin:0px;
     font-family: 'Inter', serif;
+    height: 100vh;
 }
+
+/* .bungkus{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+} */
 
 .navbar-dark{
     padding:0 !important;
@@ -73,6 +81,7 @@ body{
 .side-navbar {
     width: 180px;
     height: 70%;
+    top: 25%;
     position: fixed;
     margin-left: -300px;
     background-color: var(--black-color);
@@ -436,10 +445,17 @@ h1{
     height: 50rem;
 }
 
+
 #show-header {
     background-color: white;  
 }
 
 #show-body {
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
     background-color: white;
+}
+
+.modal-font{
+    color: #fff !important;
 }
