@@ -233,7 +233,7 @@ if (isset($_POST['submit']) && count($_FILES) > 0) {
             const form = event.target;
             const formData = new FormData(form);
             const file = Array.from(formData.values())[0]
-            console.log(file);
+            // console.log(file);
         }
 
         function closeService() {
