@@ -35,17 +35,17 @@ const img = document.querySelector('#photo');
 const file = document.querySelector('#file');
 const uploadBtn = document.querySelector('#uploadBtn');
 
-//if user hover on img div 
+// //if user hover on img div 
 
-imgDiv.addEventListener('mouseenter', function(){
-    uploadBtn.style.display = "block";
-});
+// imgDiv.addEventListener('mouseenter', function(){
+//     uploadBtn.style.display = "block";
+// });
 
-//if we hover out from img div
+// //if we hover out from img div
 
-imgDiv.addEventListener('mouseleave', function(){
-    uploadBtn.style.display = "none";
-});
+// imgDiv.addEventListener('mouseleave', function(){
+//     uploadBtn.style.display = "none";
+// });
 
 
 file.addEventListener('change', function(){

@@ -269,7 +269,8 @@ mysqli_close($conn);
                                           <div><button type="submit" class="btn btn-lg col-lg-12 btn-save" id="btn-next" name="submit">Save</button>
                                           </div>
                                    </div>
-                                  </form>                                          
+                                  </form>         
+                                  <br><br>                                 
                   <!-- end of register form -->
                 </div>             
                 
