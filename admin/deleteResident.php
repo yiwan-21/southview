@@ -4,7 +4,8 @@ include '../checkLogin.php';
 if(isset($_POST['delete'])){
     $SV_ID=$_POST['userid'];
 
-    $sql="delete from `resident` where `Resident_svID`='$SV_ID'";echo "<script> console.log($SV_ID);</script>";
+    $sql="delete from `resident` where `Resident_svID`='$SV_ID'";
+    // echo "<script> console.log($SV_ID);</script>";
     $result=mysqli_query($conn,$sql);
 
     if($result)

@@ -94,7 +94,7 @@ include '../checkLogin.php';
                 $SV_ID = $row['Resident_svID'];
                 $name = $row['Name'];
                 $unit = $row['Unit'];
-                echo "<script> console.log($SV_ID);</script>";
+                // echo "<script> console.log($SV_ID);</script>";
                 echo ' <tr>
                         <th scope="row"></th>
                           <td>' . $SV_ID . '</td> 

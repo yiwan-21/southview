@@ -301,9 +301,7 @@ $_SESSION['svid'] = 1;
       const messagePage = document.createElement('div');
       messagePage.style.height = '100%';
       messagePage.innerHTML =
-        `<div class="chat-name">
-          ${'<?php echo $_SESSION['serviceType'];?>' === 'other' ? '' : user.type}
-        </div>
+      `${'<?php echo $_SESSION['serviceType'];?>' === 'other' ? '' : `<div class="chat-name">${user.type}</div>`}
         <div class="textarea"></div>
         <div class="reply-wrapper">
           <form class="reply" method="post">
