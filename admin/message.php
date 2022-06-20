@@ -292,8 +292,7 @@ $_SESSION['svid'] = 1;
                           ${user.message}
                       </div>
                   </div>
-              </div>
-          `;
+              </div>`;
       return userElement;
     }
 
@@ -305,7 +304,8 @@ $_SESSION['svid'] = 1;
         <div class="textarea"></div>
         <div class="reply-wrapper">
           <form class="reply" method="post">
-              <input type="hidden" name="svid" value=${user.svid}>
+              <input type="hidden" name="svid" value='${user.svid}'>
+              <input type="hidden" name="serviceType" value='${user.type}'>
               <input type="text" name="message" placeholder="Write a message...">
               <button type="submit" name="submitMessage">
                   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -324,7 +324,8 @@ $_SESSION['svid'] = 1;
       if (isset($_POST['submitMessage'])) {
         $svid = $_POST['svid'];
         $message = $_POST['message'];
-        $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen, Service_Type) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1', '".(($_SESSION['serviceType']) == 'other' ? null : $_SESSION['serviceType'])."')";
+        $serviceType = $_POST['serviceType'];
+        $query = "INSERT INTO message (Resident_svID, Administrator_svID, Message_Content, Seen, Service_Type) VALUES ('$svid', '".$_SESSION['svid']."', '$message', '1', '".(($_SESSION['serviceType']) == 'other' ? null : $serviceType)."')";
         $result = mysqli_query($conn, $query);
         echo "usersMessage.push({
           side: 'self',
