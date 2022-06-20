@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['svid']=220002;
 include '../connect.php';
 include '../checkLogin.php';
 if(isset($_POST['delete'])){
