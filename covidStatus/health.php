@@ -18,25 +18,7 @@ if (isset($_POST['submit'])) {
     if (empty($Ques1)) {
         echo "<script>alert('Please filled in required field');</script>";
     } else {
-        //// Update Symptom in covid-19 patient table
-        $symptom = "";
-        if (
-            strpos($Ques1, 'Fever') !== FALSE ||
-            strpos($Ques1, 'Shortness of breath') !== FALSE ||
-            strpos($Ques1, 'Difficulty breathing') !== FALSE ||
-            strpos($Ques1, 'Cough') !== FALSE
-        ) {
-            $symptom = "Severe";
-        } else if (strpos($Ques1, 'None of the above') !== FALSE) {
-            $symptom = "Symptomless";
-        } else {
-            $symptom = "Slight";
-        }
-        $stmt = $conn->prepare("UPDATE `covid-19 patient` SET `Symptom` = ? WHERE `Resident_svID` = ?");
-        $stmt->bind_param("ss", $symptom, $Resident_svID);
-        $stmt->execute();
-
-        //// Insert into health declaration table
+       //// Insert into health declaration table
         $stmt = $conn->prepare("INSERT INTO health_declaration (Resident_svID, Ans_1, Ans_2, Ans_3, Ans_4, Ans_5) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('isssss', $Resident_svID, $Ques1, $Ques2, $Ques3, $Ques4, $Ques5);
         $stmt->execute();
