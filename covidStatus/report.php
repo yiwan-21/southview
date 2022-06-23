@@ -67,23 +67,23 @@ if (isset($_POST['submit'])) {
             <div class="question">
                 <label for="Q1">1. Do you have any of the following symptoms?<span class="red">*</span></label>
                 <div class="answer checkbox required">
-                    <input type="checkbox" name="Q1[]" value="Fever" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Fever" id="fever">
                     <label for="fever">Fever</label>
-                    <input type="checkbox" name="Q1[]" value="Cough" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Cough" id="cough">
                     <label for="cough">Cough</label>
-                    <input type="checkbox" name="Q1[]" value="Shortness of breath" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Shortness of breath" id="shortness">
                     <label for="shortness">Shortness of breath</label>
-                    <input type="checkbox" name="Q1[]" value="Sore throat" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Sore throat" id="sore">
                     <label for="sore">Sore throat</label>
-                    <input type="checkbox" name="Q1[]" value="Difficulty breathing" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Difficulty breathing" id="difficulty">
                     <label for="difficulty">Difficulty breathing</label>
-                    <input type="checkbox" name="Q1[]" value="Runny nose" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Runny nose" id="runny">
                     <label for="runny">Runny nose</label>
-                    <input type="checkbox" name="Q1[]" value="Loss of taste or smell" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Loss of taste or smell" id="taste">
                     <label for="taste">Loss of taste or smell</label>
-                    <input type="checkbox" name="Q1[]" value="Other" id="remove">
+                    <input type="checkbox" name="Q1[]" value="Other" id="other">
                     <label for="other">Other</label>
-                    <input type="checkbox" name="Q1[]" value="None of the above" id="remove">
+                    <input type="checkbox" name="Q1[]" value="None of the above" id="none">
                     <label for="none">None of the above</label>
                 </div>
             </div>
@@ -91,9 +91,9 @@ if (isset($_POST['submit'])) {
                 <label for="Q2">2. Are you staying alone in the appartment?<span class="red">*</span></label>
                 <div class="answer">
                     <input type="radio" name="Q2" value=1 id="yes" required>
-                    <label for="saliva">Yes</label>
+                    <label for="yes">Yes</label>
                     <input type="radio" name="Q2" value=0 id="no">
-                    <label for="nasal">No</label>
+                    <label for="no">No</label>
                 </div>
             </div>
             <div class="question">
