@@ -133,7 +133,7 @@ include '../checkLogin.php';
                                   <form action="deleteResident.php" method="POST"> 
                                   <div class="modal-body border-0">
                                     <input type="hidden" name="userid" id='delete_id'>
-                                    <p class="modal-font">Are you sure you want to delete the selected Covid-19 Reporting?</p> 
+                                    <p class="modal-font">Are you sure you want to delete the selected Resident?</p> 
                                   </div>
                                   <div class="modal-footer border-0">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
