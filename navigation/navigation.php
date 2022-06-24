@@ -87,13 +87,11 @@
                 <div class="chat-area">
                     <header>
                     <?php
-                        // $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
                         $user_id = mysqli_real_escape_string($conn, 1);
                         $sql = mysqli_query($conn, "SELECT * FROM administrator WHERE Administrator_svID = {$user_id}");
                         if(mysqli_num_rows($sql) > 0){
                         $row = mysqli_fetch_assoc($sql);
                         }else{
-                        // header("location: users.php");
                         echo "Error";
                         }
                     ?>

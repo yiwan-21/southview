@@ -132,6 +132,7 @@ if (isset($_POST['submit'])) {
             <button type="submit" name="submit" class="submit">Submit</button>
         </form>
     </div>
+    <br><br>
 
     <script src="/navigation/navigation.js"></script>
 </body>

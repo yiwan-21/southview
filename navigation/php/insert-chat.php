@@ -6,7 +6,7 @@
         // $admin_id = $_SESSION['unique_id'];
         // $resident_id = mysqli_real_escape_string($conn, $_POST['resident_id']);
         $admin_id = 1;
-        $resident_id = 220001;
+        $resident_id = $_SESSION["svid"];
 
         $message = mysqli_real_escape_string($conn, $_POST['message']);
         if(!empty($message)){
@@ -17,8 +17,7 @@
         include_once "../../connect.php";
         $admin_id = $_SESSION['unique_id'];
         $resident_id = mysqli_real_escape_string($conn, $_POST['resident_id']);
-        $admin_id = 1;
-        $resident_id = 220001;
+        $resident_id = $_SESSION["svid"];
 
         $message = mysqli_real_escape_string($conn, $_POST['message']);
         if(!empty($message)){
