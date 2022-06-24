@@ -22,15 +22,34 @@ $query = "SELECT * FROM `covid-19 patient` WHERE `Resident_svID` = '" . $_SESSIO
 $result = mysqli_query($conn, $query);
 $startDate = "";
 $endDate = "";
-$symptom = "";
-
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $startDate = $row['Date_Start'];
         $endDate = $row['Date_End'];
-        $symptom = $row['Symptom'];
     }
 }
+
+$query2 = "SELECT Ans_1 FROM health_declaration WHERE Resident_svID = '" . $_SESSION['svid'] . "' ORDER BY Form_ID DESC LIMIT 1";
+$result2 = mysqli_query($conn, $query2);
+$symptom = "";
+if (mysqli_num_rows($result2) > 0) {
+    $row2 = mysqli_fetch_assoc($result2);
+    $Ques1 = $row2['Ans_1'];
+    if (
+        strpos($Ques1, 'Fever') !== FALSE ||
+        strpos($Ques1, 'Shortness of breath') !== FALSE ||
+        strpos($Ques1, 'Difficulty breathing') !== FALSE ||
+        strpos($Ques1, 'Cough') !== FALSE
+    ) {
+        $symptom = "Severe";
+    } else if (strpos($Ques1, 'None of the above') !== FALSE) {
+        $symptom = "Symptomless";
+    } else {
+        $symptom = "Slight";
+    }
+}
+
+
 mysqli_close($conn);
 
 if (isset($_POST['submit']) && count($_FILES) > 0) {
