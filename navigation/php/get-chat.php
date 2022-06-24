@@ -6,7 +6,7 @@
         // $admin_id = $_SESSION['unique_id'];
         // $resident_id = mysqli_real_escape_string($conn, $_POST['resident_id']);
         // $admin_id = 1;
-        $resident_id = 220001;
+        $resident_id = $_SESSION["svid"];;
 
         $output = "";
         $sql = "SELECT * FROM message LEFT JOIN resident ON resident.Resident_svID = message.Resident_svID

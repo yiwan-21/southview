@@ -202,7 +202,6 @@ $_SESSION['svid'] = 1;
     $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($result)) {
       $svid = $row['Resident_svID'];
-      // echo "alert('svid: ".$row['Message_Content']."');";
       $query2 = "SELECT `Name`, Profile_Picture, mime  FROM resident WHERE Resident_svID = '$svid'";
       $result2 = mysqli_query($conn, $query2);
       $row2 = mysqli_fetch_assoc($result2);
@@ -334,7 +333,6 @@ $_SESSION['svid'] = 1;
           new: 0,
         });";
         echo "users.filter(e => e.svid === '$svid')[0].message = '$message';";
-        // echo "alert(users.filter(e => e.svid === '$svid')[0].message);";
       }
     ?>
      

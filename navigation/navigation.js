@@ -109,6 +109,8 @@ setTimeout(() => {
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.send("resident_id="+resident_id);
   }, 500);
+
+  
   function scrollToBottom(){
       chatBox.scrollTop = chatBox.scrollHeight;
     }
